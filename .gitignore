@@ -5,6 +5,7 @@ screenshots
 *.log
 .DS_Store
 .vite
+
 .vercel
 .env
 .env.*

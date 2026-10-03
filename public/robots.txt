@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zak-eventi-arzano.antozz9966.chatgpt.site/sitemap.xml
