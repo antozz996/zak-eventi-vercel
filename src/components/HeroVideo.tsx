@@ -6,7 +6,10 @@ export function HeroVideo() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
-        <img className="hero__poster" src={siteConfig.heroPoster} alt="" fetchPriority="high" />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={siteConfig.heroPosterMobile} />
+          <img className="hero__poster" src={siteConfig.heroPoster} alt="" fetchPriority="high" />
+        </picture>
         {siteConfig.heroVideo && (
           <video
             autoPlay
@@ -38,7 +41,6 @@ export function HeroVideo() {
         <span>Scorri</span>
         <ArrowDown aria-hidden="true" size={16} />
       </a>
-      {!siteConfig.heroVideo && <span className="asset-note hero__asset-note">Video hero da inserire</span>}
     </section>
   );
 }

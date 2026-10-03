@@ -2107,3 +2107,33 @@ h3 {
     display: none;
   }
 }
+
+/* Original ZAK event photography */
+.event-photo { margin: 0; overflow: hidden; background: var(--zak-obsidian); }
+.event-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.event-photo--portrait { aspect-ratio: 2 / 3; }
+.event-photo--landscape { aspect-ratio: 3 / 2; }
+.event-photo--square { aspect-ratio: 1; }
+.event-photo--hero { min-height: 70svh; }
+.editorial-block > .event-photo { box-shadow: var(--shadow); align-self: center; }
+.event-card > .event-photo { position: absolute; inset: 0; height: 100%; }
+.event-card .event-photo img { object-position: 50% 35%; transition: transform 700ms ease; }
+.signature-section > .event-photo { position: absolute; inset: 0; height: 100%; }
+.signature-section .event-photo img { object-position: 50% 30%; }
+.service-journey .event-photo { width: min(100%, 420px); margin-top: 1.5rem; }
+.service-journey .event-photo--portrait { max-height: 360px; }
+.hero__media picture { display: block; width: 100%; height: 100%; }
+.hero__poster { object-position: 50% 25%; }
+.hero h1 { max-width: 850px; line-height: 1.02; font-size: clamp(3rem, 7.5vw, 6.5rem); }
+@media (min-width: 780px) {
+  .editorial-block--reverse > .event-photo, .event-detail--reverse > .event-photo { order: 2; }
+  .editorial-block > .event-photo { max-height: 760px; }
+}
+@media (max-width: 767px) {
+  .hero__poster { object-position: 50% 25%; }
+  .hero__content { padding-top: 22rem; }
+  .event-card > .event-photo { aspect-ratio: auto; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .event-card:hover .event-photo img { transform: scale(1.04); }
+}

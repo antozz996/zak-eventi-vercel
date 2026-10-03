@@ -19,7 +19,7 @@ export function GalleryPage() {
           <SectionHeading
             eyebrow="Archivio emozionale"
             title="Scegli una scena."
-            description="I media mostrati sono placeholder strutturali. Saranno sostituiti con fotografie e video originali ZAK."
+            description="Esplora le fotografie delle feste ZAK: ingressi, allestimenti e momenti condivisi."
           />
           <GalleryGrid />
         </div>

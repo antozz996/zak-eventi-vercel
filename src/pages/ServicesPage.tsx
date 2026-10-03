@@ -1,3 +1,4 @@
+import { EventPhoto } from "../components/EventPhoto";
 import { Check } from "lucide-react";
 import { FinalCTA } from "../components/FinalCTA";
 import { SectionHeading } from "../components/SectionHeading";
@@ -29,6 +30,8 @@ export function ServicesPage() {
                 <div>
                   <h2>{step.title}</h2>
                   <p>{step.text}</p>
+                  {index === 2 && <EventPhoto src="/images/events/xtgb5080.webp" alt="Arco di palloncini e torta personalizzata" aspect="landscape" />}
+                  {index === 7 && <EventPhoto src="/images/events/xtgb3531.webp" alt="Torta a tre piani per un diciottesimo" aspect="portrait" />}
                 </div>
                 <Check aria-hidden="true" />
               </li>

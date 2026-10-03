@@ -1,7 +1,7 @@
 import { Link } from "../lib/router";
 import { EditorialImageBlock } from "../components/EditorialImageBlock";
 import { FinalCTA } from "../components/FinalCTA";
-import { MediaPlaceholder } from "../components/MediaPlaceholder";
+import { EventPhoto } from "../components/EventPhoto";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
 import { pageMeta } from "../data/siteConfig";
@@ -25,6 +25,9 @@ export function LocationPage() {
             title="La sala non è il punto di arrivo. È l’inizio della trasformazione."
             text="Gli ambienti diventano parte del racconto: accolgono, sorprendono e accompagnano ogni passaggio, dall’ingresso fino al momento finale."
             mediaLabel="Vista ampia della sala"
+            image="/images/events/xtgb6517.webp"
+            imageAlt="Sala ZAK apparecchiata con sedute blu e parete vegetale"
+            aspect="landscape"
           />
         </div>
       </section>
@@ -34,13 +37,13 @@ export function LocationPage() {
           <SectionHeading
             eyebrow="Gli ambienti"
             title="Spazio per vivere, non solo da osservare."
-            description="Le immagini definitive dovranno mostrare la location durante eventi reali, mantenendo sempre al centro le persone."
+            description="La sala apparecchiata, l’ingresso e i momenti condivisi durante una festa."
             light
           />
           <div className="location-media-grid">
-            <MediaPlaceholder label="Sala durante la festa" aspect="landscape" />
-            <MediaPlaceholder label="Ingresso e accoglienza" aspect="portrait" />
-            <MediaPlaceholder label="Dettagli della location" aspect="square" />
+            <EventPhoto src="/images/events/xtgb2618.webp" alt="Ospiti in festa nella sala ZAK illuminata di rosso" aspect="landscape" />
+            <EventPhoto src="/images/events/xtgb2834.webp" alt="Ingresso sul tappeto rosso con fontane luminose" aspect="portrait" />
+            <EventPhoto src="/images/events/xtgb6513.webp" alt="Tavoli e sedute della sala ZAK" aspect="square" />
           </div>
         </div>
       </section>
@@ -52,6 +55,9 @@ export function LocationPage() {
             title="Lo stesso spazio. Una sensazione ogni volta diversa."
             text="Palette, allestimenti, luci e disposizione vengono immaginati in relazione all’evento. Le possibilità effettive saranno confermate durante la visita."
             mediaLabel="Allestimento personalizzato"
+            image="/images/events/xtgb5080.webp"
+            imageAlt="Allestimento per comunione con palloncini e torta"
+            aspect="landscape"
             reverse
           />
         </div>
@@ -60,13 +66,13 @@ export function LocationPage() {
       <section className="section section--stone">
         <div className="container">
           <SectionHeading
-            eyebrow="Trasformazione dello spazio"
-            title="Prima dell’ingresso. Dopo la visione."
-            description="Comparazione predisposta: sarà attivata quando saranno disponibili due fotografie originali con inquadratura coerente."
+            eyebrow="Atmosfere diverse"
+            title="Un colore. Un modo diverso di festeggiare."
+            description="Rosso e oro, oppure blu e argento: due allestimenti reali per occasioni diverse."
           />
-          <div className="before-after" aria-label="Confronto visivo prima e dopo, in attesa di immagini">
-            <div><MediaPlaceholder label="Prima — spazio neutro" aspect="landscape" /><span>Prima</span></div>
-            <div><MediaPlaceholder label="Dopo — spazio allestito" aspect="landscape" /><span>Dopo</span></div>
+          <div className="before-after" aria-label="Due allestimenti reali di ZAK">
+            <div><EventPhoto src="/images/events/xtgb3320.webp" alt="Torta con rose e palloncini rossi" aspect="portrait" /><span>Rosso e oro</span></div>
+            <div><EventPhoto src="/images/events/xtgb0819.webp" alt="Torta e palloncini blu e argento" aspect="portrait" /><span>Blu e argento</span></div>
           </div>
           <div className="centered-action">
             <Link className="button button--dark" to="/contatti">Prenota una visita</Link>

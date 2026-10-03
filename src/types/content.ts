@@ -6,6 +6,7 @@ export type EventType = {
   description: string;
   moment: string;
   media?: string;
+  mediaAlt?: string;
 };
 
 export type Service = {

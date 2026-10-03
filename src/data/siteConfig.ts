@@ -9,7 +9,8 @@ export const siteConfig = {
   locale: "it_IT",
   siteUrl: "https://zak-eventi-arzano.antozz9966.chatgpt.site",
   heroVideo: "",
-  heroPoster: "/images/hero/hero-poster-placeholder.svg",
+  heroPoster: "/images/events/xtgb3357.webp",
+  heroPosterMobile: "/images/events/xtgb3344.webp",
   contact: {
     whatsapp: "393533198020",
     phone: "353 319 8020",
@@ -46,36 +47,48 @@ export const navigation = [
 export const eventTypes: EventType[] = [
   {
     slug: "diciottesimi",
+    media: "/images/events/xtgb3357.webp",
+    mediaAlt: "Ingresso del festeggiato tra fontane luminose e ospiti",
     title: "Diciottesimi",
     description: "Un ingresso che racconta chi sei, seguito da una festa costruita intorno al tuo stile.",
     moment: "Ingresso, applausi, festa e torta.",
   },
   {
     slug: "compleanni",
+    media: "/images/events/xtgb3320.webp",
+    mediaAlt: "Festeggiata in abito rosso accanto alla torta con rose",
     title: "Compleanni",
     description: "Ogni età ha la sua atmosfera. ZAK dà forma a un momento personale e condiviso.",
     moment: "Abbracci, brindisi e sorprese.",
   },
   {
     slug: "comunioni",
+    media: "/images/events/xtgb6585.webp",
+    mediaAlt: "Famiglia accanto alla torta e all’allestimento esterno",
     title: "Comunioni",
     description: "Una giornata luminosa da vivere con la famiglia, con dettagli pensati per l’occasione.",
     moment: "Famiglia, emozione e convivialità.",
   },
   {
     slug: "cerimonie",
+    media: "/images/events/xtgb0819.webp",
+    mediaAlt: "Allestimento con torta e palloncini blu e argento",
     title: "Cerimonie",
     description: "Un ambiente trasformabile per accogliere celebrazioni eleganti e autentiche.",
     moment: "Accoglienza, atmosfera e momenti speciali.",
   },
   {
     slug: "feste-private",
+    media: "/images/events/xtgb2648.webp",
+    mediaAlt: "Ospiti in cerchio durante la festa nella sala ZAK",
     title: "Feste private",
     description: "Una scena riservata alle persone che vuoi accanto, da immaginare insieme.",
     moment: "Musica, condivisione e libertà.",
   },
   {
     slug: "eventi-personalizzati",
+    media: "/images/events/xtgb5080.webp",
+    mediaAlt: "Arco di palloncini e torta personalizzata per una comunione",
     title: "Eventi personalizzati",
     description: "Quando l’idea non entra in una categoria, il progetto parte direttamente dal tuo racconto.",
     moment: "Un’esperienza disegnata su misura.",
@@ -112,14 +125,186 @@ export const serviceJourney = [
 ] as const;
 
 export const galleryItems: GalleryItem[] = [
-  { id: "ingresso", title: "L’ingresso", category: "Emozioni", alt: "Placeholder: ingresso del festeggiato sul tappeto rosso", mediaType: "image", aspect: "portrait", status: "placeholder" },
-  { id: "sala", title: "La sala in festa", category: "Allestimenti", alt: "Placeholder: sala ZAK allestita durante un evento", mediaType: "image", aspect: "landscape", status: "placeholder" },
-  { id: "diciottesimo", title: "Un diciottesimo in scena", category: "Diciottesimi", alt: "Placeholder: momento emozionale durante un diciottesimo", mediaType: "image", aspect: "square", status: "placeholder" },
-  { id: "fontane", title: "Luce e applausi", category: "Emozioni", alt: "Placeholder: fontane luminose durante l’ingresso", mediaType: "video", aspect: "portrait", status: "placeholder" },
-  { id: "cerimonia", title: "Dettagli di cerimonia", category: "Cerimonie", alt: "Placeholder: dettaglio elegante di una cerimonia", mediaType: "image", aspect: "landscape", status: "placeholder" },
-  { id: "torta", title: "Il momento della torta", category: "Emozioni", alt: "Placeholder: famiglia riunita per il momento della torta", mediaType: "image", aspect: "square", status: "placeholder" },
-  { id: "tavola", title: "Atmosfera su misura", category: "Allestimenti", alt: "Placeholder: particolare di un allestimento personalizzato", mediaType: "image", aspect: "portrait", status: "placeholder" },
-  { id: "abbraccio", title: "Dopo l’applauso", category: "Diciottesimi", alt: "Placeholder: abbraccio durante un diciottesimo", mediaType: "image", aspect: "landscape", status: "placeholder" },
+  {
+    "id": "xtgb3344",
+    "title": "Il tuo ingresso",
+    "category": "Emozioni",
+    "alt": "Vista verticale dello stesso ingresso del festeggiato in azzurro tra le fontane.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb3344.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb6517",
+    "title": "La sala, prima degli ospiti",
+    "category": "Allestimenti",
+    "alt": "Sala apparecchiata con sedute blu, tavoli tondi, parete vegetale e luci verdi.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb6517.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb0046",
+    "title": "L’abbraccio che resta",
+    "category": "Emozioni",
+    "alt": "Abbraccio di gruppo con festeggiata in azzurro e persona in verde.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb0046.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb1140",
+    "title": "Diciotto candeline",
+    "category": "Diciottesimi",
+    "alt": "Festeggiato in scuro soffia sulle candeline 18 davanti alla parete vegetale.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb1140.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb2618",
+    "title": "La sala in festa",
+    "category": "Emozioni",
+    "alt": "Grande gruppo sorridente in sala con mani alzate e illuminazione rossa.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb2618.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb9908",
+    "title": "Un brindisi insieme",
+    "category": "Emozioni",
+    "alt": "Brindisi di gruppo con festeggiata in abito azzurro al centro.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb9908.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb6585",
+    "title": "Un giorno in famiglia",
+    "category": "Cerimonie",
+    "alt": "Gruppo familiare accanto a torta bianca e azzurra, fiori e supporti dorati all’esterno.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb6585.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb5080",
+    "title": "Dettagli di una comunione",
+    "category": "Cerimonie",
+    "alt": "Allestimento esterno serale con arco di palloncini blu e bianchi, nome e torta Prima Comunione.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb5080.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb3531",
+    "title": "Il momento della torta",
+    "category": "Diciottesimi",
+    "alt": "Dettaglio verticale di torta a tre piani con decorazioni azzurre, oro e numero 18.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb3531.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb3320",
+    "title": "Una festa in rosso",
+    "category": "Emozioni",
+    "alt": "Festeggiata in abito rosso presso torta con rose, palloncini e fondale dorato.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb3320.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb2834",
+    "title": "Il tappeto rosso",
+    "category": "Emozioni",
+    "alt": "Ingresso verticale di festeggiata in abito rosso sul tappeto tra fontane luminose.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb2834.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb2648",
+    "title": "Il ritmo della festa",
+    "category": "Emozioni",
+    "alt": "Gruppo di ragazzi in cerchio con braccia sulle spalle, mentre sul fondo si balla.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb2648.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb6513",
+    "title": "Un altro sguardo sulla sala",
+    "category": "Allestimenti",
+    "alt": "Vista verticale della sala apparecchiata con sedute blu e banco sul fondo.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb6513.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb5807",
+    "title": "Dopo l’applauso",
+    "category": "Diciottesimi",
+    "alt": "Abbraccio sorridente durante la festa, sotto una luce calda e rossa.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb5807.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb5086",
+    "title": "La prima comunione",
+    "category": "Cerimonie",
+    "alt": "Bambino in abito scuro davanti a torta con scritta Prima Comunione e palloncini.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb5086.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb0819",
+    "title": "Blu, argento e luce",
+    "category": "Allestimenti",
+    "alt": "Festeggiata in abito blu davanti a torta, palloncini blu e argento e supporti dorati.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb0819.webp",
+    "aspect": "portrait",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb3529",
+    "title": "Un allestimento per i diciotto",
+    "category": "Allestimenti",
+    "alt": "Allestimento esterno per diciottesimo con numeri 1 e 8, torta e cerchi luminosi.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb3529.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  },
+  {
+    "id": "xtgb3357",
+    "title": "Tra luci e applausi",
+    "category": "Diciottesimi",
+    "alt": "Ingresso del festeggiato in completo azzurro tra ospiti e fontane luminose sul tappeto rosso.",
+    "mediaType": "image",
+    "src": "/images/events/xtgb3357.webp",
+    "aspect": "landscape",
+    "status": "confirmed"
+  }
 ];
 
 export const testimonials: Testimonial[] = [

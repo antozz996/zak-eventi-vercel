@@ -2,11 +2,12 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "../lib/router";
 import type { EventType } from "../types/content";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { EventPhoto } from "./EventPhoto";
 
 export function EventCard({ event }: { event: EventType }) {
   return (
     <article className="event-card">
-      <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />
+      {event.media ? <EventPhoto src={event.media} alt={event.mediaAlt ?? event.title} aspect="portrait" /> : <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />}
       <div className="event-card__shade" />
       <div className="event-card__content">
         <p>{event.moment}</p>

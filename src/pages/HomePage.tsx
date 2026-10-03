@@ -7,7 +7,7 @@ import { FinalCTA } from "../components/FinalCTA";
 import { GalleryGrid } from "../components/Gallery";
 import { GoogleReviews } from "../components/GoogleReviews";
 import { HeroVideo } from "../components/HeroVideo";
-import { MediaPlaceholder } from "../components/MediaPlaceholder";
+import { EventPhoto } from "../components/EventPhoto";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
 import { ServiceCard } from "../components/ServiceCard";
@@ -26,6 +26,9 @@ export function HomePage() {
             title="Non organizziamo semplicemente feste. Creiamo ricordi che entrano in scena."
             text="Dall’idea iniziale all’ultimo brindisi, ZAK costruisce ogni evento intorno alle persone, alle emozioni e ai dettagli che lo rendono unico."
             mediaLabel="Momento vissuto a ZAK"
+            image="/images/events/xtgb0046.webp"
+            imageAlt="Abbraccio di gruppo durante una festa ZAK"
+            aspect="landscape"
           >
             <Link className="text-link" to="/location">
               Dentro la location <ArrowRight aria-hidden="true" size={17} />
@@ -60,7 +63,7 @@ export function HomePage() {
       </section>
 
       <section className="signature-section">
-        <MediaPlaceholder label="Ingresso sul tappeto rosso e fontane luminose" aspect="hero" />
+        <EventPhoto src="/images/events/xtgb3357.webp" alt="Ingresso sul tappeto rosso tra fontane luminose" aspect="hero" />
         <div className="signature-section__overlay" />
         <div className="container signature-section__content">
           <p className="eyebrow">La firma ZAK</p>
@@ -91,7 +94,7 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Momenti reali"
             title="Una festa si vede. Un’emozione si riconosce."
-            description="La gallery è pronta per accogliere fotografie e brevi video originali degli eventi ZAK."
+            description="Ingressi, brindisi e abbracci vissuti durante le feste ZAK."
             light
           />
           <GalleryGrid limit={6} />
