@@ -9,8 +9,8 @@ export const siteConfig = {
   locale: "it_IT",
   siteUrl: "https://zak-eventi-arzano.antozz9966.chatgpt.site",
   heroVideo: "",
-  heroPoster: "/images/events/xtgb3357.webp",
-  heroPosterMobile: "/images/events/xtgb3344.webp",
+  heroPoster: "/images/events/xtgb0557-hero.webp",
+  heroPosterMobile: "/images/events/xtgb0557-hero.webp",
   contact: {
     whatsapp: "393533198020",
     phone: "353 319 8020",
