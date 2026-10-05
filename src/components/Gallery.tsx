@@ -1,9 +1,11 @@
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { galleryItems } from "../data/siteConfig";
+import { imageProps } from "../data/imageMetadata";
 import { useSearchParams } from "../lib/router";
 import type { GalleryCategory, GalleryItem } from "../types/content";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { isolateDialog } from "../utils/dialog";
 
 type Filter = "Tutti" | GalleryCategory;
 const filters: Filter[] = ["Tutti", "Diciottesimi", "Cerimonie", "Allestimenti", "Emozioni"];
@@ -59,6 +61,17 @@ export function Lightbox({
 
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null;
+    const restoreBackground = isolateDialog(dialogRef.current);
+    dialogRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    document.body.classList.add("lightbox-open");
+    return () => {
+      document.body.classList.remove("lightbox-open");
+      restoreBackground();
+      previouslyFocused?.focus();
+    };
+  }, []);
+
+  useEffect(() => {
     const focusableSelector = 'button:not([disabled]), a[href], video[controls], [tabindex]:not([tabindex="-1"])';
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -78,12 +91,9 @@ export function Lightbox({
         }
       }
     };
-    document.body.classList.add("lightbox-open");
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.classList.remove("lightbox-open");
       window.removeEventListener("keydown", onKeyDown);
-      previouslyFocused?.focus();
     };
   }, [next, onClose, previous]);
 
@@ -91,7 +101,7 @@ export function Lightbox({
 
   return (
     <div ref={dialogRef} className="lightbox" role="dialog" aria-modal="true" aria-label={`Anteprima: ${item.title}`}>
-      <button autoFocus className="icon-button lightbox__close" onClick={onClose} aria-label="Chiudi anteprima">
+      <button className="icon-button lightbox__close" onClick={onClose} aria-label="Chiudi anteprima">
         <X />
       </button>
       <button className="icon-button lightbox__previous" onClick={previous} aria-label="Media precedente">
@@ -107,7 +117,7 @@ export function Lightbox({
         ) : (
           <MediaPlaceholder label={item.title} aspect={item.aspect} video={item.mediaType === "video"} />
         )}
-        <p>{item.title}</p>
+        <p aria-live="polite">{item.title}</p>
         <span>{index + 1} / {items.length}</span>
       </div>
       <button className="icon-button lightbox__next" onClick={next} aria-label="Media successivo">
@@ -121,9 +131,11 @@ export function GalleryGrid({ limit }: { limit?: number }) {
   const [params, setParams] = useSearchParams();
   const queryFilter = params.get("filtro");
   const initialFilter = isFilter(queryFilter) ? queryFilter : "Tutti";
-  const [activeFilter, setActiveFilter] = useState<Filter>(initialFilter);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [visibleCount, setVisibleCount] = useState(limit ?? 6);
+  const [selection, setSelection] = useState<{ index: number; filter: Filter } | null>(null);
+  const activeFilter: Filter = limit ? "Tutti" : initialFilter;
+  const selected = selection?.filter === activeFilter ? selection.index : null;
+  const [pageSize, setPageSize] = useState({ filter: activeFilter, count: limit ?? 6 });
+  const visibleCount = pageSize.filter === activeFilter ? pageSize.count : (limit ?? 6);
 
   const filteredItems = useMemo(
     () => galleryItems.filter((item) => activeFilter === "Tutti" || item.category === activeFilter),
@@ -132,9 +144,8 @@ export function GalleryGrid({ limit }: { limit?: number }) {
   const visibleItems = filteredItems.slice(0, visibleCount);
 
   const changeFilter = (filter: Filter) => {
-    setActiveFilter(filter);
-    setVisibleCount(limit ?? 6);
-    setSelected(null);
+    setPageSize({ filter, count: limit ?? 6 });
+    setSelection(null);
     if (!limit) {
       setParams(filter === "Tutti" ? {} : { filtro: filter }, { replace: true });
     }
@@ -148,11 +159,11 @@ export function GalleryGrid({ limit }: { limit?: number }) {
           <button
             className={`gallery-item gallery-item--${item.aspect}`}
             key={item.id}
-            onClick={() => setSelected(index)}
+            onClick={() => setSelection({ index, filter: activeFilter })}
             aria-label={`Apri ${item.title}`}
           >
             {item.src ? (
-              <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+              <img src={item.src} {...imageProps(item.src)} sizes="(max-width: 559px) 100vw, (max-width: 959px) 85vw, 66vw" alt={item.alt} loading="lazy" decoding="async" />
             ) : (
               <MediaPlaceholder label={item.title} aspect={item.aspect} video={item.mediaType === "video"} />
             )}
@@ -166,7 +177,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
       </div>
       {!limit && visibleCount < filteredItems.length && (
         <div className="centered-action">
-          <button className="button button--outline-dark" onClick={() => setVisibleCount((count) => count + 4)}>
+          <button className="button button--outline-dark" onClick={() => setPageSize({ filter: activeFilter, count: visibleCount + 4 })}>
             Carica altri momenti
           </button>
         </div>
@@ -175,8 +186,8 @@ export function GalleryGrid({ limit }: { limit?: number }) {
         <Lightbox
           items={visibleItems}
           index={selected}
-          onClose={() => setSelected(null)}
-          onChange={setSelected}
+          onClose={() => setSelection(null)}
+          onChange={(index) => setSelection({ index, filter: activeFilter })}
         />
       )}
     </>

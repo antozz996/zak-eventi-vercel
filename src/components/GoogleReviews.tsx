@@ -56,8 +56,8 @@ export function GoogleReviews() {
     return () => controller.abort();
   }, []);
 
-  const rating = reviewsData?.rating ?? siteConfig.googleReviews.rating;
-  const reviewCount = reviewsData?.reviewCount ?? siteConfig.googleReviews.reviewCount;
+  const rating = reviewsData?.rating;
+  const reviewCount = reviewsData?.reviewCount;
   const mapsUrl = reviewsData?.googleMapsUri || siteConfig.contact.googleMapsUrl;
 
   return (
@@ -65,11 +65,11 @@ export function GoogleReviews() {
       <div className="google-reviews__summary">
         <div>
           <span className="google-reviews__source">Recensioni da Google Maps</span>
-          <p className="google-reviews__score">
+          {typeof rating === "number" && typeof reviewCount === "number" && <><p className="google-reviews__score">
             <strong>{rating.toLocaleString("it-IT", { minimumFractionDigits: 1 })}</strong>
             <Stars rating={rating} />
           </p>
-          <p className="google-reviews__count">{reviewCount} recensioni pubblicate su Google</p>
+          <p className="google-reviews__count">{reviewCount} recensioni pubblicate su Google</p></>}
         </div>
         <a className="button button--outline-dark" href={mapsUrl} target="_blank" rel="noreferrer">
           Vedi tutte su Google <ExternalLink aria-hidden="true" size={16} />
@@ -119,7 +119,7 @@ export function GoogleReviews() {
         </>
       ) : (
         <p className="google-reviews__disclosure">
-          Valutazione e numero di recensioni verificati sul profilo Google ufficiale di ZAK Eventi.
+          Consulta il profilo Google Maps per leggere le recensioni e la valutazione aggiornata.
         </p>
       )}
     </div>

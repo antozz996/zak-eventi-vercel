@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { siteConfig } from "../data/siteConfig";
+import { imageProps } from "../data/imageMetadata";
 import { Link } from "../lib/router";
 
 export function HeroVideo() {
@@ -7,8 +8,8 @@ export function HeroVideo() {
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
         <picture>
-          <source media="(max-width: 767px)" srcSet={siteConfig.heroPosterMobile} />
-          <img className="hero__poster" src={siteConfig.heroPoster} alt="" fetchPriority="high" />
+          <source media="(max-width: 767px)" srcSet={imageProps(siteConfig.heroPosterMobile).srcSet ?? siteConfig.heroPosterMobile} sizes="100vw" />
+          <img className="hero__poster" src={siteConfig.heroPoster} {...imageProps(siteConfig.heroPoster)} sizes="100vw" alt="" fetchPriority="high" decoding="async" />
         </picture>
         {siteConfig.heroVideo && (
           <video

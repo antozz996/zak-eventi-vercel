@@ -1,5 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { Link } from "../lib/router";
+import { validateContact } from "../utils/contactValidation";
 import { eventTypes } from "../data/siteConfig";
 import { getContactWhatsAppMessage, getWhatsAppLink } from "../utils/whatsapp";
 
@@ -13,20 +15,16 @@ export function ContactForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const nextErrors: FormErrors = {};
-
-    if (!String(data.get("name") ?? "").trim()) nextErrors.name = "Inserisci nome e cognome.";
-    if (!String(data.get("phone") ?? "").trim()) nextErrors.phone = "Inserisci un recapito telefonico.";
+    const nextErrors = validateContact(data);
     const email = String(data.get("email") ?? "").trim();
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = "Inserisci un indirizzo email valido.";
-    if (!data.get("privacy")) nextErrors.privacy = "Il consenso privacy è necessario per inviare la richiesta.";
-
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
       setNotice("Controlla i campi evidenziati.");
+      requestAnimationFrame(() => form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
       return;
     }
 
+    setNotice("");
     const eventSlug = String(data.get("eventType") ?? "");
     const eventType = eventTypes.find((item) => item.slug === eventSlug)?.title;
     const rawDate = String(data.get("date") ?? "");
@@ -56,18 +54,18 @@ export function ContactForm() {
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="form-field">
         <label htmlFor="name">Nome e cognome *</label>
-        <input id="name" name="name" autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
+        <input id="name" name="name" required maxLength={100} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
         {errors.name && <span id="name-error" className="field-error">{errors.name}</span>}
       </div>
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="phone">Telefono *</label>
-          <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? "phone-error" : undefined} />
+          <input id="phone" name="phone" required maxLength={30} type="tel" inputMode="tel" autoComplete="tel" aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? "phone-error" : undefined} />
           {errors.phone && <span id="phone-error" className="field-error">{errors.phone}</span>}
         </div>
         <div className="form-field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" inputMode="email" autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
+          <input id="email" name="email" maxLength={200} type="email" inputMode="email" autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
           {errors.email && <span id="email-error" className="field-error">{errors.email}</span>}
         </div>
       </div>
@@ -81,22 +79,20 @@ export function ContactForm() {
         </div>
         <div className="form-field">
           <label htmlFor="date">Data indicativa</label>
-          <input id="date" name="date" type="date" />
+          <input id="date" name="date" type="date" aria-invalid={Boolean(errors.date)} aria-describedby={errors.date ? "date-error" : undefined} />
+          {errors.date && <span id="date-error" className="field-error">{errors.date}</span>}
         </div>
       </div>
       <div className="form-field">
         <label htmlFor="guests">Numero indicativo di invitati</label>
-        <input id="guests" name="guests" type="number" min="1" inputMode="numeric" />
+        <input id="guests" name="guests" type="number" min="1" step="1" inputMode="numeric" aria-invalid={Boolean(errors.guests)} aria-describedby={errors.guests ? "guests-error" : undefined} />
+        {errors.guests && <span id="guests-error" className="field-error">{errors.guests}</span>}
       </div>
       <div className="form-field">
         <label htmlFor="message">Raccontaci il tuo evento</label>
-        <textarea id="message" name="message" rows={5} />
+        <textarea id="message" name="message" rows={5} maxLength={1500} />
       </div>
-      <label className="checkbox-field">
-        <input type="checkbox" name="privacy" aria-invalid={Boolean(errors.privacy)} aria-describedby={errors.privacy ? "privacy-error" : undefined} />
-        <span>Ho letto l’informativa privacy (placeholder) e acconsento al trattamento dei dati per essere ricontattato. *</span>
-      </label>
-      {errors.privacy && <span id="privacy-error" className="field-error">{errors.privacy}</span>}
+      <p className="form-caption">I dati vengono inseriti nel messaggio WhatsApp e non salvati dal modulo sul sito. <Link to="/privacy-policy">Informazioni sulla privacy</Link>.</p>
       <button className="button button--gold" type="submit">
         <MessageCircle aria-hidden="true" size={18} />
         Continua su WhatsApp

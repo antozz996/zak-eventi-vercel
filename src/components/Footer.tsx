@@ -27,10 +27,10 @@ export function Footer() {
               <Phone aria-hidden="true" />
               <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>
             </li>
-            <li><Mail aria-hidden="true" /> {siteConfig.contact.email || "Email da confermare"}</li>
+            {siteConfig.contact.email && <li><Mail aria-hidden="true" /><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a></li>}
           </ul>
         </div>
-        <div>
+        {(siteConfig.social.instagram || siteConfig.social.facebook) && <div>
           <h2>Seguici</h2>
           <div className="social-links">
             {siteConfig.social.instagram ? (
@@ -40,11 +40,10 @@ export function Footer() {
               <a href={siteConfig.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
             ) : <span aria-label="Facebook da configurare"><Facebook /></span>}
           </div>
-          <small>Link social da confermare</small>
-        </div>
+        </div>}
       </div>
       <div className="container site-footer__bottom">
-        <p>© {new Date().getFullYear()} ZAK Eventi. Dati societari da integrare.</p>
+        <p>© {new Date().getFullYear()} ZAK Eventi.</p>
         <div>
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/cookie-policy">Cookie Policy</Link>

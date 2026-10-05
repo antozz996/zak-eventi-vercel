@@ -316,26 +316,26 @@ export const testimonials: Testimonial[] = [
 export const pageMeta = {
   home: {
     title: "ZAK Eventi — Location per eventi ad Arzano",
-    description: "Ogni evento merita il suo ingresso. Scopri ZAK Eventi ad Arzano e immagina il tuo momento speciale.",
+    description: "Sala eventi ad Arzano, in Via Napoli 270: diciottesimi, compleanni, comunioni e feste private. Scopri le foto di ZAK e prenota una visita.",
   },
   location: {
-    title: "La location | ZAK Eventi",
-    description: "Uno spazio, infinite atmosfere. Scopri la location ZAK Eventi ad Arzano.",
+    title: "Location per feste ad Arzano | ZAK Eventi",
+    description: "Scopri la sala ZAK Eventi in Via Napoli 270 ad Arzano: ambienti, ingresso e allestimenti fotografati durante feste reali. Prenota una visita.",
   },
   eventi: {
-    title: "Eventi | ZAK Eventi",
-    description: "Diciottesimi, compleanni, comunioni, cerimonie e feste private messe in scena da ZAK.",
+    title: "Diciottesimi, compleanni e comunioni ad Arzano | ZAK Eventi",
+    description: "Organizza un diciottesimo, compleanno, comunione o festa privata ad Arzano. Esplora le occasioni e richiedi informazioni a ZAK Eventi.",
   },
   servizi: {
-    title: "Servizi | ZAK Eventi",
-    description: "Dal primo incontro all’ultimo applauso: scopri il percorso di progettazione di un evento ZAK.",
+    title: "Organizzazione eventi e allestimenti ad Arzano | ZAK Eventi",
+    description: "Dalla consulenza all’allestimento, fino a musica, torta e coordinamento: scopri come progettare la tua festa ad Arzano con ZAK Eventi.",
   },
   gallery: {
-    title: "Gallery | ZAK Eventi",
-    description: "Ingressi, allestimenti ed emozioni vissute negli eventi ZAK.",
+    title: "Foto della sala e delle feste ad Arzano | ZAK Eventi",
+    description: "Guarda le foto reali della sala, degli allestimenti e delle feste di ZAK Eventi ad Arzano. Filtra ingressi, cerimonie, diciottesimi ed emozioni.",
   },
   contatti: {
-    title: "Contatti | ZAK Eventi",
-    description: "Richiedi informazioni o prenota una visita alla location ZAK Eventi ad Arzano.",
+    title: "Contatti e visita alla sala eventi ad Arzano | ZAK Eventi",
+    description: "Contatta ZAK Eventi al 353 319 8020 o su WhatsApp. La sala è in Via Napoli 270, Arzano: chiedi informazioni e prenota una visita.",
   },
 } as const;

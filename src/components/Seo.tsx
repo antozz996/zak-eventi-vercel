@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { siteConfig } from "../data/siteConfig";
+import { getStructuredData } from "../data/seo";
 
 type SeoProps = {
   title: string;
@@ -31,7 +32,19 @@ export function Seo({ title, description, path, noIndex = false }: SeoProps) {
       upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
     }
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
-    upsertMeta('meta[name="robots"]', "name", "robots", noIndex ? "noindex, nofollow" : "index, follow");
+    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
+    upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
+    upsertMeta('meta[property="og:image"]', "property", "og:image", `${siteConfig.siteUrl}${siteConfig.heroPoster}`);
+    upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", `${siteConfig.siteUrl}${siteConfig.heroPoster}`);
+    upsertMeta('meta[name="robots"]', "name", "robots", noIndex ? "noindex, follow" : "index, follow, max-image-preview:large");
+    let schema = document.head.querySelector<HTMLScriptElement>("#site-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "site-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify(getStructuredData(path, title));
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {

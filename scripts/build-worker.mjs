@@ -85,6 +85,7 @@ async function getGoogleReviews(env) {
     "?languageCode=it&regionCode=IT";
 
   const response = await fetch(endpoint, {
+    signal: AbortSignal.timeout(8000),
     headers: {
       "X-Goog-Api-Key": apiKey,
       "X-Goog-FieldMask":
@@ -128,25 +129,27 @@ async function getGoogleReviews(env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    let pathname = decodeURIComponent(url.pathname);
+    let pathname;
+    try { pathname = decodeURIComponent(url.pathname); }
+    catch { return new Response("Bad request", { status: 400 }); }
 
     if (pathname === "/api/google-reviews") {
       if (request.method !== "GET") {
         return json({ error: "Metodo non consentito" }, 405);
       }
-      return getGoogleReviews(env);
+      try { return await getGoogleReviews(env); }
+      catch { return json({ error: "Google Places non disponibile" }, 502); }
     }
 
-    if (pathname === "/") pathname = "/index.html";
-
-    let asset = assets[pathname];
-    if (!asset && !pathname.split("/").at(-1)?.includes(".")) {
-      asset = assets["/index.html"];
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
     }
-
-    if (!asset) {
-      return new Response("Not found", { status: 404 });
-    }
+    const normalized = pathname.endsWith("/") ? pathname.slice(0, -1) || "/" : pathname;
+    const pageAsset = normalized === "/" ? "/index.html" : normalized + "/index.html";
+    let asset = assets[pathname] || assets[pageAsset];
+    const status = normalized === "/404" || !asset ? 404 : 200;
+    if (!asset) asset = assets["/404.html"];
+    if (!asset) return new Response("Not found", { status: 404 });
 
     const headers = new Headers({
       "Content-Type": asset.type,
@@ -161,7 +164,7 @@ export default {
     });
 
     return new Response(request.method === "HEAD" ? null : decodeBase64(asset.body), {
-      status: 200,
+      status,
       headers,
     });
   },
@@ -171,9 +174,10 @@ export default {
 await mkdir(serverDirectory, { recursive: true });
 await mkdir(hostingDirectory, { recursive: true });
 await writeFile(join(serverDirectory, "index.js"), workerSource);
-await writeFile(
-  join(hostingDirectory, "hosting.json"),
-  await readFile(".openai/hosting.json"),
-);
+try {
+  await writeFile(join(hostingDirectory, "hosting.json"), await readFile(".openai/hosting.json"));
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
+}
 
 console.log(`Worker statico generato con ${Object.keys(assets).length} asset.`);

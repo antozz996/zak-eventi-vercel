@@ -1,3 +1,4 @@
+import { imageProps } from "../data/imageMetadata";
 type EventPhotoProps = {
   src: string;
   alt: string;
@@ -7,7 +8,7 @@ type EventPhotoProps = {
 export function EventPhoto({ src, alt, aspect = "landscape" }: EventPhotoProps) {
   return (
     <figure className={`event-photo event-photo--${aspect}`}>
-      <img src={src} alt={alt} loading="lazy" decoding="async" />
+      <img src={src} {...imageProps(src)} sizes="(max-width: 779px) 100vw, 50vw" alt={alt} loading="lazy" decoding="async" />
     </figure>
   );
 }

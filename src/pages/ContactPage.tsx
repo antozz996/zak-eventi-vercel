@@ -20,7 +20,7 @@ export function ContactPage() {
           <div className="contact-copy">
             <p className="eyebrow">Prenota una visita</p>
             <h2>Cominciamo dalla tua storia.</h2>
-            <p>Compila il modulo con le prime informazioni. I dati di contatto e il sistema di invio devono essere confermati prima della pubblicazione.</p>
+            <p>Compila il modulo: apriremo WhatsApp con la tua richiesta pronta da inviare. Per parlare direttamente con noi, chiamaci o scrivici.</p>
             <ul className="contact-details">
               <li><MapPin aria-hidden="true" /><div><strong>Indirizzo</strong><span>{siteConfig.contact.address}</span></div></li>
               <li>
@@ -30,7 +30,7 @@ export function ContactPage() {
                   <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>
                 </div>
               </li>
-              <li><Mail aria-hidden="true" /><div><strong>Email</strong><span>{siteConfig.contact.email || "Da confermare"}</span></div></li>
+              {siteConfig.contact.email && <li><Mail aria-hidden="true" /><div><strong>Email</strong><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a></div></li>}
               <li><Clock aria-hidden="true" /><div><strong>Orari</strong><span>{siteConfig.contact.openingHours}</span></div></li>
             </ul>
             <WhatsAppButton label="Scrivici su WhatsApp" />

@@ -150,7 +150,7 @@ h3 {
 .eyebrow {
   margin-bottom: 1.25rem;
   color: var(--zak-red);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   line-height: 1.4;
@@ -185,7 +185,7 @@ h3 {
   font-size: clamp(2.65rem, 6vw, 5.35rem);
   font-weight: 500;
   letter-spacing: -0.035em;
-  line-height: 0.96;
+  line-height: 1.05;
 }
 
 .section-heading__description {
@@ -308,7 +308,7 @@ h3 {
   padding: 0.4rem 0.55rem;
   color: var(--zak-ivory);
   background: var(--zak-red);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.2;
@@ -360,7 +360,7 @@ h3 {
 
 .brand__sub {
   color: var(--zak-gold);
-  font-size: 0.56rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -375,7 +375,7 @@ h3 {
 .desktop-nav a {
   position: relative;
   padding-block: 0.75rem;
-  font-size: 0.69rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -465,7 +465,7 @@ h3 {
 .mobile-menu nav span {
   color: var(--zak-gold);
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
 }
 
@@ -518,7 +518,7 @@ h3 {
 .hero__kicker {
   margin-bottom: 1.2rem;
   color: var(--zak-gold);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -531,7 +531,7 @@ h3 {
   font-size: clamp(3.8rem, 12vw, 8.75rem);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 0.82;
+  line-height: 1.05;
 }
 
 .hero__lead {
@@ -551,7 +551,7 @@ h3 {
   align-items: center;
   gap: 0.6rem;
   color: rgb(244 240 232 / 70%);
-  font-size: 0.61rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -620,7 +620,7 @@ h3 {
 
 .media-placeholder small {
   color: var(--zak-gold);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -681,7 +681,7 @@ h3 {
 .event-card__content > p {
   margin-bottom: 0.4rem;
   color: rgb(244 240 232 / 62%);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
 }
 
@@ -690,7 +690,7 @@ h3 {
   font-family: var(--font-display);
   font-size: clamp(2.3rem, 4vw, 3.25rem);
   font-weight: 500;
-  line-height: 0.95;
+  line-height: 1.05;
 }
 
 .event-card a {
@@ -698,7 +698,7 @@ h3 {
   align-items: center;
   gap: 0.4rem;
   color: var(--zak-gold);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -751,7 +751,7 @@ h3 {
   border-radius: 50%;
   color: var(--zak-midnight);
   background: var(--zak-ivory);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
@@ -863,7 +863,7 @@ h3 {
   color: var(--muted);
   background: transparent;
   cursor: pointer;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
@@ -913,7 +913,7 @@ h3 {
 
 .gallery-item__caption span {
   color: var(--zak-gold);
-  font-size: 0.57rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -977,7 +977,7 @@ h3 {
 
 .lightbox__content > span {
   color: var(--zak-gold);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 .lightbox__close {
@@ -1024,7 +1024,7 @@ h3 {
 
 .testimonial-card > span {
   color: var(--zak-red);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1049,7 +1049,7 @@ h3 {
   display: block;
   margin-bottom: 0.6rem;
   color: var(--zak-midnight);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1137,7 +1137,7 @@ h3 {
 
 .google-review-card header span {
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
 }
 
 .google-review-card > p {
@@ -1158,7 +1158,7 @@ h3 {
   align-items: center;
   gap: 0.4rem;
   color: var(--zak-red);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.055em;
   text-transform: uppercase;
@@ -1167,7 +1167,7 @@ h3 {
 .google-reviews__disclosure {
   margin: 1.25rem 0 0;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 /* Inner page heroes */
@@ -1208,7 +1208,7 @@ h3 {
   font-size: clamp(3.5rem, 9vw, 7.5rem);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 0.86;
+  line-height: 1.05;
 }
 
 .page-hero .container > p:last-child {
@@ -1239,7 +1239,7 @@ h3 {
   padding: 0.5rem 0.75rem;
   color: var(--zak-obsidian);
   background: var(--zak-gold);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1265,7 +1265,7 @@ h3 {
   display: block;
   margin-bottom: 2rem;
   color: var(--zak-red);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -1275,7 +1275,7 @@ h3 {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 1.05;
 }
 
 .event-detail__content > p {
@@ -1317,7 +1317,7 @@ h3 {
 
 .service-journey li > span {
   color: var(--zak-red);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -1354,7 +1354,7 @@ h3 {
   display: block;
   margin-bottom: 0.5rem;
   color: var(--zak-gold);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1401,7 +1401,7 @@ h3 {
 
 .contact-details strong {
   margin-bottom: 0.2rem;
-  font-size: 0.69rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1438,7 +1438,7 @@ h3 {
 }
 
 .form-field label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.045em;
 }
@@ -1493,7 +1493,7 @@ h3 {
 
 .field-error {
   color: var(--zak-red);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -1509,7 +1509,7 @@ h3 {
 .form-caption {
   margin: 0;
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
 }
 
 .map-placeholder {
@@ -1610,7 +1610,7 @@ h3 {
   margin-bottom: 1.2rem;
   color: var(--zak-gold);
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1678,7 +1678,7 @@ h3 {
 }
 
 .site-footer small {
-  font-size: 0.63rem;
+  font-size: 0.75rem;
 }
 
 .site-footer__bottom {
@@ -1692,7 +1692,7 @@ h3 {
 
 .site-footer__bottom p {
   margin: 0;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 .site-footer__bottom > div {
@@ -1754,7 +1754,7 @@ h3 {
 .cookie-banner p {
   margin: 0.4rem 0 0;
   color: rgb(244 240 232 / 72%);
-  font-size: 0.71rem;
+  font-size: 0.75rem;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
@@ -1788,7 +1788,7 @@ h3 {
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 1.05;
 }
 
 .legal-page h2 {
@@ -2022,7 +2022,7 @@ h3 {
     width: auto;
     height: auto;
     clip: auto;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -2042,12 +2042,12 @@ h3 {
 @media (max-width: 430px) {
   .hero h1 {
     font-size: clamp(3.15rem, 14vw, 3.75rem);
-    line-height: 0.87;
+    line-height: 1.05;
   }
 
   .page-hero h1 {
     font-size: clamp(3rem, 13vw, 3.55rem);
-    line-height: 0.9;
+    line-height: 1.05;
   }
 
   .hero .button-group,
@@ -2085,7 +2085,7 @@ h3 {
   .cookie-banner__actions .button {
     min-width: 0;
     padding-inline: 0.6rem;
-    font-size: 0.66rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -2137,3 +2137,71 @@ h3 {
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .event-card:hover .event-photo img { transform: scale(1.04); }
 }
+
+/* Audit: readable typography, robust grids and small-screen controls. */
+.button, .desktop-nav a, .gallery-filter button, .form-field label,
+.field-error, .checkbox-field, .form-notice { font-size: 0.875rem; }
+.form-field input, .form-field select, .form-field textarea { font-size: 1rem; min-width: 0; }
+.form-caption { font-size: 0.875rem; }
+.form-caption a { text-decoration: underline; text-underline-offset: 3px; }
+.form-row > *, .contact-layout > *, .editorial-block > *, .event-detail > *,
+.service-journey li > *, .site-footer__grid > * { min-width: 0; }
+.contact-details, .footer-contacts, .legal-page__content { overflow-wrap: anywhere; }
+.button { white-space: normal; text-align: center; line-height: 1.4; }
+.icon-button, .gallery-filter button { min-width: 44px; min-height: 44px; }
+.brand { flex-shrink: 0; }
+.site-header__inner { gap: 1rem; }
+.mobile-menu { height: 100dvh; min-height: 0; overflow-y: auto; }
+.mobile-menu nav { flex-shrink: 0; padding-block: 1rem; }
+.mobile-menu__top, .mobile-menu > .button { flex-shrink: 0; }
+.page-hero h1, .legal-page h1, .not-found h1 { line-height: 1.06; overflow-wrap: break-word; }
+.hero h1, .section-heading h2, .editorial-block h2, .event-detail h2,
+.signature-section h2, .final-cta h2 { line-height: 1.06; }
+.gallery-item--portrait { aspect-ratio: 2 / 3; }
+.gallery-item--landscape { aspect-ratio: 3 / 2; }
+.gallery-item--square { aspect-ratio: 1; }
+.gallery-item::after { content: ""; position: absolute; inset: 45% 0 0; pointer-events: none; background: linear-gradient(transparent, rgb(9 10 12 / 85%)); }
+.gallery-item__caption, .gallery-item__expand { z-index: 1; }
+.lightbox { overflow-y: auto; }
+.lightbox__content p { text-align: center; line-height: 1.3; }
+.cookie-banner { max-height: min(55dvh, 24rem); overflow-y: auto; }
+.cookie-banner p { font-size: 0.875rem; }
+body.menu-open .whatsapp-button--fixed, body.lightbox-open .whatsapp-button--fixed { visibility: hidden; }
+@media (min-width: 960px) and (max-width: 1199px) {
+  .desktop-nav, .button--header { display: none; }
+  .menu-toggle { display: inline-grid; }
+}
+@media (min-width: 780px) and (max-width: 1023px) {
+  .contact-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 780px) and (max-width: 1099px) {
+  .experience-timeline { grid-template-columns: minmax(0, 1fr); }
+  .experience-timeline::before { display: none; }
+  .experience-timeline li { min-height: 0; padding: 1rem 0 1rem 4rem; }
+  .experience-timeline__number { top: 1rem; }
+}
+@media (min-width: 960px) {
+  .gallery-grid { grid-auto-rows: clamp(200px, 23vw, 360px); }
+  .gallery-item { aspect-ratio: auto; height: 100%; }
+  .desktop-nav { gap: 1.1rem; }
+}
+@media (max-width: 767px) {
+  .hero { min-height: 100svh; }
+  .hero__media { height: clamp(30rem, 78svh, 44rem); }
+  .hero__media img { animation: none; }
+  .hero__overlay { background: linear-gradient(180deg, rgb(9 10 12 / 30%) 0%, transparent 25%, rgb(9 10 12 / 75%) 55%, var(--zak-obsidian) 75%); }
+  .hero__content { padding-top: clamp(22rem, 60svh, 32rem); padding-bottom: 5.5rem; }
+  .hero h1 { font-size: clamp(2.75rem, 8vw + 0.75rem, 4.5rem); }
+  .hero .button-group { flex-direction: column; align-items: stretch; }
+  .hero .button { width: 100%; }
+  .page-hero { min-height: 0; padding-block: 9rem 3.5rem; }
+  .lightbox { padding-inline: 3.5rem; }
+}
+@media (max-width: 380px) {
+  :root { --gutter: 1rem; }
+  .contact-form { padding: 1rem; }
+  .section-heading h2, .editorial-block h2, .final-cta h2,
+  .signature-section h2, .contact-copy h2 { font-size: 2.4rem; }
+  .page-hero h1 { font-size: 2.7rem; }
+}
+body.menu-open .cookie-banner, body.lightbox-open .cookie-banner { display: none; }

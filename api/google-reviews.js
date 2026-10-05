@@ -23,6 +23,7 @@ async function getGoogleReviews(env) {
     "?languageCode=it&regionCode=IT";
 
   const response = await fetch(endpoint, {
+    signal: AbortSignal.timeout(8000),
     headers: {
       "X-Goog-Api-Key": apiKey,
       "X-Goog-FieldMask":

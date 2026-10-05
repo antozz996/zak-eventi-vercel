@@ -24,7 +24,7 @@ export function HomePage() {
           <EditorialImageBlock
             eyebrow="La nostra idea di festa"
             title="Non organizziamo semplicemente feste. Creiamo ricordi che entrano in scena."
-            text="Dall’idea iniziale all’ultimo brindisi, ZAK costruisce ogni evento intorno alle persone, alle emozioni e ai dettagli che lo rendono unico."
+            text="In Via Napoli 270 ad Arzano, ZAK accoglie diciottesimi, compleanni, comunioni e feste private. Dall’idea iniziale all’ultimo brindisi, ogni evento prende forma intorno alle persone e ai dettagli che lo rendono unico."
             mediaLabel="Momento vissuto a ZAK"
             image="/images/events/xtgb0046.webp"
             imageAlt="Abbraccio di gruppo durante una festa ZAK"

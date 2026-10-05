@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import { useMemo } from "react";
-import { Link as WouterLink, useLocation as useWouterLocation } from "wouter";
+
+import { Link as WouterLink, useLocation as useWouterLocation, useSearchParams as useWouterSearchParams } from "wouter";
 
 type LinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   to: string;
@@ -24,7 +24,7 @@ export function NavLink({ to, end = false, className, ...props }: NavLinkProps) 
   const pathname = location.split("?")[0] || "/";
   const isActive = end ? pathname === to : pathname === to || pathname.startsWith(`${to}/`);
   const resolvedClassName = typeof className === "function" ? className({ isActive }) : className;
-  return <Link to={to} className={resolvedClassName} {...props} />;
+  return <Link to={to} className={resolvedClassName} aria-current={isActive ? "page" : undefined} {...props} />;
 }
 
 export function useLocation() {
@@ -33,18 +33,5 @@ export function useLocation() {
 }
 
 export function useSearchParams() {
-  const [location, setLocation] = useWouterLocation();
-  const [pathname, query = ""] = location.split("?");
-  const params = useMemo(() => new URLSearchParams(query), [query]);
-
-  const setParams = (
-    next: URLSearchParams | Record<string, string>,
-    options?: { replace?: boolean },
-  ) => {
-    const nextParams = next instanceof URLSearchParams ? next : new URLSearchParams(next);
-    const search = nextParams.toString();
-    setLocation(`${pathname || "/"}${search ? `?${search}` : ""}`, { replace: options?.replace });
-  };
-
-  return [params, setParams] as const;
+  return useWouterSearchParams();
 }

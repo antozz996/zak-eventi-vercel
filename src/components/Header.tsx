@@ -1,8 +1,9 @@
 import { Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { navigation } from "../data/siteConfig";
 import { Link, NavLink, useLocation } from "../lib/router";
 import { Brand } from "./Brand";
+import { isolateDialog } from "../utils/dialog";
 
 export function MobileMenu({
   open,
@@ -16,9 +17,10 @@ export function MobileMenu({
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
     if (!open) return;
+    const restoreBackground = isolateDialog(dialogRef.current);
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-    requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(() => {
       dialogRef.current?.querySelector<HTMLElement>(focusableSelector)?.focus();
     });
     const onKeyDown = (event: KeyboardEvent) => {
@@ -39,6 +41,8 @@ export function MobileMenu({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => {
+      cancelAnimationFrame(frame);
+      restoreBackground();
       document.body.classList.remove("menu-open");
       window.removeEventListener("keydown", onKeyDown);
       previouslyFocused?.focus();
@@ -71,13 +75,15 @@ export function MobileMenu({
 }
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 36);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -112,7 +118,7 @@ export function Header() {
           </button>
         </div>
       </header>
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={closeMenu} />
     </>
   );
 }
