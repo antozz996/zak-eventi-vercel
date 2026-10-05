@@ -93,6 +93,11 @@ export const imageMetadata: Record<string, { width: number; height: number; srcS
     "width": 960,
     "height": 1440,
     "srcSet": "/images/events/xtgb3531-720.webp 720w, /images/events/xtgb3531.webp 960w"
+  },
+  "/images/events/ingresso-abito-blu.webp": {
+    "width": 1232,
+    "height": 1536,
+    "srcSet": "/images/events/ingresso-abito-blu-720.webp 720w, /images/events/ingresso-abito-blu.webp 1232w"
   }
 };
 
