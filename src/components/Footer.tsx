@@ -17,6 +17,7 @@ export function Footer() {
           <h2>Esplora</h2>
           <nav aria-label="Navigazione footer">
             {navigation.map((item) => <Link key={item.href} to={item.href}>{item.label}</Link>)}
+            <Link to="/guide">Guide</Link>
           </nav>
         </div>
         <div>

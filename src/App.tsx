@@ -10,6 +10,7 @@ import { LegalPage } from "./pages/LegalPage";
 import { LocationPage } from "./pages/LocationPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ServicesPage } from "./pages/ServicesPage";
+import { DiciottesimoGuidePage, GuidesPage } from "./pages/GuidePages";
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
         <Route path="/feste-private" component={FestePrivatePage} />
         <Route path="/lauree" component={LaureePage} />
         <Route path="/servizi" component={ServicesPage} />
+        <Route path="/guide" component={GuidesPage} />
+        <Route path="/guide/come-scegliere-sala-diciottesimo-napoli" component={DiciottesimoGuidePage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/contatti" component={ContactPage} />
         <Route path="/privacy-policy"><LegalPage type="privacy" /></Route>

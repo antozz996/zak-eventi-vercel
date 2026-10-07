@@ -143,6 +143,11 @@ export function DiciottesimiPage() {
           </p>
 
           <ActionLinks eventName="un diciottesimo" galleryFilter="Diciottesimi" />
+          <div className="centered-action">
+            <Link className="button button--outline-dark" to="/guide/come-scegliere-sala-diciottesimo-napoli">
+              Leggi la guida: come scegliere una sala per il diciottesimo
+            </Link>
+          </div>
         </div>
       </section>
 
