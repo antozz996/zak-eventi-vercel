@@ -1,6 +1,6 @@
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/perche-scegliere-zak", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
 const pageImages: Record<string, string> = {
   "/": "/images/events/ingresso-abito-blu.webp",
@@ -13,6 +13,7 @@ const pageImages: Record<string, string> = {
   "/feste-private": "/images/events/xtgb2648.webp",
   "/lauree": "/images/events/xtgb9908.webp",
   "/servizi": "/images/events/xtgb5080.webp",
+  "/perche-scegliere-zak": "/images/events/xtgb2618.webp",
   "/guide": "/images/events/xtgb3357.webp",
   "/gallery": "/images/events/xtgb2618.webp",
   "/contatti": "/images/events/xtgb6517.webp",
@@ -43,6 +44,7 @@ const routeMeta = {
   "/feste-private": pageMeta["feste-private"],
   "/lauree": pageMeta.lauree,
   "/servizi": pageMeta.servizi,
+  "/perche-scegliere-zak": pageMeta.percheZak,
   "/guide": pageMeta.guide,
   "/guide/come-scegliere-sala-diciottesimo-napoli": pageMeta.guideDiciottesimo,
   "/guide/quanto-costa-diciottesimo-napoli": pageMeta.guideCostoDiciottesimo,
