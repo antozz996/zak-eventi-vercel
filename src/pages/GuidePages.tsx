@@ -61,6 +61,71 @@ export function GuidesPage() {
               </Link>
             </div>
           </article>
+
+          <article className="event-detail">
+            <EventPhoto src="/images/events/xtgb6517.webp" alt="Sala ZAK Eventi apparecchiata" aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">03</span>
+              <p className="eyebrow">Formula food</p>
+              <h2>Buffet o cena servita per un diciottesimo?</h2>
+              <p>Confronta ritmo della serata, servizio, musica e beverage prima di scegliere la formula.</p>
+              <Link className="text-link" to="/guide/buffet-o-cena-servita-diciottesimo">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
+
+          <article className="event-detail event-detail--reverse">
+            <EventPhoto src="/images/events/xtgb1140.webp" alt="Momento torta durante un diciottesimo ZAK" aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">04</span>
+              <p className="eyebrow">Checklist</p>
+              <h2>Checklist diciottesimo: cosa organizzare e quando.</h2>
+              <p>Una timeline dai sei mesi prima fino al giorno della festa.</p>
+              <Link className="text-link" to="/guide/checklist-diciottesimo">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
+
+          <article className="event-detail">
+            <EventPhoto src="/images/events/xtgb6585.webp" alt="Famiglia durante una cerimonia a ZAK Eventi" aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">05</span>
+              <p className="eyebrow">Comunioni</p>
+              <h2>Come organizzare una comunione a Napoli.</h2>
+              <p>Location, menu, bambini, allestimento e tempi della giornata.</p>
+              <Link className="text-link" to="/guide/come-organizzare-comunione-napoli">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
+
+          <article className="event-detail event-detail--reverse">
+            <EventPhoto src="/images/events/xtgb2834.webp" alt="Ingresso sul tappeto rosso durante una festa ZAK" aspect="portrait" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">06</span>
+              <p className="eyebrow">Tempi</p>
+              <h2>Quanto prima prenotare una sala per un diciottesimo?</h2>
+              <p>Quando muoversi e cosa sapere prima di bloccare la data.</p>
+              <Link className="text-link" to="/guide/quanto-prima-prenotare-sala-diciottesimo">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
+
+          <article className="event-detail">
+            <EventPhoto src="/images/events/xtgb3529.webp" alt="Allestimento reale per un diciottesimo a ZAK Eventi" aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">07</span>
+              <p className="eyebrow">Allestimento</p>
+              <h2>Allestimento diciottesimo a Napoli: cosa scegliere.</h2>
+              <p>Palette, zona torta, photo corner, numeri luminosi, balloon art ed extra.</p>
+              <Link className="text-link" to="/guide/allestimento-diciottesimo-napoli">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
         </div>
       </section>
 
