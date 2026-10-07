@@ -333,8 +333,8 @@ export const pageMeta = {
     description: "Sala eventi ad Arzano, in Via Napoli 270: diciottesimi, compleanni, comunioni e feste private. Scopri le foto di ZAK e prenota una visita.",
   },
   location: {
-    title: "Location per feste ad Arzano | ZAK Eventi",
-    description: "Scopri la sala ZAK Eventi in Via Napoli 270 ad Arzano: ambienti, ingresso e allestimenti fotografati durante feste reali. Prenota una visita.",
+    title: "Location per eventi e feste ad Arzano | ZAK Eventi",
+    description: "Scopri ZAK Eventi in Via Napoli 270 ad Arzano: sala, allestimenti e feste reali per diciottesimi, compleanni, comunioni, lauree ed eventi privati.",
   },
   eventi: {
     title: "Diciottesimi, compleanni e comunioni ad Arzano | ZAK Eventi",
@@ -361,8 +361,8 @@ export const pageMeta = {
     description: "Cerchi una location per una festa di laurea ad Arzano? Scopri ZAK Eventi, guarda la sala e chiedi una proposta per cena, brindisi e festa.",
   },
   servizi: {
-    title: "Organizzazione eventi e allestimenti ad Arzano | ZAK Eventi",
-    description: "Dalla consulenza all’allestimento, fino a musica, torta e coordinamento: scopri come progettare la tua festa ad Arzano con ZAK Eventi.",
+    title: "Organizzazione eventi ad Arzano | Servizi ZAK Eventi",
+    description: "Scopri il percorso ZAK per organizzare un evento ad Arzano: progettazione, allestimento, intrattenimento, food & beverage e coordinamento da definire nella proposta.",
   },
   gallery: {
     title: "Foto della sala e delle feste ad Arzano | ZAK Eventi",
