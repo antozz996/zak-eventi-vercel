@@ -7,7 +7,7 @@ export const siteConfig = {
   description:
     "ZAK crea, organizza e mette in scena momenti speciali in una location per eventi ad Arzano.",
   locale: "it_IT",
-  siteUrl: "https://zak-eventi-arzano.antozz9966.chatgpt.site",
+  siteUrl: "https://www.zakeventi.com",
   heroVideo: "",
   heroPoster: "/images/events/ingresso-abito-blu.webp",
   heroPosterMobile: "/images/events/ingresso-abito-blu.webp",
@@ -24,8 +24,8 @@ export const siteConfig = {
   },
   googleReviews: {
     rating: 4.8,
-    reviewCount: 145,
-    placeId: "",
+    reviewCount: 149,
+    placeId: "ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
   social: {
     instagram: "",
@@ -33,6 +33,12 @@ export const siteConfig = {
   },
   formEndpoint: "",
   analyticsEnabled: false,
+  legal: {
+    companyName: "ZERO S.r.l.",
+    vatNumber: "08769811210",
+    registeredOffice: "Via Napoli 270, 80022 Arzano (NA)",
+    pec: "espositosalvatore87@pec.it",
+  },
 } as const;
 
 export const navigation = [
