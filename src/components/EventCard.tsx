@@ -5,6 +5,12 @@ import { MediaPlaceholder } from "./MediaPlaceholder";
 import { EventPhoto } from "./EventPhoto";
 
 export function EventCard({ event }: { event: EventType }) {
+  const destination =
+    event.slug === "diciottesimi"
+      ? "/diciottesimi"
+      : event.slug === "comunioni"
+        ? "/comunioni"
+        : `/eventi#${event.slug}`;
   return (
     <article className="event-card">
       {event.media ? <EventPhoto src={event.media} alt={event.mediaAlt ?? event.title} aspect="portrait" /> : <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />}
@@ -12,7 +18,7 @@ export function EventCard({ event }: { event: EventType }) {
       <div className="event-card__content">
         <p>{event.moment}</p>
         <h3>{event.title}</h3>
-        <Link to={`/eventi#${event.slug}`}>
+        <Link to={destination}>
           Scopri <ArrowUpRight aria-hidden="true" size={18} />
         </Link>
       </div>

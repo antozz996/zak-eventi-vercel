@@ -332,6 +332,14 @@ export const pageMeta = {
     title: "Diciottesimi, compleanni e comunioni ad Arzano | ZAK Eventi",
     description: "Organizza un diciottesimo, compleanno, comunione o festa privata ad Arzano. Esplora le occasioni e richiedi informazioni a ZAK Eventi.",
   },
+  diciottesimi: {
+    title: "Sala per diciottesimo ad Arzano e Napoli Nord | ZAK Eventi",
+    description: "Cerchi una location per un diciottesimo ad Arzano o Napoli Nord? Scopri ZAK Eventi, guarda foto reali di feste e allestimenti e chiedi disponibilità.",
+  },
+  comunioni: {
+    title: "Sala per comunioni ad Arzano e Napoli Nord | ZAK Eventi",
+    description: "Organizza una comunione ad Arzano: scopri ZAK Eventi, gli allestimenti e le foto reali delle cerimonie. Chiedi informazioni e disponibilità.",
+  },
   servizi: {
     title: "Organizzazione eventi e allestimenti ad Arzano | ZAK Eventi",
     description: "Dalla consulenza all’allestimento, fino a musica, torta e coordinamento: scopri come progettare la tua festa ad Arzano con ZAK Eventi.",

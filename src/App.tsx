@@ -2,6 +2,7 @@ import { Route, Switch } from "wouter";
 import { Layout } from "./components/Layout";
 import { ContactPage } from "./pages/ContactPage";
 import { EventsPage } from "./pages/EventsPage";
+import { ComunioniPage, DiciottesimiPage } from "./pages/EventLandingPages";
 import { GalleryPage } from "./pages/GalleryPage";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage } from "./pages/LegalPage";
@@ -16,6 +17,8 @@ export default function App() {
         <Route path="/" component={HomePage} />
         <Route path="/location" component={LocationPage} />
         <Route path="/eventi" component={EventsPage} />
+        <Route path="/diciottesimi" component={DiciottesimiPage} />
+        <Route path="/comunioni" component={ComunioniPage} />
         <Route path="/servizi" component={ServicesPage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/contatti" component={ContactPage} />
