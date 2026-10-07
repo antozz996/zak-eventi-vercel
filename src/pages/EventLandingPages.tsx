@@ -144,12 +144,12 @@ export function DiciottesimiPage() {
 
           <ActionLinks eventName="un diciottesimo" galleryFilter="Diciottesimi" />
           <div className="centered-action">
-            <Link className="button button--outline-dark" to="/guide/come-scegliere-sala-diciottesimo-napoli">
-              Come scegliere la sala
-            </Link>
-            <Link className="button button--outline-dark" to="/guide/quanto-costa-diciottesimo-napoli">
-              Quanto costa un diciottesimo
-            </Link>
+            <Link className="button button--outline-dark" to="/guide/come-scegliere-sala-diciottesimo-napoli">Come scegliere la sala</Link>
+            <Link className="button button--outline-dark" to="/guide/quanto-costa-diciottesimo-napoli">Quanto costa</Link>
+            <Link className="button button--outline-dark" to="/guide/buffet-o-cena-servita-diciottesimo">Buffet o cena servita</Link>
+            <Link className="button button--outline-dark" to="/guide/checklist-diciottesimo">Checklist 18 anni</Link>
+            <Link className="button button--outline-dark" to="/guide/quanto-prima-prenotare-sala-diciottesimo">Quando prenotare</Link>
+            <Link className="button button--outline-dark" to="/guide/allestimento-diciottesimo-napoli">Allestimento</Link>
           </div>
         </div>
       </section>
@@ -280,6 +280,11 @@ export function ComunioniPage() {
           </p>
 
           <ActionLinks eventName="una comunione" galleryFilter="Cerimonie" />
+          <div className="centered-action">
+            <Link className="button button--outline-dark" to="/guide/come-organizzare-comunione-napoli">
+              Guida: come organizzare una comunione
+            </Link>
+          </div>
         </div>
       </section>
 

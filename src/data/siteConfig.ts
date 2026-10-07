@@ -388,6 +388,26 @@ export const pageMeta = {
     title: "Quanto costa un diciottesimo a Napoli? Guida 2026 | ZAK",
     description: "Quanto costa una festa di 18 anni a Napoli? Range di mercato, voci che incidono sul preventivo, costi extra e come confrontare davvero due proposte.",
   },
+  guideBuffetCena: {
+    title: "Buffet o cena servita per un diciottesimo? | ZAK Eventi",
+    description: "Buffet o cena servita per un 18°? Confronta ritmo della festa, servizio, musica, beverage e cosa chiedere alla location prima di scegliere.",
+  },
+  guideChecklistDiciottesimo: {
+    title: "Checklist diciottesimo: cosa organizzare e quando | ZAK",
+    description: "Checklist per organizzare un diciottesimo: cosa fare 6 mesi, 3 mesi, 1 mese e una settimana prima della festa senza dimenticare nulla.",
+  },
+  guideComunione: {
+    title: "Come organizzare una comunione a Napoli | Guida ZAK",
+    description: "Come organizzare una comunione a Napoli: location, pranzo o cena, menu bambini, intrattenimento, allestimento e domande da fare prima di prenotare.",
+  },
+  guidePrenotazioneDiciottesimo: {
+    title: "Quanto prima prenotare una sala per un 18°? | ZAK Eventi",
+    description: "Quanto tempo prima prenotare una sala per un diciottesimo? Scopri quando iniziare, quali periodi si riempiono prima e cosa sapere prima di bloccare la data.",
+  },
+  guideAllestimentoDiciottesimo: {
+    title: "Allestimento diciottesimo a Napoli: guida pratica | ZAK",
+    description: "Come scegliere l'allestimento per un diciottesimo a Napoli: palette, zona torta, photo corner, numeri luminosi, balloon art, ingombri ed extra.",
+  },
   gallery: {
     title: "Foto della sala e delle feste ad Arzano | ZAK Eventi",
     description: "Guarda le foto reali della sala, degli allestimenti e delle feste di ZAK Eventi ad Arzano. Filtra ingressi, cerimonie, diciottesimi ed emozioni.",

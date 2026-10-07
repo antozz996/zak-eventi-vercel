@@ -11,6 +11,13 @@ import { LocationPage } from "./pages/LocationPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { CostoDiciottesimoGuidePage, DiciottesimoGuidePage, GuidesPage } from "./pages/GuidePages";
+import {
+  AllestimentoDiciottesimoGuidePage,
+  BuffetVsCenaGuidePage,
+  ChecklistDiciottesimoGuidePage,
+  ComunioneGuidePage,
+  PrenotazioneDiciottesimoGuidePage,
+} from "./pages/MoreGuidePages";
 
 export default function App() {
   return (
@@ -29,6 +36,11 @@ export default function App() {
         <Route path="/guide" component={GuidesPage} />
         <Route path="/guide/come-scegliere-sala-diciottesimo-napoli" component={DiciottesimoGuidePage} />
         <Route path="/guide/quanto-costa-diciottesimo-napoli" component={CostoDiciottesimoGuidePage} />
+        <Route path="/guide/buffet-o-cena-servita-diciottesimo" component={BuffetVsCenaGuidePage} />
+        <Route path="/guide/checklist-diciottesimo" component={ChecklistDiciottesimoGuidePage} />
+        <Route path="/guide/come-organizzare-comunione-napoli" component={ComunioneGuidePage} />
+        <Route path="/guide/quanto-prima-prenotare-sala-diciottesimo" component={PrenotazioneDiciottesimoGuidePage} />
+        <Route path="/guide/allestimento-diciottesimo-napoli" component={AllestimentoDiciottesimoGuidePage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/contatti" component={ContactPage} />
         <Route path="/privacy-policy"><LegalPage type="privacy" /></Route>
