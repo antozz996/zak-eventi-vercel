@@ -19,18 +19,18 @@ Portare ZAK Eventi a presidiare le ricerche locali ad alta intenzione commercial
 | sala diciottesimo Arzano | Transazionale | /diciottesimi | P0 | Pubblicata |
 | diciottesimo Napoli Nord | Transazionale | /diciottesimi | P0 | Pubblicata |
 | sala comunione Arzano | Transazionale | /comunioni | P0 | Pubblicata |
-| sala battesimo Arzano | Transazionale | /battesimi | P0 | In implementazione |
+| sala battesimo Arzano | Transazionale | /battesimi | P0 | Pubblicata |
 | sala compleanno Arzano | Transazionale | /compleanni | P0 | Pubblicata |
 | festa privata Arzano | Transazionale | /feste-private | P0 | Pubblicata |
 | festa laurea Arzano | Transazionale | /lauree | P1 | Pubblicata |
 | organizzazione eventi Arzano | Commerciale | /servizi | P1 | Pubblicata |
-| quanto costa un diciottesimo a Napoli | Informativo-commerciale | /guide/quanto-costa-diciottesimo-napoli | P0 | In implementazione |
+| quanto costa un diciottesimo a Napoli | Informativo-commerciale | /guide/quanto-costa-diciottesimo-napoli | P0 | Pubblicata |
 | come scegliere sala diciottesimo Napoli | Informativo-commerciale | /guide/come-scegliere-sala-diciottesimo-napoli | P0 | Pubblicata |
-| buffet o cena servita diciottesimo | Informativo-commerciale | futura guida | P1 | Da creare |
-| checklist festa 18 anni | Informativo / lead magnet | futura guida | P1 | Da creare |
-| come organizzare una comunione a Napoli | Informativo-commerciale | futura guida | P1 | Da creare |
-| quanto prima prenotare sala 18 anni | Informativo | futura guida / FAQ | P2 | Da creare |
-| allestimento 18 anni Napoli | Commerciale | /servizi + futura guida | P2 | Da rafforzare |
+| buffet o cena servita diciottesimo | Informativo-commerciale | /guide/buffet-o-cena-servita-diciottesimo | P1 | Pubblicata |
+| checklist festa 18 anni | Informativo / lead magnet | /guide/checklist-diciottesimo | P1 | Pubblicata |
+| come organizzare una comunione a Napoli | Informativo-commerciale | /guide/come-organizzare-comunione-napoli | P1 | Pubblicata |
+| quanto prima prenotare sala 18 anni | Informativo | /guide/quanto-prima-prenotare-sala-diciottesimo | P2 | Pubblicata |
+| allestimento 18 anni Napoli | Commerciale | /guide/allestimento-diciottesimo-napoli + /servizi | P2 | Pubblicata |
 
 ## Strategia per cluster
 
@@ -55,21 +55,29 @@ Supporto:
 - /servizi
 - /location
 
-Prossime guide:
-1. Buffet o cena servita per un diciottesimo?
-2. Checklist diciottesimo: da 6 mesi prima al giorno della festa.
-3. Cosa chiedere nel preventivo di una festa di 18 anni.
-4. Come scegliere DJ, fotografo e allestimento senza duplicare i costi.
+Guide pubblicate:
+1. Come scegliere una sala per un diciottesimo a Napoli.
+2. Quanto costa un diciottesimo a Napoli.
+3. Buffet o cena servita per un diciottesimo.
+4. Checklist diciottesimo.
+5. Quanto prima prenotare la sala.
+6. Allestimento diciottesimo a Napoli.
+
+Prossimi contenuti da valutare solo dopo dati Search Console:
+- cosa chiedere nel preventivo di una festa di 18 anni;
+- DJ, fotografo e servizi accessori: come evitare duplicazioni di costo.
 
 ### 3. Cerimonie
 Money pages:
 - /comunioni
 - /battesimi
 
-Supporto futuro:
-- Come organizzare una comunione a Napoli.
-- Menu bambini e gestione degli invitati piccoli.
-- Pranzo o cena per una cerimonia: come scegliere.
+Supporto pubblicato:
+- /guide/come-organizzare-comunione-napoli
+
+Da valutare dopo dati Search Console:
+- menu bambini e gestione degli invitati piccoli;
+- pranzo o cena per una cerimonia: come scegliere.
 
 ### 4. Eventi adulti
 Money pages:
