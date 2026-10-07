@@ -1,6 +1,6 @@
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/servizi", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/servizi", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
 export function getPageSeo(path: string) {
   const normalized = path.replace(/\/$/, "") || "/";
