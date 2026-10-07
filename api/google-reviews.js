@@ -11,7 +11,7 @@ function json(data, status = 200, cacheControl = "no-store") {
 
 async function getGoogleReviews(env) {
   const apiKey = env?.GOOGLE_PLACES_API_KEY;
-  const placeId = env?.GOOGLE_PLACE_ID;
+  const placeId = env?.GOOGLE_PLACE_ID || "ChIJFbZ-w5gHOxMR8ZoQF7QAYEA";
 
   if (!apiKey || !placeId) {
     return json({ configured: false }, 503);
@@ -60,7 +60,7 @@ async function getGoogleReviews(env) {
       reviews,
     },
     200,
-    "public, max-age=3600, stale-while-revalidate=86400",
+    "public, max-age=300, s-maxage=21600, stale-while-revalidate=86400",
   );
 }
 

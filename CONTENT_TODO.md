@@ -43,7 +43,7 @@ Non sono stati inseriti prezzi, pacchetti o affermazioni commerciali non conferm
 - [ ] Email
 - [x] Indirizzo completo
 - [x] URL di ricerca Google Maps
-- [ ] Place ID Google ufficiale
+- [x] Place ID Google ufficiale
 - [ ] Coordinate o iframe Google Maps, se approvato
 - [ ] Orari di contatto o apertura
 - [ ] URL Instagram
@@ -69,7 +69,7 @@ Aggiornare questi valori in `src/data/siteConfig.ts`.
 - [ ] Endpoint backend o servizio approvato per il modulo contatti
 - [ ] Validazione server-side, anti-spam, rate limiting e gestione errori
 - [ ] Email/destinazione delle richieste
-- [ ] Variabili hosting `GOOGLE_PLACE_ID` e `GOOGLE_PLACES_API_KEY`
+- [ ] Variabile hosting `GOOGLE_PLACES_API_KEY` (Place ID già configurato come fallback non segreto)
 - [ ] Eventuale analytics con configurazione consent-mode
 - [ ] Eventuale Meta Pixel
 - [ ] Aggiornamento del banner cookie in base agli script realmente attivi
