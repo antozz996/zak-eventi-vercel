@@ -48,7 +48,7 @@ Non sono stati inseriti prezzi, pacchetti o affermazioni commerciali non conferm
 - [ ] Orari di contatto o apertura
 - [ ] URL Instagram
 - [ ] URL Facebook
-- [ ] Dominio personalizzato definitivo (il sito usa temporaneamente il dominio pubblico del provider)
+- [x] Dominio personalizzato definitivo: https://www.zakeventi.com
 
 Aggiornare questi valori in `src/data/siteConfig.ts`.
 
@@ -58,10 +58,10 @@ Aggiornare questi valori in `src/data/siteConfig.ts`.
 - [ ] Google Place ID e chiave Places API con fatturazione attiva
 - [ ] Import dinamico delle singole recensioni tramite Places API
 - [ ] Fotografie opzionali associate alle recensioni con autorizzazione
-- [ ] Privacy Policy definitiva
-- [ ] Cookie Policy definitiva
-- [ ] Dati del titolare del trattamento
-- [ ] Dati societari e fiscali da mostrare nel footer
+- [x] Privacy Policy pubblicata con dati del titolare
+- [x] Cookie Policy coerente con tracking disattivato
+- [x] Dati del titolare del trattamento: ZERO S.r.l.
+- [x] Dati societari e fiscali essenziali mostrati nel footer
 - [ ] Termini di conservazione dei dati del modulo
 
 ## Funzioni e misurazione
@@ -73,7 +73,7 @@ Aggiornare questi valori in `src/data/siteConfig.ts`.
 - [ ] Eventuale analytics con configurazione consent-mode
 - [ ] Eventuale Meta Pixel
 - [ ] Aggiornamento del banner cookie in base agli script realmente attivi
-- [ ] Dominio definitivo in canonical, sitemap e robots
+- [x] Dominio definitivo in canonical, sitemap e robots
 - [ ] Immagine Open Graph originale
 
 Analytics e Pixel non sono attivi nel progetto corrente.

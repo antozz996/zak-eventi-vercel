@@ -43,7 +43,10 @@ export function Footer() {
         </div>}
       </div>
       <div className="container site-footer__bottom">
-        <p>© {new Date().getFullYear()} ZAK Eventi.</p>
+        <div>
+          <p>© {new Date().getFullYear()} ZAK Eventi.</p>
+          <p>{siteConfig.legal.companyName} · P.IVA {siteConfig.legal.vatNumber} · {siteConfig.legal.registeredOffice}</p>
+        </div>
         <div>
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/cookie-policy">Cookie Policy</Link>

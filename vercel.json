@@ -22,5 +22,19 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "zakeventi.com"
+        }
+      ],
+      "destination": "https://www.zakeventi.com/:path*",
+      "permanent": true
+    }
+  ]
 }
