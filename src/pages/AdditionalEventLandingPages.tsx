@@ -1,0 +1,232 @@
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "../lib/router";
+import { EventPhoto } from "../components/EventPhoto";
+import { FinalCTA } from "../components/FinalCTA";
+import { Seo } from "../components/Seo";
+import { pageMeta } from "../data/siteConfig";
+import { getEventWhatsAppMessage, getWhatsAppLink } from "../utils/whatsapp";
+
+type LandingConfig = {
+  meta: { title: string; description: string };
+  path: string;
+  eyebrow: string;
+  h1: string;
+  intro: string;
+  eventName: string;
+  galleryFilter: string;
+  image: string;
+  imageAlt: string;
+  image2: string;
+  imageAlt2: string;
+  sectionTitle: string;
+  sectionText: string;
+  steps: Array<{ title: string; text: string }>;
+  secondTitle: string;
+  secondText: string;
+  faqTitle: string;
+  faqs: Array<{ q: string; a: string }>;
+};
+
+function LandingActions({ eventName, galleryFilter }: { eventName: string; galleryFilter: string }) {
+  const whatsapp = getWhatsAppLink(getEventWhatsAppMessage(eventName));
+  return (
+    <div className="inline-links">
+      {whatsapp ? (
+        <a href={whatsapp} target="_blank" rel="noreferrer">
+          Chiedi disponibilità <ArrowUpRight aria-hidden="true" size={17} />
+        </a>
+      ) : (
+        <Link to="/contatti">Chiedi disponibilità</Link>
+      )}
+      <Link to={`/gallery?filtro=${galleryFilter}`}>Guarda le foto reali</Link>
+    </div>
+  );
+}
+
+function EventSeoLanding(config: LandingConfig) {
+  return (
+    <>
+      <Seo {...config.meta} path={config.path} />
+
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">{config.eyebrow}</p>
+          <h1>{config.h1}</h1>
+          <p>{config.intro}</p>
+        </div>
+      </section>
+
+      <section className="section section--ivory">
+        <div className="container">
+          <article className="event-detail">
+            <EventPhoto src={config.image} alt={config.imageAlt} aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">01</span>
+              <h2>{config.sectionTitle}</h2>
+              <p>{config.sectionText}</p>
+              <LandingActions eventName={config.eventName} galleryFilter={config.galleryFilter} />
+            </div>
+          </article>
+
+          <ol className="service-journey">
+            {config.steps.map((step, index) => (
+              <li key={step.title}>
+                <span>0{index + 1}</span>
+                <div>
+                  <h2>{step.title}</h2>
+                  <p>{step.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <aside className="confirmation-note">
+            <strong>Una proposta costruita sull'evento</strong>
+            <p>
+              Servizi, formula e disponibilità vengono confermati durante l'appuntamento. Il sito non presenta
+              come inclusi elementi che devono essere concordati con il team ZAK.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section className="section section--midnight">
+        <div className="container">
+          <article className="event-detail event-detail--reverse">
+            <EventPhoto src={config.image2} alt={config.imageAlt2} aspect="landscape" />
+            <div className="event-detail__content">
+              <span className="event-detail__number">02</span>
+              <h2>{config.secondTitle}</h2>
+              <p>{config.secondText}</p>
+              <div className="inline-links">
+                <Link to={`/gallery?filtro=${config.galleryFilter}`}>Esplora la gallery</Link>
+                <Link to="/location">Scopri la location</Link>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="section section--ivory">
+        <div className="container legal-page__content">
+          <p className="eyebrow">Domande frequenti</p>
+          <h2>{config.faqTitle}</h2>
+          {config.faqs.map((faq) => (
+            <div key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
+          <LandingActions eventName={config.eventName} galleryFilter={config.galleryFilter} />
+        </div>
+      </section>
+
+      <FinalCTA />
+    </>
+  );
+}
+
+export function CompleanniPage() {
+  return EventSeoLanding({
+    meta: pageMeta.compleanni,
+    path: "/compleanni",
+    eyebrow: "Compleanni ad Arzano",
+    h1: "Una sala per il tuo compleanno, costruita intorno alla festa che vuoi vivere.",
+    intro:
+      "ZAK Eventi è in Via Napoli 270 ad Arzano. Dalla cena alla festa più dinamica, il progetto parte dalla persona, dal numero di invitati e dall'atmosfera desiderata.",
+    eventName: "un compleanno",
+    galleryFilter: "Emozioni",
+    image: "/images/events/xtgb3320.webp",
+    imageAlt: "Festeggiata in abito rosso accanto alla torta durante un compleanno a ZAK Eventi",
+    image2: "/images/events/xtgb9908.webp",
+    imageAlt2: "Brindisi di gruppo durante una festa reale a ZAK Eventi",
+    sectionTitle: "Ogni età può avere una festa diversa.",
+    sectionText:
+      "Un compleanno può essere elegante, conviviale o più orientato alla festa. Durante l'appuntamento definiamo insieme impostazione, spazi, allestimento, food & beverage e gli altri elementi da inserire nella proposta.",
+    steps: [
+      { title: "Definiamo occasione e invitati", text: "Partiamo da età, data, numero indicativo di persone e tipo di atmosfera." },
+      { title: "Disegniamo lo spazio", text: "La disposizione viene adattata alla formula e al ritmo desiderato per la festa." },
+      { title: "Coordiniamo i momenti", text: "Accoglienza, convivialità, musica, brindisi e torta vengono pensati come un'unica esperienza." },
+      { title: "Confermiamo la proposta", text: "Disponibilità e servizi vengono verificati direttamente con il team ZAK." },
+    ],
+    secondTitle: "Guarda feste vere prima di immaginare la tua.",
+    secondText:
+      "La gallery raccoglie immagini reali di compleanni e feste vissute a ZAK, utili per capire atmosfera, allestimenti e ritmo degli spazi.",
+    faqTitle: "Compleanno a ZAK Eventi",
+    faqs: [
+      { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
+      { q: "Si possono organizzare compleanni per adulti?", a: "Sì. La formula viene costruita in base all'occasione, agli invitati e allo stile desiderato." },
+      { q: "Come verifico data e disponibilità?", a: "Scrivi su WhatsApp indicando data, numero indicativo di invitati ed età o tipo di compleanno." },
+    ],
+  });
+}
+
+export function FestePrivatePage() {
+  return EventSeoLanding({
+    meta: pageMeta["feste-private"],
+    path: "/feste-private",
+    eyebrow: "Feste private ad Arzano",
+    h1: "Una location per feste private ad Arzano, da trasformare intorno alla tua idea.",
+    intro:
+      "ZAK Eventi ospita occasioni private da costruire su misura. La formula viene definita in base alla tipologia di festa, agli invitati e al tipo di esperienza che vuoi creare.",
+    eventName: "una festa privata",
+    galleryFilter: "Emozioni",
+    image: "/images/events/xtgb2648.webp",
+    imageAlt: "Ospiti in cerchio durante una festa privata nella sala ZAK Eventi",
+    image2: "/images/events/xtgb2618.webp",
+    imageAlt2: "Gruppo di ospiti durante una festa reale nella sala ZAK Eventi",
+    sectionTitle: "Non tutte le feste entrano in una categoria.",
+    sectionText:
+      "Anniversari, ricorrenze e occasioni personali possono richiedere un'impostazione diversa. ZAK parte dall'idea e costruisce una proposta coerente con il tipo di serata.",
+    steps: [
+      { title: "Raccontaci cosa vuoi festeggiare", text: "Occasione, invitati, data e atmosfera sono il punto di partenza." },
+      { title: "Scegliamo l'impostazione", text: "La sala viene organizzata in relazione alla formula concordata e al tipo di festa." },
+      { title: "Costruiamo il ritmo", text: "Musica, convivialità e momenti speciali vengono coordinati in base all'evento." },
+      { title: "Confermiamo ciò che serve", text: "La proposta finale viene definita durante l'appuntamento, senza pacchetti standard imposti." },
+    ],
+    secondTitle: "Una sala, atmosfere diverse.",
+    secondText:
+      "Le fotografie del sito mostrano configurazioni e momenti realmente vissuti a ZAK. Sono il modo più concreto per capire come lo spazio può cambiare tra una festa e l'altra.",
+    faqTitle: "Festa privata a ZAK Eventi",
+    faqs: [
+      { q: "Quali feste private posso proporre?", a: "Puoi raccontare l'occasione al team ZAK: la fattibilità e la formula vengono verificate durante l'appuntamento." },
+      { q: "La location è ad Arzano?", a: "Sì, ZAK Eventi si trova in Via Napoli 270, Arzano (NA)." },
+      { q: "Posso chiedere una proposta personalizzata?", a: "Sì. La proposta viene costruita sull'evento e confermata in base a disponibilità e servizi scelti." },
+    ],
+  });
+}
+
+export function LaureePage() {
+  return EventSeoLanding({
+    meta: pageMeta.lauree,
+    path: "/lauree",
+    eyebrow: "Feste di laurea ad Arzano",
+    h1: "Festeggia la laurea in una location dove cena, brindisi e festa possono stare nella stessa esperienza.",
+    intro:
+      "ZAK Eventi, in Via Napoli 270 ad Arzano, ha già ospitato feste di laurea. La proposta viene costruita intorno al laureato, agli invitati e al tipo di serata desiderata.",
+    eventName: "una festa di laurea",
+    galleryFilter: "Emozioni",
+    image: "/images/events/xtgb9908.webp",
+    imageAlt: "Brindisi di gruppo durante una festa reale a ZAK Eventi",
+    image2: "/images/events/xtgb6517.webp",
+    imageAlt2: "Sala ZAK Eventi allestita e pronta ad accogliere gli ospiti",
+    sectionTitle: "Dal brindisi alla festa, senza cambiare atmosfera.",
+    sectionText:
+      "La laurea può essere impostata come cena, ricevimento o festa più dinamica. Durante l'appuntamento si definiscono formula, spazi, allestimento e gli altri servizi da valutare.",
+    steps: [
+      { title: "Partiamo dal tipo di serata", text: "Cena, festa, numero di invitati e stile desiderato definiscono la direzione." },
+      { title: "Adattiamo la sala", text: "La disposizione degli spazi viene costruita in relazione alla formula concordata." },
+      { title: "Diamo spazio ai momenti importanti", text: "Brindisi, torta, musica e foto possono essere inseriti nella regia dell'evento." },
+      { title: "Verifichiamo disponibilità e servizi", text: "Ogni elemento viene confermato direttamente con il team prima della prenotazione." },
+    ],
+    secondTitle: "Una vera esperienza di laurea è già stata raccontata dai clienti.",
+    secondText:
+      "Le recensioni pubbliche riportano anche feste di laurea organizzate a ZAK. Sul sito preferiamo però mostrare soltanto fotografie di cui conosciamo con certezza il contesto, senza attribuire a una laurea immagini generiche.",
+    faqTitle: "Festa di laurea a ZAK Eventi",
+    faqs: [
+      { q: "ZAK ha già ospitato feste di laurea?", a: "Sì. Recensioni pubbliche di clienti descrivono feste di laurea svolte nella location." },
+      { q: "Posso organizzare cena e festa nello stesso evento?", a: "La formula desiderata può essere proposta al team e viene confermata durante l'appuntamento in base a disponibilità e servizi." },
+      { q: "Come posso chiedere un preventivo?", a: "Scrivi su WhatsApp indicando data, numero indicativo di invitati e come immagini la serata." },
+    ],
+  });
+}
