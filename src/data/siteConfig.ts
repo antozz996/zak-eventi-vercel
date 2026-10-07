@@ -76,6 +76,14 @@ export const eventTypes: EventType[] = [
     moment: "Famiglia, emozione e convivialità.",
   },
   {
+    slug: "battesimi",
+    media: "/images/events/xtgb6585.webp",
+    mediaAlt: "Famiglia durante una cerimonia con torta e allestimento a ZAK Eventi",
+    title: "Battesimi",
+    description: "Un ricevimento di famiglia da costruire intorno all'occasione e alle persone che la vivono.",
+    moment: "Famiglia, accoglienza e convivialità.",
+  },
+  {
     slug: "cerimonie",
     media: "/images/events/xtgb0819.webp",
     mediaAlt: "Allestimento con torta e palloncini blu e argento",
@@ -348,6 +356,10 @@ export const pageMeta = {
     title: "Sala per comunioni ad Arzano e Napoli Nord | ZAK Eventi",
     description: "Organizza una comunione ad Arzano: scopri ZAK Eventi, gli allestimenti e le foto reali delle cerimonie. Chiedi informazioni e disponibilità.",
   },
+  battesimi: {
+    title: "Sala per battesimi ad Arzano e Napoli Nord | ZAK Eventi",
+    description: "Cerchi una sala per un battesimo ad Arzano? Scopri ZAK Eventi, la location e le foto reali delle cerimonie. Chiedi disponibilità e prenota una visita.",
+  },
   compleanni: {
     title: "Sala per compleanni ad Arzano e Napoli Nord | ZAK Eventi",
     description: "Cerchi una sala per compleanno ad Arzano o Napoli Nord? Scopri ZAK Eventi, guarda feste reali e chiedi disponibilità per la tua data.",
@@ -371,6 +383,10 @@ export const pageMeta = {
   guideDiciottesimo: {
     title: "Come scegliere una sala per un diciottesimo a Napoli | ZAK",
     description: "10 controlli da fare prima di prenotare una sala per un diciottesimo a Napoli: invitati, spazi, servizi, food, musica, allestimento, extra e sopralluogo.",
+  },
+  guideCostoDiciottesimo: {
+    title: "Quanto costa un diciottesimo a Napoli? Guida 2026 | ZAK",
+    description: "Quanto costa una festa di 18 anni a Napoli? Range di mercato, voci che incidono sul preventivo, costi extra e come confrontare davvero due proposte.",
   },
   gallery: {
     title: "Foto della sala e delle feste ad Arzano | ZAK Eventi",
