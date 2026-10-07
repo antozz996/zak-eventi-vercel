@@ -20,7 +20,7 @@ export const siteConfig = {
     openingHours: "Consulta Google Maps per gli orari aggiornati",
     mapEmbedUrl: "",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Zak%20Eventi%20Via%20Napoli%20270%2080022%20Arzano%20NA",
+      "https://www.google.com/maps/search/?api=1&query=ZAK%20Eventi&query_place_id=ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
   googleReviews: {
     rating: 4.8,
