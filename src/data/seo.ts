@@ -2,6 +2,16 @@ import { pageMeta, siteConfig } from "./siteConfig";
 
 export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
+const guideImages: Record<string, string> = {
+  "/guide/come-scegliere-sala-diciottesimo-napoli": "/images/events/xtgb3357.webp",
+  "/guide/quanto-costa-diciottesimo-napoli": "/images/events/xtgb3531.webp",
+  "/guide/buffet-o-cena-servita-diciottesimo": "/images/events/xtgb6517.webp",
+  "/guide/checklist-diciottesimo": "/images/events/xtgb1140.webp",
+  "/guide/come-organizzare-comunione-napoli": "/images/events/xtgb5080.webp",
+  "/guide/quanto-prima-prenotare-sala-diciottesimo": "/images/events/xtgb2834.webp",
+  "/guide/allestimento-diciottesimo-napoli": "/images/events/xtgb3529.webp",
+};
+
 const routeMeta = {
   "/": pageMeta.home,
   "/location": pageMeta.location,
@@ -121,7 +131,8 @@ export function getStructuredData(path: string, title: string) {
     publisher: { "@id": organization["@id"] },
     datePublished: "2026-10-07",
     dateModified: "2026-10-07",
-    image: `${origin}/images/events/xtgb3357.webp`,
+    image: `${origin}${guideImages[path] ?? "/images/events/xtgb3357.webp"}`,
+    articleSection: path.includes("comunione") ? "Comunioni" : "Diciottesimi",
     inLanguage: "it-IT",
   }] : [];
 
