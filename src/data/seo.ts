@@ -1,11 +1,27 @@
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/compleanni", "/feste-private", "/lauree", "/servizi", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+
+const routeMeta = {
+  "/": pageMeta.home,
+  "/location": pageMeta.location,
+  "/eventi": pageMeta.eventi,
+  "/diciottesimi": pageMeta.diciottesimi,
+  "/comunioni": pageMeta.comunioni,
+  "/compleanni": pageMeta.compleanni,
+  "/feste-private": pageMeta["feste-private"],
+  "/lauree": pageMeta.lauree,
+  "/servizi": pageMeta.servizi,
+  "/guide": pageMeta.guide,
+  "/guide/come-scegliere-sala-diciottesimo-napoli": pageMeta.guideDiciottesimo,
+  "/gallery": pageMeta.gallery,
+  "/contatti": pageMeta.contatti,
+} as const;
 
 export function getPageSeo(path: string) {
   const normalized = path.replace(/\/$/, "") || "/";
-  const key = normalized === "/" ? "home" : normalized.slice(1);
-  if (key in pageMeta) return { ...pageMeta[key as keyof typeof pageMeta], noIndex: false };
+  const meta = routeMeta[normalized as keyof typeof routeMeta];
+  if (meta) return { ...meta, noIndex: false };
   const legal = normalized === "/privacy-policy" || normalized === "/cookie-policy";
   return {
     title: legal ? `${normalized === "/privacy-policy" ? "Privacy Policy" : "Cookie Policy"} | ZAK Eventi` : "Pagina non trovata | ZAK Eventi",
@@ -77,11 +93,30 @@ export function getStructuredData(path: string, title: string) {
 
   const breadcrumbs = path === "/" ? [] : [{
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
-      { "@type": "ListItem", position: 2, name: title.split(" | ")[0], item: url },
-    ],
+    itemListElement: path.startsWith("/guide/")
+      ? [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
+          { "@type": "ListItem", position: 2, name: "Guide", item: `${origin}/guide` },
+          { "@type": "ListItem", position: 3, name: title.split(" | ")[0], item: url },
+        ]
+      : [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
+          { "@type": "ListItem", position: 2, name: title.split(" | ")[0], item: url },
+        ],
   }];
 
-  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...breadcrumbs] };
+  const article = path.startsWith("/guide/") ? [{
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: title.split(" | ")[0],
+    mainEntityOfPage: { "@id": webpage["@id"] },
+    author: { "@id": organization["@id"] },
+    publisher: { "@id": organization["@id"] },
+    datePublished: "2026-10-07",
+    dateModified: "2026-10-07",
+    image: `${origin}/images/events/xtgb3357.webp`,
+    inLanguage: "it-IT",
+  }] : [];
+
+  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...article, ...breadcrumbs] };
 }
