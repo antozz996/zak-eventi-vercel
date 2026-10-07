@@ -1,6 +1,5 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { useLocation } from "../lib/router";
-import { CookieBanner } from "./CookieBanner";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { WhatsAppButton } from "./WhatsAppButton";
@@ -33,7 +32,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
       <Footer />
       <WhatsAppButton fixed />
-      <CookieBanner />
     </>
   );
 }
