@@ -32,6 +32,7 @@ export function EventsPage() {
                   <div className="inline-links">
                     {event.slug === "diciottesimi" && <Link to="/diciottesimi">Scopri la pagina dedicata</Link>}
                     {event.slug === "comunioni" && <Link to="/comunioni">Scopri la pagina dedicata</Link>}
+                    {event.slug === "battesimi" && <Link to="/battesimi">Scopri la pagina dedicata</Link>}
                     {event.slug === "compleanni" && <Link to="/compleanni">Scopri la pagina dedicata</Link>}
                     {event.slug === "feste-private" && <Link to="/feste-private">Scopri la pagina dedicata</Link>}
                     {event.slug === "lauree" && <Link to="/lauree">Scopri la pagina dedicata</Link>}
