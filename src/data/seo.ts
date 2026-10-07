@@ -2,6 +2,22 @@ import { pageMeta, siteConfig } from "./siteConfig";
 
 export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
+const pageImages: Record<string, string> = {
+  "/": "/images/events/ingresso-abito-blu.webp",
+  "/location": "/images/events/xtgb6517.webp",
+  "/eventi": "/images/events/xtgb2618.webp",
+  "/diciottesimi": "/images/events/xtgb3357.webp",
+  "/comunioni": "/images/events/xtgb6585.webp",
+  "/battesimi": "/images/events/xtgb6585.webp",
+  "/compleanni": "/images/events/xtgb3320.webp",
+  "/feste-private": "/images/events/xtgb2648.webp",
+  "/lauree": "/images/events/xtgb9908.webp",
+  "/servizi": "/images/events/xtgb5080.webp",
+  "/guide": "/images/events/xtgb3357.webp",
+  "/gallery": "/images/events/xtgb2618.webp",
+  "/contatti": "/images/events/xtgb6517.webp",
+};
+
 const guideImages: Record<string, string> = {
   "/guide/come-scegliere-sala-diciottesimo-napoli": "/images/events/xtgb3357.webp",
   "/guide/quanto-costa-diciottesimo-napoli": "/images/events/xtgb3531.webp",
@@ -11,6 +27,10 @@ const guideImages: Record<string, string> = {
   "/guide/quanto-prima-prenotare-sala-diciottesimo": "/images/events/xtgb2834.webp",
   "/guide/allestimento-diciottesimo-napoli": "/images/events/xtgb3529.webp",
 };
+
+export function getPageImage(path: string) {
+  return guideImages[path] ?? pageImages[path] ?? siteConfig.heroPoster;
+}
 
 const routeMeta = {
   "/": pageMeta.home,
@@ -131,7 +151,7 @@ export function getStructuredData(path: string, title: string) {
     publisher: { "@id": organization["@id"] },
     datePublished: "2026-10-07",
     dateModified: "2026-10-07",
-    image: `${origin}${guideImages[path] ?? "/images/events/xtgb3357.webp"}`,
+    image: `${origin}${getPageImage(path)}`,
     articleSection: path.includes("comunione") ? "Comunioni" : "Diciottesimi",
     inLanguage: "it-IT",
   }] : [];
