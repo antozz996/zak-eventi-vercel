@@ -230,3 +230,40 @@ export function LaureePage() {
     ],
   });
 }
+
+
+export function BattesimiPage() {
+  return EventSeoLanding({
+    meta: pageMeta.battesimi,
+    path: "/battesimi",
+    eyebrow: "Battesimi ad Arzano",
+    h1: "Una sala per il battesimo ad Arzano, pensata per accogliere famiglia e persone care.",
+    intro:
+      "ZAK Eventi è in Via Napoli 270 ad Arzano. Il battesimo viene costruito partendo dalla famiglia, dal numero di invitati e dal tipo di ricevimento desiderato.",
+    eventName: "un battesimo",
+    galleryFilter: "Cerimonie",
+    image: "/images/events/xtgb6585.webp",
+    imageAlt: "Famiglia durante una cerimonia con torta e allestimento a ZAK Eventi",
+    image2: "/images/events/xtgb5080.webp",
+    imageAlt2: "Allestimento reale per una cerimonia a ZAK Eventi con palloncini e torta",
+    sectionTitle: "Una giornata di famiglia, con una formula da costruire insieme.",
+    sectionText:
+      "Pranzo, cena o altra impostazione vengono valutati durante l'appuntamento. Spazi, allestimento, food & beverage e servizi vengono definiti in funzione dell'occasione e delle esigenze della famiglia.",
+    steps: [
+      { title: "Partiamo da data e invitati", text: "Numero indicativo di persone, orario e stile desiderato sono il punto di partenza." },
+      { title: "Definiamo la formula", text: "La proposta viene costruita in relazione al tipo di ricevimento che la famiglia vuole vivere." },
+      { title: "Progettiamo atmosfera e momenti", text: "Allestimento, convivialità e torta vengono inseriti in una sequenza coerente." },
+      { title: "Confermiamo servizi e disponibilità", text: "Ogni voce viene definita direttamente con ZAK prima della prenotazione." },
+    ],
+    secondTitle: "Cerimonie reali, non immagini di repertorio.",
+    secondText:
+      "Per raccontare battesimi e cerimonie utilizziamo fotografie reali della location e di eventi svolti a ZAK. Quando il contesto specifico della foto non è certo, evitiamo di attribuirla a un battesimo particolare.",
+    faqTitle: "Battesimo a ZAK Eventi",
+    faqs: [
+      { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
+      { q: "Si può organizzare un battesimo a pranzo o a cena?", a: "La formula e l'orario desiderati vengono valutati durante l'appuntamento e confermati in base alla disponibilità." },
+      { q: "È possibile personalizzare l'allestimento?", a: "La personalizzazione viene definita con il team in relazione alla proposta e ai servizi disponibili." },
+      { q: "Come richiedo disponibilità?", a: "Scrivi su WhatsApp indicando data indicativa, numero di invitati e come immagini il ricevimento." },
+    ],
+  });
+}

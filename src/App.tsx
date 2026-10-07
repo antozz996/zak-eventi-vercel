@@ -3,14 +3,14 @@ import { Layout } from "./components/Layout";
 import { ContactPage } from "./pages/ContactPage";
 import { EventsPage } from "./pages/EventsPage";
 import { ComunioniPage, DiciottesimiPage } from "./pages/EventLandingPages";
-import { CompleanniPage, FestePrivatePage, LaureePage } from "./pages/AdditionalEventLandingPages";
+import { BattesimiPage, CompleanniPage, FestePrivatePage, LaureePage } from "./pages/AdditionalEventLandingPages";
 import { GalleryPage } from "./pages/GalleryPage";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage } from "./pages/LegalPage";
 import { LocationPage } from "./pages/LocationPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ServicesPage } from "./pages/ServicesPage";
-import { DiciottesimoGuidePage, GuidesPage } from "./pages/GuidePages";
+import { CostoDiciottesimoGuidePage, DiciottesimoGuidePage, GuidesPage } from "./pages/GuidePages";
 
 export default function App() {
   return (
@@ -21,12 +21,14 @@ export default function App() {
         <Route path="/eventi" component={EventsPage} />
         <Route path="/diciottesimi" component={DiciottesimiPage} />
         <Route path="/comunioni" component={ComunioniPage} />
+        <Route path="/battesimi" component={BattesimiPage} />
         <Route path="/compleanni" component={CompleanniPage} />
         <Route path="/feste-private" component={FestePrivatePage} />
         <Route path="/lauree" component={LaureePage} />
         <Route path="/servizi" component={ServicesPage} />
         <Route path="/guide" component={GuidesPage} />
         <Route path="/guide/come-scegliere-sala-diciottesimo-napoli" component={DiciottesimoGuidePage} />
+        <Route path="/guide/quanto-costa-diciottesimo-napoli" component={CostoDiciottesimoGuidePage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/contatti" component={ContactPage} />
         <Route path="/privacy-policy"><LegalPage type="privacy" /></Route>

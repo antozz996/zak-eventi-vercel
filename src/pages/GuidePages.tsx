@@ -41,6 +41,26 @@ export function GuidesPage() {
               </Link>
             </div>
           </article>
+
+          <article className="event-detail event-detail--reverse">
+            <EventPhoto
+              src="/images/events/xtgb3531.webp"
+              alt="Torta di un diciottesimo reale a ZAK Eventi"
+              aspect="portrait"
+            />
+            <div className="event-detail__content">
+              <span className="event-detail__number">02</span>
+              <p className="eyebrow">Budget</p>
+              <h2>Quanto costa un diciottesimo a Napoli?</h2>
+              <p>
+                Una guida per capire i range pubblici di mercato, quali voci fanno salire il preventivo e
+                perché due offerte con lo stesso numero di invitati possono avere prezzi molto diversi.
+              </p>
+              <Link className="text-link" to="/guide/quanto-costa-diciottesimo-napoli">
+                Leggi la guida <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -166,6 +186,150 @@ export function DiciottesimoGuidePage() {
             <Link className="button button--dark" to="/diciottesimi">Diciottesimi a ZAK</Link>
             <Link className="button button--outline-dark" to="/contatti">Prenota una visita</Link>
           </div>
+        </div>
+      </section>
+
+      <FinalCTA />
+    </>
+  );
+}
+
+
+export function CostoDiciottesimoGuidePage() {
+  return (
+    <>
+      <Seo {...pageMeta.guideCostoDiciottesimo} path="/guide/quanto-costa-diciottesimo-napoli" />
+
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">Guida · Budget diciottesimo</p>
+          <h1>Quanto costa un diciottesimo a Napoli? Prezzi, voci del preventivo e costi da confrontare.</h1>
+          <p>
+            Non esiste un prezzo unico: il totale cambia in base a numero di invitati, esclusiva della location,
+            formula food, beverage, musica, allestimento, fotografo e servizi extra.
+          </p>
+        </div>
+      </section>
+
+      <section className="section section--ivory">
+        <div className="container legal-page__content">
+          <p className="eyebrow">Aggiornata il 7 ottobre 2026 · A cura di ZAK Eventi</p>
+
+          <h2>La risposta breve: quanto può costare?</h2>
+          <p>
+            Guardando offerte pubblicamente visibili nel mercato napoletano, oggi si trovano formule molto
+            diverse. Un esempio locale pubblica pacchetti da circa 1.000 euro fino a 30 invitati, 1.500 euro
+            fino a 50 e 2.000 euro fino a 50 per una formula più completa; un'altra guida di settore dedicata
+            a Napoli indica un intervallo molto ampio, da circa 800 a 4.000 euro, proprio perché servizi e
+            impostazione possono cambiare radicalmente.
+          </p>
+
+          <aside className="confirmation-note">
+            <strong>Importante: questi non sono i prezzi ZAK</strong>
+            <p>
+              Sono esempi pubblici di mercato consultati a ottobre 2026 e servono soltanto a spiegare perché
+              confrontare due preventivi usando un solo numero può essere fuorviante. ZAK formula la propria
+              proposta in base all'evento e la conferma durante l'appuntamento.
+            </p>
+          </aside>
+
+          <EventPhoto
+            src="/images/events/xtgb6517.webp"
+            alt="Sala ZAK Eventi apparecchiata prima di una festa"
+            aspect="landscape"
+          />
+
+          <h2>1. Numero di invitati: fisso, a persona o formula mista?</h2>
+          <p>
+            Alcune location lavorano con un minimo fisso che copre l'esclusiva della sala e un certo numero di
+            ospiti; oltre quella soglia applicano un costo per persona. Altre costruiscono il preventivo quasi
+            interamente per invitato. Prima di confrontare due offerte, chiedi sempre quale modello viene usato.
+          </p>
+
+          <h2>2. Location in esclusiva</h2>
+          <p>
+            L'esclusiva può incidere sul prezzo, ma cambia molto anche il valore dell'esperienza. Verifica se la
+            sala è realmente riservata al tuo evento, quali ambienti comprende e per quante ore.
+          </p>
+
+          <h2>3. Food: buffet, cena servita o formula ibrida</h2>
+          <p>
+            Quantità, qualità, numero di portate e tipo di servizio modificano sensibilmente il costo. Un buffet
+            semplice non è confrontabile con una cena servita completa, anche se entrambi vengono descritti come
+            "food incluso".
+          </p>
+
+          <h2>4. Beverage e cocktail</h2>
+          <p>
+            Acqua e soft drink, prosecco, cocktail di benvenuto, open bar analcolico e drink alcolici possono
+            essere inclusi, limitati oppure conteggiati a parte. Questa voce può cambiare parecchio il totale
+            finale.
+          </p>
+
+          <h2>5. DJ, speaker e intrattenimento</h2>
+          <p>
+            Chiedi se musica e intrattenimento sono compresi, se esistono limiti orari e se eventuali performer
+            sono extra. La differenza tra semplice diffusione musicale e una vera regia della serata è sostanziale.
+          </p>
+
+          <h2>6. Allestimento</h2>
+          <p>
+            Un allestimento istituzionale e una scenografia completamente personalizzata non hanno lo stesso
+            costo. Palloncini, strutture, fiori, numeri luminosi, backdrop e personalizzazioni vanno separati in
+            modo chiaro nel preventivo.
+          </p>
+
+          <h2>7. Fotografo e contenuti</h2>
+          <p>
+            Verifica se fotografo, video, album o contenuti social sono inclusi oppure extra e, soprattutto,
+            cosa viene realmente consegnato dopo l'evento.
+          </p>
+
+          <h2>8. Torta e momento finale</h2>
+          <p>
+            Alcune formule includono la torta, altre consentono di portarla dall'esterno, altre ancora la
+            conteggiano a peso. È una voce da chiarire prima, insieme a eventuali effetti scenografici.
+          </p>
+
+          <h2>9. Extra che spesso fanno cambiare il totale</h2>
+          <p>
+            Personalizzazioni premium, drink alcolici, fotografo, performer, prolungamento orario, effetti
+            scenografici e richieste speciali sono tra le voci che più facilmente fanno allontanare il totale
+            dal prezzo iniziale.
+          </p>
+
+          <h2>10. Come confrontare due preventivi senza sbagliare</h2>
+          <p>
+            Porta le offerte allo stesso livello: stesso numero di invitati, stesso orario, stessa formula food,
+            stesso beverage, stessi servizi e stessi extra. Solo dopo ha senso confrontare il totale.
+          </p>
+
+          <aside className="confirmation-note">
+            <strong>La formula più utile</strong>
+            <p>
+              Totale evento ÷ numero invitati può aiutarti a capire il costo medio, ma non racconta tutto:
+              esclusiva, allestimento e alcuni servizi sono costi fissi e hanno più peso quando gli invitati sono pochi.
+            </p>
+          </aside>
+
+          <h2>Quanto costa un diciottesimo a ZAK Eventi?</h2>
+          <p>
+            Non pubblichiamo una cifra generica perché rischierebbe di essere sbagliata rispetto alla tua festa.
+            Per ricevere una proposta utile servono almeno data indicativa, numero di invitati e tipo di evento.
+            Da lì il team può definire la formula e indicare con chiarezza cosa è incluso e cosa è extra.
+          </p>
+
+          <div className="button-group">
+            <Link className="button button--dark" to="/diciottesimi">Scopri i diciottesimi ZAK</Link>
+            <Link className="button button--outline-dark" to="/contatti">Chiedi una proposta</Link>
+          </div>
+
+          <p>
+            Vuoi prima capire come valutare la location? Leggi anche la guida su{" "}
+            <Link className="text-link" to="/guide/come-scegliere-sala-diciottesimo-napoli">
+              come scegliere una sala per un diciottesimo a Napoli
+            </Link>.
+          </p>
         </div>
       </section>
 

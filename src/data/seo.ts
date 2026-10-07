@@ -1,6 +1,6 @@
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
 const routeMeta = {
   "/": pageMeta.home,
@@ -8,12 +8,14 @@ const routeMeta = {
   "/eventi": pageMeta.eventi,
   "/diciottesimi": pageMeta.diciottesimi,
   "/comunioni": pageMeta.comunioni,
+  "/battesimi": pageMeta.battesimi,
   "/compleanni": pageMeta.compleanni,
   "/feste-private": pageMeta["feste-private"],
   "/lauree": pageMeta.lauree,
   "/servizi": pageMeta.servizi,
   "/guide": pageMeta.guide,
   "/guide/come-scegliere-sala-diciottesimo-napoli": pageMeta.guideDiciottesimo,
+  "/guide/quanto-costa-diciottesimo-napoli": pageMeta.guideCostoDiciottesimo,
   "/gallery": pageMeta.gallery,
   "/contatti": pageMeta.contatti,
 } as const;

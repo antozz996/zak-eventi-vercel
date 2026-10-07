@@ -145,7 +145,10 @@ export function DiciottesimiPage() {
           <ActionLinks eventName="un diciottesimo" galleryFilter="Diciottesimi" />
           <div className="centered-action">
             <Link className="button button--outline-dark" to="/guide/come-scegliere-sala-diciottesimo-napoli">
-              Leggi la guida: come scegliere una sala per il diciottesimo
+              Come scegliere la sala
+            </Link>
+            <Link className="button button--outline-dark" to="/guide/quanto-costa-diciottesimo-napoli">
+              Quanto costa un diciottesimo
             </Link>
           </div>
         </div>
