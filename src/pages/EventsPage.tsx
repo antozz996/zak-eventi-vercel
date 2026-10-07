@@ -32,6 +32,9 @@ export function EventsPage() {
                   <div className="inline-links">
                     {event.slug === "diciottesimi" && <Link to="/diciottesimi">Scopri la pagina dedicata</Link>}
                     {event.slug === "comunioni" && <Link to="/comunioni">Scopri la pagina dedicata</Link>}
+                    {event.slug === "compleanni" && <Link to="/compleanni">Scopri la pagina dedicata</Link>}
+                    {event.slug === "feste-private" && <Link to="/feste-private">Scopri la pagina dedicata</Link>}
+                    {event.slug === "lauree" && <Link to="/lauree">Scopri la pagina dedicata</Link>}
                     <Link to={`/gallery?filtro=${event.slug === "eventi-personalizzati" ? "Allestimenti" : event.title === "Diciottesimi" ? "Diciottesimi" : event.title === "Cerimonie" || event.title === "Comunioni" ? "Cerimonie" : "Emozioni"}`}>
                       Guarda i momenti <ArrowUpRight aria-hidden="true" size={17} />
                     </Link>
