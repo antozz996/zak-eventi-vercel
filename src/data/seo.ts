@@ -1,6 +1,6 @@
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
 const routeMeta = {
   "/": pageMeta.home,
@@ -16,6 +16,11 @@ const routeMeta = {
   "/guide": pageMeta.guide,
   "/guide/come-scegliere-sala-diciottesimo-napoli": pageMeta.guideDiciottesimo,
   "/guide/quanto-costa-diciottesimo-napoli": pageMeta.guideCostoDiciottesimo,
+  "/guide/buffet-o-cena-servita-diciottesimo": pageMeta.guideBuffetCena,
+  "/guide/checklist-diciottesimo": pageMeta.guideChecklistDiciottesimo,
+  "/guide/come-organizzare-comunione-napoli": pageMeta.guideComunione,
+  "/guide/quanto-prima-prenotare-sala-diciottesimo": pageMeta.guidePrenotazioneDiciottesimo,
+  "/guide/allestimento-diciottesimo-napoli": pageMeta.guideAllestimentoDiciottesimo,
   "/gallery": pageMeta.gallery,
   "/contatti": pageMeta.contatti,
 } as const;
