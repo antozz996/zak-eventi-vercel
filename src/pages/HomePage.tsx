@@ -112,6 +112,11 @@ export function HomePage() {
             description="Valutazioni e recensioni collegate al profilo Google ufficiale di ZAK Eventi."
           />
           <GoogleReviews />
+          <div className="centered-action">
+            <Link className="button button--outline-dark" to="/perche-scegliere-zak">
+              Perché scegliere ZAK
+            </Link>
+          </div>
         </div>
       </section>
 
