@@ -17,18 +17,69 @@ export function getPageSeo(path: string) {
 export function getStructuredData(path: string, title: string) {
   const origin = siteConfig.siteUrl;
   const url = `${origin}${path}`;
+
+  const organization = {
+    "@type": "Organization",
+    "@id": `${origin}/#organization`,
+    name: siteConfig.name,
+    legalName: siteConfig.legal.companyName,
+    url: origin,
+    telephone: "+393533198020",
+    vatID: `IT${siteConfig.legal.vatNumber}`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Via Napoli 270",
+      postalCode: "80022",
+      addressLocality: "Arzano",
+      addressRegion: "Campania",
+      addressCountry: "IT",
+    },
+  };
+
   const venue = {
-    "@type": "EventVenue", "@id": `${origin}/#venue`,
-    name: siteConfig.name, url: origin, telephone: "+393533198020",
+    "@type": "EventVenue",
+    "@id": `${origin}/#venue`,
+    name: siteConfig.name,
+    url: origin,
+    telephone: "+393533198020",
     description: siteConfig.description,
     image: `${origin}${siteConfig.heroPoster}`,
-    address: { "@type": "PostalAddress", streetAddress: "Via Napoli 270", postalCode: "80022", addressLocality: "Arzano", addressRegion: "Campania", addressCountry: "IT" },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Via Napoli 270",
+      postalCode: "80022",
+      addressLocality: "Arzano",
+      addressRegion: "Campania",
+      addressCountry: "IT",
+    },
   };
-  const website = { "@type": "WebSite", "@id": `${origin}/#website`, url: origin, name: siteConfig.name, inLanguage: "it-IT" };
-  const webpage = { "@type": "WebPage", "@id": `${url}#webpage`, url, name: title, inLanguage: "it-IT", isPartOf: { "@id": website["@id"] }, about: { "@id": venue["@id"] } };
-  const breadcrumbs = path === "/" ? [] : [{ "@type": "BreadcrumbList", itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
-    { "@type": "ListItem", position: 2, name: title.split(" | ")[0], item: url },
-  ] }];
-  return { "@context": "https://schema.org", "@graph": [venue, website, webpage, ...breadcrumbs] };
+
+  const website = {
+    "@type": "WebSite",
+    "@id": `${origin}/#website`,
+    url: origin,
+    name: siteConfig.name,
+    inLanguage: "it-IT",
+    publisher: { "@id": organization["@id"] },
+  };
+
+  const webpage = {
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: title,
+    inLanguage: "it-IT",
+    isPartOf: { "@id": website["@id"] },
+    about: { "@id": venue["@id"] },
+  };
+
+  const breadcrumbs = path === "/" ? [] : [{
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
+      { "@type": "ListItem", position: 2, name: title.split(" | ")[0], item: url },
+    ],
+  }];
+
+  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...breadcrumbs] };
 }
