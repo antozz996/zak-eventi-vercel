@@ -364,6 +364,14 @@ export const pageMeta = {
     title: "Organizzazione eventi ad Arzano | Servizi ZAK Eventi",
     description: "Scopri il percorso ZAK per organizzare un evento ad Arzano: progettazione, allestimento, intrattenimento, food & beverage e coordinamento da definire nella proposta.",
   },
+  guide: {
+    title: "Guide per organizzare feste ed eventi | ZAK Eventi",
+    description: "Guide pratiche ZAK per scegliere location, formula e servizi per diciottesimi, compleanni, comunioni e feste private a Napoli e provincia.",
+  },
+  guideDiciottesimo: {
+    title: "Come scegliere una sala per un diciottesimo a Napoli | ZAK",
+    description: "10 controlli da fare prima di prenotare una sala per un diciottesimo a Napoli: invitati, spazi, servizi, food, musica, allestimento, extra e sopralluogo.",
+  },
   gallery: {
     title: "Foto della sala e delle feste ad Arzano | ZAK Eventi",
     description: "Guarda le foto reali della sala, degli allestimenti e delle feste di ZAK Eventi ad Arzano. Filtra ingressi, cerimonie, diciottesimi ed emozioni.",
