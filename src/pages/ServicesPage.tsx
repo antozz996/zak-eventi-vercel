@@ -10,6 +10,7 @@ const eventLinks = [
   { label: "Diciottesimi", href: "/diciottesimi" },
   { label: "Compleanni", href: "/compleanni" },
   { label: "Comunioni", href: "/comunioni" },
+  { label: "Battesimi", href: "/battesimi" },
   { label: "Lauree", href: "/lauree" },
   { label: "Feste private", href: "/feste-private" },
 ];
