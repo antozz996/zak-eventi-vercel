@@ -10,7 +10,13 @@ export function EventCard({ event }: { event: EventType }) {
       ? "/diciottesimi"
       : event.slug === "comunioni"
         ? "/comunioni"
-        : `/eventi#${event.slug}`;
+        : event.slug === "compleanni"
+          ? "/compleanni"
+          : event.slug === "feste-private"
+            ? "/feste-private"
+            : event.slug === "lauree"
+              ? "/lauree"
+              : `/eventi#${event.slug}`;
   return (
     <article className="event-card">
       {event.media ? <EventPhoto src={event.media} alt={event.mediaAlt ?? event.title} aspect="portrait" /> : <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />}

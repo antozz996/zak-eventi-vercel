@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { ContactPage } from "./pages/ContactPage";
 import { EventsPage } from "./pages/EventsPage";
 import { ComunioniPage, DiciottesimiPage } from "./pages/EventLandingPages";
+import { CompleanniPage, FestePrivatePage, LaureePage } from "./pages/AdditionalEventLandingPages";
 import { GalleryPage } from "./pages/GalleryPage";
 import { HomePage } from "./pages/HomePage";
 import { LegalPage } from "./pages/LegalPage";
@@ -19,6 +20,9 @@ export default function App() {
         <Route path="/eventi" component={EventsPage} />
         <Route path="/diciottesimi" component={DiciottesimiPage} />
         <Route path="/comunioni" component={ComunioniPage} />
+        <Route path="/compleanni" component={CompleanniPage} />
+        <Route path="/feste-private" component={FestePrivatePage} />
+        <Route path="/lauree" component={LaureePage} />
         <Route path="/servizi" component={ServicesPage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/contatti" component={ContactPage} />

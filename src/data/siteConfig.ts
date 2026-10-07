@@ -92,6 +92,14 @@ export const eventTypes: EventType[] = [
     moment: "Musica, condivisione e libertà.",
   },
   {
+    slug: "lauree",
+    media: "/images/events/xtgb9908.webp",
+    mediaAlt: "Brindisi di gruppo durante una festa reale a ZAK Eventi",
+    title: "Lauree",
+    description: "Una festa per celebrare un traguardo importante, con una formula da costruire insieme.",
+    moment: "Brindisi, persone care e festa.",
+  },
+  {
     slug: "eventi-personalizzati",
     media: "/images/events/xtgb5080.webp",
     mediaAlt: "Arco di palloncini e torta personalizzata per una comunione",
@@ -339,6 +347,18 @@ export const pageMeta = {
   comunioni: {
     title: "Sala per comunioni ad Arzano e Napoli Nord | ZAK Eventi",
     description: "Organizza una comunione ad Arzano: scopri ZAK Eventi, gli allestimenti e le foto reali delle cerimonie. Chiedi informazioni e disponibilità.",
+  },
+  compleanni: {
+    title: "Sala per compleanni ad Arzano e Napoli Nord | ZAK Eventi",
+    description: "Cerchi una sala per compleanno ad Arzano o Napoli Nord? Scopri ZAK Eventi, guarda feste reali e chiedi disponibilità per la tua data.",
+  },
+  "feste-private": {
+    title: "Location per feste private ad Arzano | ZAK Eventi",
+    description: "Organizza una festa privata ad Arzano: scopri la location ZAK Eventi, le foto reali e una proposta costruita intorno alla tua occasione.",
+  },
+  lauree: {
+    title: "Festa di laurea ad Arzano e Napoli Nord | ZAK Eventi",
+    description: "Cerchi una location per una festa di laurea ad Arzano? Scopri ZAK Eventi, guarda la sala e chiedi una proposta per cena, brindisi e festa.",
   },
   servizi: {
     title: "Organizzazione eventi e allestimenti ad Arzano | ZAK Eventi",
