@@ -37,13 +37,15 @@ export function getStructuredData(path: string, title: string) {
   };
 
   const venue = {
-    "@type": "EventVenue",
+    "@type": ["LocalBusiness", "EventVenue"],
     "@id": `${origin}/#venue`,
     name: siteConfig.name,
     url: origin,
     telephone: "+393533198020",
     description: siteConfig.description,
     image: `${origin}${siteConfig.heroPoster}`,
+    hasMap: siteConfig.contact.googleMapsUrl,
+    sameAs: [siteConfig.contact.googleMapsUrl],
     address: {
       "@type": "PostalAddress",
       streetAddress: "Via Napoli 270",
