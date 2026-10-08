@@ -48,7 +48,7 @@ try {
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
   assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\\/loc>/g)].map(match => match[1]).sort();
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
   const expectedUrls = pageRoutes
     .filter(path => !getPageSeo(path).noIndex)
     .map(path => `${siteConfig.siteUrl}${path}`)
