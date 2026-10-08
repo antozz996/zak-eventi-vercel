@@ -377,8 +377,8 @@ export const pageMeta = {
     description: "Scopri il percorso ZAK per organizzare un evento ad Arzano: progettazione, allestimento, intrattenimento, food & beverage e coordinamento da definire nella proposta.",
   },
   percheZak: {
-    title: "Perché scegliere ZAK Eventi? Recensioni e opinioni | Arzano",
-    description: "Scopri perché scegliere ZAK Eventi ad Arzano attraverso i temi che ricorrono nelle recensioni: staff, organizzazione, food, atmosfera, allestimento e accoglienza.",
+    title: "Perché scegliere ZAK Eventi? Recensioni Google e Facebook",
+    description: "Scopri perché scegliere ZAK Eventi attraverso recensioni Google e raccomandazioni Facebook reali: staff, organizzazione, food, atmosfera, allestimento e accoglienza.",
   },
   guide: {
     title: "Guide per organizzare feste ed eventi | ZAK Eventi",
