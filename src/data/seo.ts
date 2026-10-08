@@ -152,7 +152,12 @@ export function getStructuredData(path: string, title: string) {
     author: { "@id": organization["@id"] },
     publisher: { "@id": organization["@id"] },
     datePublished: "2026-10-07",
-    dateModified: "2026-10-07",
+    dateModified: [
+      "/guide/come-scegliere-sala-diciottesimo-napoli",
+      "/guide/buffet-o-cena-servita-diciottesimo",
+      "/guide/come-organizzare-comunione-napoli",
+      "/guide/quanto-prima-prenotare-sala-diciottesimo",
+    ].includes(path) ? "2026-10-08" : "2026-10-07",
     image: `${origin}${getPageImage(path)}`,
     articleSection: path.includes("comunione") ? "Comunioni" : "Diciottesimi",
     inLanguage: "it-IT",
