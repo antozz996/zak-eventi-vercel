@@ -20,7 +20,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
       />
       <section className="legal-page">
         <div className="container legal-page__content">
-          <p className="eyebrow">Ultimo aggiornamento: 7 ottobre 2026</p>
+          <p className="eyebrow">Ultimo aggiornamento: 8 ottobre 2026</p>
           <h1>{title}</h1>
 
           {isPrivacy ? (
@@ -73,7 +73,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Destinatari e servizi esterni</h2>
               <p>
-                I dati tecnici possono essere trattati dai fornitori dell'infrastruttura di hosting, rete e
+                Con il consenso marketing, Meta Platforms può ricevere dati di navigazione, eventi di interazione e identificativi tecnici per misurare le campagne pubblicitarie. Potrebbero verificarsi trasferimenti internazionali, disciplinati dalle garanzie applicabili. I dati tecnici possono essere trattati dai fornitori dell'infrastruttura di hosting, rete e
                 sicurezza nei limiti necessari all'erogazione del servizio. Se l'utente sceglie di aprire
                 WhatsApp, Google Maps, Instagram o altri servizi esterni, il trattamento successivo è regolato
                 anche dalle informative dei rispettivi fornitori.
@@ -117,8 +117,8 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Configurazione attuale</h2>
               <p>
-                Il sito non attiva Google Analytics, Meta Pixel, cookie pubblicitari o strumenti di profilazione.
-                Non vengono quindi installati dal sito strumenti di tracciamento non necessari che richiedano
+                Il Meta Pixel (ID 3132799710244140) viene utilizzato solo dopo il consenso marketing per misurare visite, visualizzazioni di pagine evento e clic di contatto.
+                Non vengono installati prima del consenso strumenti di tracciamento non necessari che richiedano
                 il consenso preventivo dell'utente.
               </p>
 
@@ -132,10 +132,11 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Banner cookie</h2>
               <p>
-                Nella configurazione attuale non sono presenti strumenti di tracciamento soggetti a consenso;
-                per questo il sito non presenta un banner di accettazione o rifiuto. Prima dell'eventuale
-                attivazione futura di analytics non tecnici, advertising o altri strumenti soggetti a consenso,
-                questa informativa e il relativo meccanismo di scelta verranno aggiornati.
+                Il Meta Pixel viene attivato esclusivamente dopo una scelta positiva nel banner.
+                Puoi accettare o rifiutare senza conseguenze sulla navigazione e modificare o revocare
+                il consenso in ogni momento tramite il pulsante Preferenze cookie.
+                Il rifiuto impedisce il caricamento del Pixel e la revoca blocca nuove attività
+                dopo il ricaricamento della pagina. La preferenza è conservata localmente nel browser.
               </p>
 
               <h2>Link a servizi esterni</h2>

@@ -1,36 +1,17 @@
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "../lib/router";
-
-const storageKey = "zak-cookie-choice";
-let dismissed = false;
-function getSnapshot() {
-  try { return !dismissed && !localStorage.getItem(storageKey); } catch { return !dismissed; }
-}
-function subscribe(callback: () => void) {
-  window.addEventListener("storage", callback);
-  window.addEventListener("zak-cookie-change", callback);
-  return () => {
-    window.removeEventListener("storage", callback);
-    window.removeEventListener("zak-cookie-change", callback);
-  };
-}
+import { setMarketingConsent } from "../lib/metaPixel";
 export function CookieBanner() {
-  const visible = useSyncExternalStore(subscribe, getSnapshot, () => false);
-  const choose = () => {
-    dismissed = true;
-    try { localStorage.setItem(storageKey, "essential"); } catch { /* Dismissed for this visit. */ }
-    window.dispatchEvent(new Event("zak-cookie-change"));
-  };
-  if (!visible) return null;
-  return (
-    <aside className="cookie-banner" aria-label="Informazioni sui cookie">
-      <div>
-        <strong>La tua privacy.</strong>
-        <p>Il sito non attiva strumenti di tracciamento. <Link to="/cookie-policy">Informazioni sui cookie</Link></p>
-      </div>
-      <div className="cookie-banner__actions">
-        <button className="button button--gold" onClick={choose}>Ho capito</button>
-      </div>
-    </aside>
-  );
+  const [choice,setChoice]=useState("unknown");
+  const [open,setOpen]=useState(false);
+  useEffect(()=>{let stored=null;try{stored=localStorage.getItem("zak-marketing-consent")}catch{/* denied */}setChoice(stored??"unknown");setOpen(stored===null)},[]);
+  const choose=(accepted:boolean)=>{setMarketingConsent(accepted);setChoice(accepted?"accepted":"rejected");setOpen(false)};
+  return <>
+    {open&&<aside className="zak-consent" role="dialog" aria-label="Preferenze cookie">
+      <strong>La tua privacy</strong>
+      <p>Usiamo tecnologie necessarie al sito. Solo con il consenso attiviamo Meta Pixel per misurare visite e interazioni pubblicitarie. Puoi modificare la scelta quando vuoi. <Link to="/cookie-policy">Cookie Policy</Link>.</p>
+      <div className="zak-consent__actions"><button type="button" className="button button--outline-dark" onClick={()=>choose(false)}>Rifiuta</button><button type="button" className="button button--gold" onClick={()=>choose(true)}>Accetta marketing</button></div>
+    </aside>}
+    {!open&&choice!=="unknown"&&<button type="button" className="zak-consent-settings" onClick={()=>setOpen(true)}>Preferenze cookie</button>}
+  </>;
 }
