@@ -101,4 +101,25 @@ export const imageMetadata: Record<string, { width: number; height: number; srcS
   }
 };
 
-export function imageProps(src: string) { return imageMetadata[src] ?? {}; }
+const avifImages = new Set([
+  "/images/events/ingresso-abito-blu.webp",
+  "/images/events/ingresso-abito-blu-720.webp",
+  "/images/events/xtgb3320.webp",
+  "/images/events/xtgb3320-720.webp",
+  "/images/events/xtgb0046.webp",
+  "/images/events/xtgb0046-720.webp",
+]);
+
+type ResponsiveImageProps = {
+  width?: number;
+  height?: number;
+  srcSet?: string;
+  avifSrcSet?: string;
+};
+
+export function imageProps(src: string): ResponsiveImageProps {
+  const metadata = imageMetadata[src];
+  return metadata
+    ? { ...metadata, avifSrcSet: avifImages.has(src) ? metadata.srcSet.replace(/\.webp/g, ".avif") : undefined }
+    : {};
+}

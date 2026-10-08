@@ -4,12 +4,16 @@ import { imageProps } from "../data/imageMetadata";
 import { Link } from "../lib/router";
 
 export function HeroVideo() {
+  const heroPosterProps = imageProps(siteConfig.heroPoster);
+  const heroPosterMobileProps = imageProps(siteConfig.heroPosterMobile);
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
         <picture>
-          <source media="(max-width: 767px)" srcSet={imageProps(siteConfig.heroPosterMobile).srcSet ?? siteConfig.heroPosterMobile} sizes="100vw" />
-          <img className="hero__poster" src={siteConfig.heroPoster} {...imageProps(siteConfig.heroPoster)} sizes="100vw" alt="" fetchPriority="high" decoding="async" />
+          <source media="(max-width: 767px)" type="image/avif" srcSet={heroPosterMobileProps.avifSrcSet ?? siteConfig.heroPosterMobile.replace(/\.webp/g, ".avif")} sizes="100vw" />
+          <source type="image/avif" srcSet={heroPosterProps.avifSrcSet ?? siteConfig.heroPoster.replace(/\.webp/g, ".avif")} sizes="100vw" />
+          <source media="(max-width: 767px)" srcSet={heroPosterMobileProps.srcSet ?? siteConfig.heroPosterMobile} sizes="100vw" />
+          <img className="hero__poster" src={siteConfig.heroPoster} width={heroPosterProps.width} height={heroPosterProps.height} srcSet={heroPosterProps.srcSet} sizes="100vw" alt="" fetchPriority="high" decoding="async" />
         </picture>
         {siteConfig.heroVideo && (
           <video

@@ -44,7 +44,7 @@ export function GoogleReviews() {
 
     fetch("/api/google-reviews", { signal: controller.signal })
       .then((response) => {
-        if (!response.ok) throw new Error("Google Places non configurato");
+        if (!response.ok) throw new Error("Google Places non disponibile");
         return response.json() as Promise<GoogleReviewsResponse>;
       })
       .then(setReviewsData)

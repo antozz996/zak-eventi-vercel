@@ -10,6 +10,16 @@ import { isolateDialog } from "../utils/dialog";
 type Filter = "Tutti" | GalleryCategory;
 const filters: Filter[] = ["Tutti", "Diciottesimi", "Cerimonie", "Allestimenti", "Emozioni"];
 
+function ResponsiveGalleryImage({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+  const { avifSrcSet, ...responsiveImageProps } = imageProps(src);
+  return (
+    <picture>
+      {avifSrcSet && <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />}
+      <img src={src} {...responsiveImageProps} sizes={sizes} alt={alt} loading="lazy" decoding="async" />
+    </picture>
+  );
+}
+
 function isFilter(value: string | null): value is Filter {
   return filters.includes(value as Filter);
 }
@@ -163,7 +173,11 @@ export function GalleryGrid({ limit }: { limit?: number }) {
             aria-label={`Apri ${item.title}`}
           >
             {item.src ? (
-              <img src={item.src} {...imageProps(item.src)} sizes="(max-width: 559px) 100vw, (max-width: 959px) 85vw, 66vw" alt={item.alt} loading="lazy" decoding="async" />
+              <ResponsiveGalleryImage
+                src={item.src}
+                alt={item.alt}
+                sizes="(max-width: 559px) 100vw, (max-width: 959px) 85vw, 66vw"
+              />
             ) : (
               <MediaPlaceholder label={item.title} aspect={item.aspect} video={item.mediaType === "video"} />
             )}

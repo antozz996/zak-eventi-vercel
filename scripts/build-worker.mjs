@@ -76,7 +76,7 @@ async function getGoogleReviews(env) {
   const placeId = env?.GOOGLE_PLACE_ID;
 
   if (!apiKey || !placeId) {
-    return json({ configured: false }, 503);
+    return json({ configured: false }, 200);
   }
 
   const endpoint =
