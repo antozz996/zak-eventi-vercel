@@ -55,7 +55,7 @@ Nessuna modifica è stata applicata al DNS o alla configurazione Vercel. Non ho 
 
 ## Verifiche su branch e preview
 
-La build Vercel sul branch esegue in sequenza `lint`, `typecheck`, `build` e `check:site`; tutti e quattro sono passati sul commit `60dbcc67b5a6d801b5e23bac6a3e793c87e53f23`.
+La build Vercel sul branch esegue in sequenza `lint`, `typecheck`, `build` e `check:site`; tutti e quattro sono passati anche sul commit finale `1c6c231ceed1bf6258d8b3ae78c58c79c8a0e381` (preview Vercel READY).
 
 - `lint`: superato dopo aver spostato la lettura della preferenza cookie a `useSyncExternalStore`, eliminando il `setState` nell’effetto.
 - `typecheck`: superato (`tsc -b --pretty false`).
@@ -63,6 +63,7 @@ La build Vercel sul branch esegue in sequenza `lint`, `typecheck`, `build` e `ch
 - `check:site`: superato, 23 pagine, 721 link interni controllati, 21 URL sitemap, routing e validazione modulo superati.
 - Smoke test browser sulla preview: robots e sitemap HTTP 200; 23/23 route con HTTP 200, title, canonical, un H1, JSON-LD valido e robots coerenti (21 indicizzabili, 2 policy noindex).
 - Preview senza preferenza salvata: nessuna richiesta verso Facebook/Meta.
+- Sulla preview del commit finale `1c6c231`, Home e `/sitemap.xml` hanno risposto HTTP 200; la sitemap contiene 21 URL. L’HTML SSR della Home include title, canonical, robots e JSON-LD.
 
 Il primo tentativo del gate ha trovato un problema preesistente in `CookieBanner.tsx`; il successivo ha trovato una assertion che confrontava l’URL del nodo `WebSite` con quello della pagina. Entrambi sono stati corretti e l’intera sequenza è passata al rilancio.
 
