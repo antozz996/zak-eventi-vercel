@@ -2,6 +2,7 @@ const MEASUREMENT_ID = "G-X2Q3CL2BZM";
 const CONSENT_KEY = "zak-analytics-consent";
 
 type Gtag = (...args: unknown[]) => void;
+type ContactMethod = "whatsapp" | "form_whatsapp" | "phone";
 
 declare global {
   interface Window {
@@ -32,12 +33,30 @@ export function trackGoogleAnalyticsPage(path: string) {
     page_location: window.location.href,
     page_title: document.title,
   });
+
+  if (isEventCategoryPath(path)) {
+    trackGoogleAnalyticsEvent("view_event_category", { event_type: path.slice(1) });
+  }
 }
 
-export function trackGoogleAnalyticsContact(method: "whatsapp" | "form_whatsapp") {
+export function trackGoogleAnalyticsEvent(
+  eventName: string,
+  parameters: Record<string, string | number>,
+) {
   if (!hasAnalyticsConsent()) return;
   initGoogleAnalytics();
-  window.gtag?.("event", "contact_click", { method });
+  window.gtag?.("event", eventName, parameters);
+}
+
+export function trackGoogleAnalyticsContact(method: ContactMethod, source: string) {
+  trackGoogleAnalyticsEvent("contact_click", {
+    contact_method: method,
+    contact_source: source,
+  });
+}
+
+function isEventCategoryPath(path: string) {
+  return /^\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/.test(path);
 }
 
 function initGoogleAnalytics() {
@@ -48,8 +67,7 @@ function initGoogleAnalytics() {
     window.dataLayer?.push(args);
   };
 
-  // Keep advertising storage denied. The Analytics tag is not loaded at all
-  // until the visitor has explicitly opted in to statistics.
+  // Analytics is loaded only after statistics consent; advertising storage stays denied.
   window.gtag("consent", "default", {
     analytics_storage: "denied",
     ad_storage: "denied",
