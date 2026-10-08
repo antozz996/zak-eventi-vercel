@@ -8,11 +8,11 @@ Data: 8 ottobre 2026 · Dominio: https://www.zakeventi.com
 | --- | --- | --- |
 | Sitemap indicizzabile | 21 URL presenti; il check ne pretendeva 6 e falliva | 21/21 URL confrontati con le route indicizzabili; sitemap e check coerenti |
 | Controllo sito | Si fermava su un’asserzione errata che leggeva `WebSite` come `WebPage` | 23 pagine, 721 riferimenti interni, 21 URL indicizzabili verificati |
-| Lighthouse mobile (produzione) | Score 89; FCP 2,7 s; LCP 3,2 s; TBT 0 ms; CLS 0 | Preview da misurare dopo il deployment del branch |
+| Lighthouse mobile | Produzione prima: score 89; FCP 2,7 s; LCP 3,2 s; TBT 0 ms; CLS 0 | Non misurabile sulla preview protetta: PSI viene reindirizzato al login Vercel |
 | INP / dati di campo | Nessun dato CrUX disponibile | Da ricontrollare dopo la preview; il laboratorio Lighthouse non fornisce INP |
 | Immagini responsive segnalate | 432.238 byte nelle sei risorse WebP selezionate | 267.627 byte nelle sei varianti AVIF: −164.611 byte (−38,1%); il browser sceglie una sola variante |
-| Richieste render-blocking | CSS del sito 9,6 KiB / 170 ms; CSS Google Fonts 1,6 KiB / 750 ms; opportunità totale stimata 1.270 ms | Foglio Google Fonts caricato in modo non bloccante; misurazione Lighthouse della preview in attesa |
-| Cache live | CSS e immagini: `max-age=0, must-revalidate` (CDN `HIT`) | Cache 1 anno immutabile per bundle hashati; 1 giorno browser e CDN per immagini a nome stabile; verifica preview in attesa |
+| Richieste render-blocking | CSS del sito 9,6 KiB / 170 ms; CSS Google Fonts 1,6 KiB / 750 ms; opportunità totale stimata 1.270 ms | Foglio Google Fonts caricato in modo non bloccante; nessun nuovo dato Lighthouse attribuito alla preview protetta |
+| Cache | Produzione: CSS e immagini `max-age=0, must-revalidate` (CDN `HIT`) | Preview verificata: asset hashati 1 anno immutabile; immagini 1 giorno browser/CDN, `stale-while-revalidate=604800` |
 | Pixel Meta | Script presente solo dopo opt-in nel codice | Pixel `3132799710244140` assente prima della scelta e dopo rifiuto; nessuna richiesta `facebook.net` osservata nel browser di test |
 
 ## Modifiche
@@ -34,12 +34,13 @@ Data: 8 ottobre 2026 · Dominio: https://www.zakeventi.com
 - Route non esistente: 404 effettivo. Route legali: `noindex, follow` e fuori dalla sitemap.
 - Schema: `Organization`, `LocalBusiness`/`EventVenue`, `WebSite`, `WebPage`, `BreadcrumbList` e `Article` per le guide; nessun punteggio recensioni aggregato statico.
 - Meta Pixel: con consenso assente, `window.fbq` è `undefined`, nessuno script Meta e nessuna richiesta Meta; dopo rifiuto lo stato `rejected` è persistito e il Pixel resta assente. Il test non ha attivato il tracciamento.
+- Preview Vercel del commit `26cd8ac`: root/robots/sitemap/privacy/API/media rispondono con gli stati previsti; sitemap 21 URL; `/missing-preview-route` 404; API non configurata 200 `{configured:false}`; asset AVIF con `image/avif` e cache corretta. Vercel aggiunge `X-Robots-Tag: noindex` al deployment preview.
 
 ## Metriche e limiti
 
 Misura PageSpeed Insights mobile della pagina Home live, 8 ottobre 2026 alle 16:23 CEST: Performance 89, Accessibility 96, Best Practices 96, SEO 100. Lighthouse riporta anche risparmio stimato di 135 KiB sulle immagini e 53 KiB di JavaScript non usato. La diagnostica segnalava errore console per la risposta 503 della API recensioni non configurata, corretto nel branch.
 
-INP non è disponibile senza dati reali CrUX; TBT pari a 0 ms è una misura di laboratorio e non sostituisce INP. I punteggi Lighthouse variano tra le esecuzioni. Il report definitivo prima/dopo sarà aggiornato dopo che Vercel avrà generato la preview del branch.
+INP non era disponibile nei dati CrUX della produzione e il Lighthouse post-change non è attribuibile alla preview: PageSpeed Insights segue il redirect di protezione al login Vercel. L’invio del token temporaneo di accesso al dominio PageSpeed è stato rifiutato dal revisore automatico perché avrebbe esposto un token di bypass a un servizio esterno; non è stato usato un workaround. Non si dichiarano dunque punteggi o CWV “dopo” non misurati. TBT pari a 0 ms è una misura di laboratorio e non sostituisce INP; i punteggi Lighthouse variano tra esecuzioni.
 
 ## Controlli di build
 
