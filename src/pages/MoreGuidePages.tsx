@@ -30,7 +30,7 @@ export function BuffetVsCenaGuidePage() {
 
       <section className="section section--ivory">
         <div className="container legal-page__content">
-          <p className="eyebrow">Aggiornata il 7 ottobre 2026 · A cura di ZAK Eventi</p>
+          <p className="eyebrow">Aggiornata l'8 ottobre 2026 · A cura di ZAK Eventi</p>
 
           <h2>Buffet: quando funziona meglio</h2>
           <p>
@@ -49,6 +49,8 @@ export function BuffetVsCenaGuidePage() {
             Molte feste funzionano bene con una formula mista: accoglienza o antipasti più dinamici, un passaggio servito
             e poi una seconda parte più libera. L'importante è capire come la location coordina davvero i tempi.
           </p>
+          <p>Nel caso di ZAK Eventi, la proprietà conferma sia buffet sia servizio al tavolo,
+            con possibilità di servizio all’inglese su richiesta: la scelta va inserita nella proposta personalizzata.</p>
 
           <aside className="confirmation-note">
             <strong>Le domande da fare</strong>
@@ -160,7 +162,14 @@ export function ComunioneGuidePage() {
 
       <section className="section section--ivory">
         <div className="container legal-page__content">
-          <p className="eyebrow">Aggiornata il 7 ottobre 2026 · A cura di ZAK Eventi</p>
+          <p className="eyebrow">Aggiornata l'8 ottobre 2026 · A cura di ZAK Eventi</p>
+
+          <aside className="confirmation-note">
+            <strong>Un’indicazione del team ZAK</strong>
+            <p>Per le comunioni la proprietà consiglia di muoversi con circa otto mesi di anticipo,
+              soprattutto per le date primaverili. Prenotazione ed eventuale esclusiva per tutta la giornata
+              devono essere concordate direttamente con la struttura.</p>
+          </aside>
 
           <h2>1. Scegli la location partendo dagli invitati</h2>
           <p>
@@ -237,7 +246,7 @@ export function PrenotazioneDiciottesimoGuidePage() {
 
       <section className="section section--ivory">
         <div className="container legal-page__content">
-          <p className="eyebrow">Aggiornata il 7 ottobre 2026 · A cura di ZAK Eventi</p>
+          <p className="eyebrow">Aggiornata l'8 ottobre 2026 · A cura di ZAK Eventi</p>
 
           <h2>La regola pratica</h2>
           <p>
@@ -256,6 +265,8 @@ export function PrenotazioneDiciottesimoGuidePage() {
             Primavera, inizio estate e sabati possono saturarsi più velocemente. Se il compleanno cade in un periodo richiesto,
             verifica le date appena hai un'idea realistica degli invitati.
           </p>
+          <p>Secondo l’esperienza operativa di ZAK, maggio, giugno e dicembre sono mesi particolarmente richiesti,
+            e venerdì e sabato sono i giorni più prenotati.</p>
 
           <h2>Cosa devi sapere prima di bloccare</h2>
           <p>

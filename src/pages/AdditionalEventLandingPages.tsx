@@ -132,22 +132,22 @@ export function CompleanniPage() {
     meta: pageMeta.compleanni,
     path: "/compleanni",
     eyebrow: "Compleanni ad Arzano",
-    h1: "Una sala per il tuo compleanno, costruita intorno alla festa che vuoi vivere.",
+    h1: "Festeggia il tuo compleanno a ZAK: una sala in esclusiva ad Arzano.",
     intro:
-      "ZAK Eventi è in Via Napoli 270 ad Arzano. Dalla cena alla festa più dinamica, il progetto parte dalla persona, dal numero di invitati e dall'atmosfera desiderata.",
+      "Dal trentesimo al cinquantesimo, fino ai traguardi più importanti: ZAK Eventi ad Arzano ospita compleanni di diverse età. Puoi scegliere una cena o un party più dinamico, anche senza cena completa, sempre con la sala riservata al tuo evento.",
     eventName: "un compleanno",
     galleryFilter: "Emozioni",
     image: "/images/events/xtgb3320.webp",
     imageAlt: "Festeggiata in abito rosso accanto alla torta durante un compleanno a ZAK Eventi",
     image2: "/images/events/xtgb9908.webp",
     imageAlt2: "Brindisi di gruppo durante una festa reale a ZAK Eventi",
-    sectionTitle: "Ogni età può avere una festa diversa.",
+    sectionTitle: "Compleanni per adulti, party e ricevimenti: scegli il ritmo della tua festa.",
     sectionText:
-      "Un compleanno può essere elegante, conviviale o più orientato alla festa. Durante l'appuntamento definiamo insieme impostazione, spazi, allestimento, food & beverage e gli altri elementi da inserire nella proposta.",
+      "Festeggia i tuoi 30, 40, 50, 60 anni e anche gli altri traguardi. La location lavora in esclusiva; menu personalizzabili, buffet, servizio al tavolo, musica e allestimento si definiscono in consulenza. Cocktail e bartender sono opzioni aggiuntive a pagamento.",
     steps: [
-      { title: "Definiamo occasione e invitati", text: "Partiamo da età, data, numero indicativo di persone e tipo di atmosfera." },
-      { title: "Disegniamo lo spazio", text: "La disposizione viene adattata alla formula e al ritmo desiderato per la festa." },
-      { title: "Coordiniamo i momenti", text: "Accoglienza, convivialità, musica, brindisi e torta vengono pensati come un'unica esperienza." },
+      { title: "Scegliamo insieme la formula", text: "Partiamo da età, data e invitati: cena completa, buffet o party senza cena, in base alle tue preferenze." },
+      { title: "Una sala in esclusiva", text: "L’evento ha gli spazi riservati; disposizione, terrazza e allestimento vengono valutati in base alla formula." },
+      { title: "Curiamo ogni momento", text: "Accoglienza, cucina, musica, brindisi e torta vengono pianificati con attenzione ai dettagli." },
       { title: "Confermiamo la proposta", text: "Disponibilità e servizi vengono verificati direttamente con il team ZAK." },
     ],
     secondTitle: "Guarda feste vere prima di immaginare la tua.",
@@ -156,7 +156,11 @@ export function CompleanniPage() {
     faqTitle: "Compleanno a ZAK Eventi",
     faqs: [
       { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
-      { q: "Si possono organizzare compleanni per adulti?", a: "Sì. La formula viene costruita in base all'occasione, agli invitati e allo stile desiderato." },
+      { q: "Organizzate compleanni di 30, 40, 50 anni e oltre?", a: "Sì. ZAK ospita compleanni per adulti di molte età, compresi 30°, 40°, 50°, 60° e altri traguardi." },
+      { q: "La sala è in esclusiva?", a: "Sì, ZAK lavora esclusivamente con eventi a uso riservato della location. La configurazione dipende dal ricevimento." },
+      { q: "Posso festeggiare senza una cena completa?", a: "Sì, sono possibili formule più orientate al party, con musica e food & beverage concordati con il team." },
+      { q: "Posso aggiungere cocktail o bartender?", a: "Sì. Cocktail e bartender sono opzioni extra a pagamento, da definire nel preventivo." },
+      { q: "Il sopralluogo è gratuito?", a: "Sì, puoi richiedere una visita gratuita per vedere gli spazi e discutere l’evento." },
       { q: "Come verifico data e disponibilità?", a: "Scrivi su WhatsApp indicando data, numero indicativo di invitati ed età o tipo di compleanno." },
     ],
   });
@@ -240,7 +244,7 @@ export function BattesimiPage() {
     eyebrow: "Battesimi ad Arzano",
     h1: "Una sala per il battesimo ad Arzano, pensata per accogliere famiglia e persone care.",
     intro:
-      "ZAK Eventi è in Via Napoli 270 ad Arzano. Il battesimo viene costruito partendo dalla famiglia, dal numero di invitati e dal tipo di ricevimento desiderato.",
+      "ZAK Eventi è in Via Napoli 270 ad Arzano e riserva la location a ogni evento. I battesimi possono svolgersi a pranzo o a cena, con menu bambini personalizzabili e animazione su richiesta.",
     eventName: "un battesimo",
     galleryFilter: "Cerimonie",
     image: "/images/events/xtgb6585.webp",
@@ -263,7 +267,9 @@ export function BattesimiPage() {
     faqs: [
       { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
       { q: "Si può organizzare un battesimo a pranzo o a cena?", a: "La formula e l'orario desiderati vengono valutati durante l'appuntamento e confermati in base alla disponibilità." },
-      { q: "È possibile personalizzare l'allestimento?", a: "La personalizzazione viene definita con il team in relazione alla proposta e ai servizi disponibili." },
+      { q: "È possibile personalizzare l'allestimento?", a: "Sì, l’allestimento viene concordato con il team in relazione alla proposta e ai servizi disponibili." },
+      { q: "È disponibile un menu bambini?", a: "Sì, sono disponibili menu bambini personalizzabili. È possibile concordare anche l’animazione." },
+      { q: "La sala è in esclusiva?", a: "Sì, ZAK riserva la location al singolo evento. L’eventuale uso per tutta la giornata richiede un accordo specifico." },
       { q: "Come richiedo disponibilità?", a: "Scrivi su WhatsApp indicando data indicativa, numero di invitati e come immagini il ricevimento." },
     ],
   });

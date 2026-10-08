@@ -31,10 +31,10 @@ export function DiciottesimiPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Diciottesimi ad Arzano</p>
-          <h1>Una location per il tuo diciottesimo, tra ingresso, festa e momenti da ricordare.</h1>
+          <h1>Il tuo diciottesimo, con la sala tutta per te ad Arzano.</h1>
           <p>
             ZAK Eventi è in Via Napoli 270 ad Arzano, a pochi chilometri da Napoli. La festa viene progettata
-            intorno al festeggiato, all'atmosfera desiderata e ai momenti che devono restare.
+            intorno al festeggiato, con uso esclusivo della sala, cucina curata, allestimenti e intrattenimento professionale.
           </p>
         </div>
       </section>
@@ -51,9 +51,9 @@ export function DiciottesimiPage() {
               <span className="event-detail__number">01</span>
               <h2>Il diciottesimo comincia prima del primo brindisi.</h2>
               <p>
-                Ingresso, allestimento, disposizione degli spazi, musica, food &amp; beverage e momento della
-                torta fanno parte di un'unica esperienza. Durante l'appuntamento definiamo insieme la direzione
-                della festa e verifichiamo quali servizi inserire nella formula.
+                Le formule per diciottesimi descritte dal team comprendono menu personalizzabili,
+                buffet di dolci, torta e bevande, insieme a DJ, speaker, fotografo e allestimenti.
+                Puoi scegliere tra servizio al tavolo e buffet; condizioni e inclusioni esatte sono confermate nel preventivo.
               </p>
               <ActionLinks eventName="un diciottesimo" galleryFilter="Diciottesimi" />
             </div>
@@ -91,10 +91,12 @@ export function DiciottesimiPage() {
           </ol>
 
           <aside className="confirmation-note">
-            <strong>Niente pacchetti inventati online</strong>
+            <strong>Inclusioni ed extra, senza sorprese</strong>
             <p>
-              Il sito non presenta automaticamente servizi come inclusi: la proposta viene costruita e
-              confermata durante l'appuntamento, in base alle esigenze dell'evento.
+              Nei pacchetti per diciottesimi descritti dalla proprietà sono previsti DJ, speaker,
+              fotografo e allestimenti. Bartender, performer e ballerini sono extra a pagamento;
+              l’eventuale ingresso scenografico riguarda il momento del festeggiato durante la serata,
+              non l’ingresso esterno della struttura. Ogni dettaglio viene specificato in consulenza.
             </p>
           </aside>
         </div>
@@ -137,6 +139,13 @@ export function DiciottesimiPage() {
             durante l'appuntamento e confermati in base alla disponibilità.
           </p>
 
+          <h3>Il diciottesimo è in esclusiva?</h3>
+          <p>Sì, ZAK lavora solo con eventi che riservano la sala ai propri ospiti.</p>
+
+          <h3>Quali servizi comprendono i pacchetti?</h3>
+          <p>I pacchetti descritti dalla proprietà prevedono DJ, speaker, fotografo, allestimenti,
+            proposta food &amp; beverage e torta. Le inclusioni esatte sono riepilogate nel preventivo.</p>
+
           <h3>Come posso sapere se la data è disponibile?</h3>
           <p>
             Puoi contattare ZAK tramite WhatsApp o dalla pagina contatti indicando data, numero indicativo di
@@ -168,10 +177,10 @@ export function ComunioniPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Comunioni ad Arzano</p>
-          <h1>Una sala per la comunione, pensata per stare insieme e vivere il momento.</h1>
+          <h1>Comunioni ad Arzano: una sala in esclusiva per tutta la famiglia.</h1>
           <p>
             A ZAK Eventi, in Via Napoli 270 ad Arzano, la comunione viene costruita partendo dalla famiglia,
-            dall'atmosfera desiderata e dai dettagli da rendere protagonisti.
+            dall’atmosfera desiderata, con ricevimenti a pranzo o a cena, menu bambini personalizzabili e animazione su richiesta.
           </p>
         </div>
       </section>
@@ -188,9 +197,9 @@ export function ComunioniPage() {
               <span className="event-detail__number">01</span>
               <h2>Famiglia, accoglienza e un allestimento che racconta la giornata.</h2>
               <p>
-                Ogni comunione ha esigenze diverse. Durante l'appuntamento si definiscono insieme formula,
-                disposizione degli spazi, allestimento, food &amp; beverage e gli altri servizi utili
-                all'esperienza.
+                La sala viene riservata alla famiglia e ai suoi ospiti. Puoi concordare un ricevimento
+                a pranzo o a cena, con menu bambini personalizzabili, animazione e allestimenti.
+                L’eventuale esclusiva per tutta la giornata è possibile secondo disponibilità e accordi.
               </p>
               <ActionLinks eventName="una comunione" galleryFilter="Cerimonie" />
             </div>
@@ -267,6 +276,12 @@ export function ComunioniPage() {
           <h2>Comunione a ZAK Eventi</h2>
           <h3>Dove si trova la location?</h3>
           <p>ZAK Eventi si trova in Via Napoli 270, Arzano (NA), nell'area nord di Napoli.</p>
+
+          <h3>La comunione può essere organizzata a pranzo o a cena?</h3>
+          <p>Sì, ZAK organizza ricevimenti sia a pranzo sia a cena, secondo disponibilità.</p>
+
+          <h3>Sono previsti menu bambini e animazione?</h3>
+          <p>Sì, sono disponibili menu bambini personalizzabili e la possibilità di aggiungere animazione.</p>
 
           <h3>La comunione può essere personalizzata?</h3>
           <p>

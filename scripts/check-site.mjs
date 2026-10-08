@@ -21,7 +21,10 @@ try {
     assert.ok(html.includes(`href="${siteConfig.siteUrl}${path}"`));
     assert.ok(html.includes('<main id="main-content"'));
     const schema = JSON.parse(html.match(/<script id="site-schema" type="application\/ld\+json">(.*?)<\/script>/s)[1]);
-    assert.equal(schema["@graph"][2].url, `${siteConfig.siteUrl}${path}`);
+    const webpage = schema["@graph"].find(node => node["@type"] === "WebPage");
+    assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);
+    const expectedService = ["/diciottesimi", "/compleanni", "/comunioni", "/battesimi", "/feste-private", "/lauree"].includes(path);
+    assert.equal(schema["@graph"].some(node => node["@type"] === "Service"), expectedService, `Service schema on ${path}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
@@ -48,7 +51,12 @@ try {
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
   assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  assert.equal((sitemap.match(/<loc>/g) ?? []).length, 6);
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
+  const expectedUrls = pageRoutes
+    .filter(path => !getPageSeo(path).noIndex)
+    .map(path => `${siteConfig.siteUrl}${path}`)
+    .sort();
+  assert.deepEqual(sitemapUrls, expectedUrls, "Sitemap must include each and only indexable canonical page");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
   const filteredGallery = render("/gallery", "?filtro=Cerimonie");
   assert.ok(filteredGallery.includes("Un giorno in famiglia"));
@@ -62,7 +70,7 @@ try {
   const config = JSON.parse(await readFile("vercel.json", "utf8"));
   assert.ok(!config.rewrites?.some(rule => rule.destination === "/index.html"));
   await access("dist/404.html");
-  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, sitemapUrls: 6, workerRouting: "passed", formValidation: "passed" }, null, 2));
+  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, sitemapUrls: expectedUrls.length, workerRouting: "passed", formValidation: "passed" }, null, 2));
 } finally {
   await server.close();
 }

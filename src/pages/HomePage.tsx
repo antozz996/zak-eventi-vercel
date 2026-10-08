@@ -23,16 +23,15 @@ export function HomePage() {
         <div className="container">
           <EditorialImageBlock
             eyebrow="La nostra idea di festa"
-            title="Non organizziamo semplicemente feste. Creiamo ricordi che entrano in scena."
-            text="In Via Napoli 270 ad Arzano, ZAK accoglie diciottesimi, compleanni, comunioni e feste private. Dall’idea iniziale all’ultimo brindisi, ogni evento prende forma intorno alle persone e ai dettagli che lo rendono unico."
+            title="La tua festa, la nostra cura. In esclusiva."
+            text="A ZAK Eventi, ad Arzano, la location è riservata al tuo evento. Cucina curata, rapporto umano, allestimenti personalizzabili e professionisti della musica e della fotografia accompagnano ogni festa, dalla prima idea al momento della torta."
             mediaLabel="Momento vissuto a ZAK"
             image="/images/events/xtgb0046.webp"
             imageAlt="Abbraccio di gruppo durante una festa ZAK"
             aspect="landscape"
           >
-            <Link className="text-link" to="/location">
-              Dentro la location <ArrowRight aria-hidden="true" size={17} />
-            </Link>
+            <Link className="text-link" to="/compleanni">Scopri i compleanni <ArrowRight aria-hidden="true" size={17} /></Link>
+            <Link className="text-link" to="/location">Dentro la location <ArrowRight aria-hidden="true" size={17} /></Link>
           </EditorialImageBlock>
         </div>
       </section>
@@ -42,11 +41,11 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Ogni occasione, una scena diversa"
             title="Il tuo momento. Con la sua atmosfera."
-            description="Dall’eleganza di una cerimonia all’energia di un diciottesimo: il progetto comincia sempre dalla persona."
+            description="Compleanni di tutte le età, diciottesimi e cerimonie: una location in esclusiva e una festa progettata intorno alle persone."
             light
           />
           <div className="event-grid">
-            {eventTypes.map((event) => <EventCard event={event} key={event.slug} />)}
+            {[...eventTypes].sort((a, b) => Number(b.slug === "compleanni") - Number(a.slug === "compleanni")).map((event) => <EventCard event={event} key={event.slug} />)}
           </div>
         </div>
       </section>
@@ -78,7 +77,7 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Un progetto, diverse possibilità"
             title="Tutto ciò che può dare forma alla festa."
-            description="Servizi disponibili in base alla formula scelta. La disponibilità effettiva viene definita durante l’appuntamento."
+            description="Dalla cucina agli allestimenti e all’intrattenimento: servizi reali con inclusioni, personalizzazioni ed extra definiti nel preventivo."
           />
           <div className="service-grid">
             {services.map((service) => <ServiceCard service={service} key={service.title} />)}
