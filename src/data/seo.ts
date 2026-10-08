@@ -158,5 +158,24 @@ export function getStructuredData(path: string, title: string) {
     inLanguage: "it-IT",
   }] : [];
 
-  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...article, ...breadcrumbs] };
+  // Servizi realmente offerti; non creiamo prezzi, Offer o eventi fittizi.
+  const serviceNames: Record<string, string> = {
+    "/compleanni": "Location in esclusiva per feste di compleanno",
+    "/diciottesimi": "Organizzazione di diciottesimi in esclusiva",
+    "/comunioni": "Ricevimenti per comunioni",
+    "/battesimi": "Ricevimenti per battesimi",
+    "/feste-private": "Location per feste private",
+    "/lauree": "Location per feste di laurea",
+  };
+  const service = serviceNames[path] ? [{
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: serviceNames[path],
+    serviceType: serviceNames[path],
+    provider: { "@id": venue["@id"] },
+    areaServed: { "@type": "City", name: "Arzano" },
+    url,
+  }] : [];
+
+  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...service, ...article, ...breadcrumbs] };
 }
