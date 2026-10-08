@@ -21,7 +21,10 @@ try {
     assert.ok(html.includes(`href="${siteConfig.siteUrl}${path}"`));
     assert.ok(html.includes('<main id="main-content"'));
     const schema = JSON.parse(html.match(/<script id="site-schema" type="application\/ld\+json">(.*?)<\/script>/s)[1]);
-    assert.equal(schema["@graph"][2].url, `${siteConfig.siteUrl}${path}`);
+    const webpage = schema["@graph"].find((entity) => entity["@type"] === "WebPage");
+    const canonicalUrl = `${siteConfig.siteUrl}${path}`;
+    assert.equal(webpage?.url, canonicalUrl, `WebPage schema URL: ${path}`);
+    assert.ok(html.includes(`<link rel="canonical" href="${canonicalUrl}"`), `Canonical URL: ${path}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
@@ -31,6 +34,17 @@ try {
         const image = await readFile(`dist${src}`);
         assert.ok(image.length > 0, `Empty image: ${src}`);
         if (src.endsWith(".webp")) assert.equal(image.subarray(8,12).toString(), "WEBP", src);
+      }
+    }
+    for (const match of html.matchAll(/<(?:img|source)\b[^>]*\bsrcset="([^"]+)"/g)) {
+      for (const [, assetPath] of match[1].matchAll(/(\/[^,\s]+)\s+\d+w/g)) {
+        const response = await worker.fetch(new Request(`https://example.com${assetPath}`), {});
+        assert.equal(response.status, 200, `Responsive image asset: ${assetPath}`);
+        if (assetPath.endsWith(".avif")) {
+          const image = Buffer.from(await response.arrayBuffer());
+          assert.equal(image.subarray(4, 8).toString(), "ftyp", `AVIF signature: ${assetPath}`);
+          assert.ok(image.includes(Buffer.from("avif")), `AVIF brand: ${assetPath}`);
+        }
       }
     }
     for (const match of html.matchAll(/(?:href|src)="(\/[^" ]*)"/g)) {
@@ -46,10 +60,23 @@ try {
   const head = await worker.fetch(new Request("https://example.com/location", { method: "HEAD" }), {});
   assert.equal(head.status, 200); assert.equal(await head.text(), "");
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
-  assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
+  const reviews = await worker.fetch(new Request("https://example.com/api/google-reviews"), {});
+  assert.equal(reviews.status, 200);
+  assert.deepEqual(await reviews.json(), { configured: false });
+  const pixel = await readFile("src/lib/metaPixel.ts", "utf8");
+  assert.ok(pixel.includes('const PIXEL_ID = "3132799710244140"'));
+  assert.match(pixel, /!hasMarketingConsent\(\)\s*\|\|\s*initialized/);
+  assert.ok(pixel.includes("https://connect.facebook.net/en_US/fbevents.js"));
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  assert.equal((sitemap.match(/<loc>/g) ?? []).length, 6);
+  const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+  const expectedSitemapUrls = pageRoutes
+    .filter((path) => !getPageSeo(path).noIndex)
+    .map((path) => `${siteConfig.siteUrl}${path}`);
+  assert.equal(expectedSitemapUrls.length, 21, "Expected 21 indexable routes");
+  assert.deepEqual(sitemapUrls, expectedSitemapUrls, "Sitemap must contain every indexable route exactly once, in route order");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
+  const robots = await readFile("dist/robots.txt", "utf8");
+  assert.ok(robots.includes(`Sitemap: ${siteConfig.siteUrl}/sitemap.xml`));
   const filteredGallery = render("/gallery", "?filtro=Cerimonie");
   assert.ok(filteredGallery.includes("Un giorno in famiglia"));
   assert.ok(!filteredGallery.includes("Il tuo ingresso"));
@@ -61,8 +88,10 @@ try {
   assert.ok(validateContact(form({ name: "Anto", phone: "123", guests: "-1" })).guests);
   const config = JSON.parse(await readFile("vercel.json", "utf8"));
   assert.ok(!config.rewrites?.some(rule => rule.destination === "/index.html"));
+  assert.ok(config.headers.some((rule) => rule.source === "/assets/(.*)" && rule.headers.some((header) => header.key.toLowerCase() === "cache-control" && header.value.includes("immutable"))));
+  assert.ok(config.headers.some((rule) => rule.source === "/images/(.*)" && rule.headers.some((header) => header.key.toLowerCase() === "cache-control" && header.value.includes("max-age=86400"))));
   await access("dist/404.html");
-  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, sitemapUrls: 6, workerRouting: "passed", formValidation: "passed" }, null, 2));
+  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, indexablePages: expectedSitemapUrls.length, sitemapUrls: sitemapUrls.length, workerRouting: "passed", formValidation: "passed" }, null, 2));
 } finally {
   await server.close();
 }
