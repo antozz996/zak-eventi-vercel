@@ -1,3 +1,4 @@
+import { trackGoogleAnalyticsContact } from "../lib/googleAnalytics";
 import { trackMetaContact } from "../lib/metaPixel";
 import { MessageCircle } from "lucide-react";
 import { useState } from "react";
@@ -48,6 +49,7 @@ export function ContactForm() {
       return;
     }
 
+    trackGoogleAnalyticsContact("form_whatsapp");
     trackMetaContact("form_whatsapp");
     window.location.assign(whatsappLink);
   };
