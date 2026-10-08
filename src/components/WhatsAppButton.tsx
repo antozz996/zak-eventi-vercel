@@ -1,3 +1,4 @@
+import { trackMetaContact } from "../lib/metaPixel";
 import { MessageCircle } from "lucide-react";
 import { Link } from "../lib/router";
 import { getWhatsAppLink } from "../utils/whatsapp";
@@ -16,7 +17,7 @@ export function WhatsAppButton({ message, label = "WhatsApp", fixed = false }: {
   }
 
   return (
-    <a className={className} href={href} target="_blank" rel="noreferrer">
+    <a className={className} href={href} onClick={() => trackMetaContact("whatsapp")} target="_blank" rel="noreferrer">
       <MessageCircle aria-hidden="true" />
       <span>{label}</span>
     </a>
