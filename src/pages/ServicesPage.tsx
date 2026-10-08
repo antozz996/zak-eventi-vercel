@@ -24,8 +24,8 @@ export function ServicesPage() {
           <p className="eyebrow">Organizzazione eventi ad Arzano</p>
           <h1>Dall'idea alla festa: un percorso per costruire il tuo evento a ZAK.</h1>
           <p>
-            Consulenza, progettazione, allestimento, accoglienza, intrattenimento, food &amp; beverage,
-            coordinamento e momenti speciali vengono valutati in funzione della formula scelta.
+            A ZAK la location è sempre riservata al singolo evento. Menu personalizzabili, servizi professionali,
+            intrattenimento, allestimenti e torta vengono definiti attraverso una consulenza dettagliata.
           </p>
           <div className="inline-links">
             <Link to="/contatti">Raccontaci il tuo evento</Link>
@@ -56,12 +56,24 @@ export function ServicesPage() {
             ))}
           </ol>
           <aside className="confirmation-note">
-            <strong>Cosa è incluso?</strong>
+            <strong>In cosa consistono inclusioni ed extra?</strong>
             <p>
-              Dipende dalla formula concordata. La disponibilità dei servizi e ciò che è incluso nella proposta
-              vengono definiti durante l'appuntamento: il sito non trasforma possibilità in promesse automatiche.
+              Nei pacchetti per diciottesimi indicati dalla proprietà sono compresi DJ, speaker, fotografo,
+              allestimenti e una proposta food &amp; beverage con torta. Cocktail e bartender, performer e ballerini
+              sono extra a pagamento. Per compleanni, cerimonie e altre formule le voci esatte vengono
+              confermate nel preventivo: nessun servizio viene dato per incluso senza accordo.
             </p>
           </aside>
+        </div>
+      </section>
+
+      <section className="section section--stone">
+        <div className="container legal-page__content">
+          <p className="eyebrow">Food, beverage e ospitalità</p>
+          <h2>Una proposta curata e adattabile al ricevimento.</h2>
+          <p>Il team propone menu personalizzabili, buffet o servizio al tavolo, con possibilità di servizio all’inglese. Sono disponibili menu bambini e opzioni per esigenze alimentari da definire in anticipo con lo staff. Le bevande e la torta fanno parte delle formule indicate dalla proprietà, mentre i cocktail sono extra.</p>
+          <p>Per ricevere una proposta adatta alla festa sono importanti data, numero di invitati, tipologia di evento e stile del servizio. Puoi iniziare da un sopralluogo gratuito.</p>
+          <Link className="button button--dark" to="/contatti">Richiedi un sopralluogo gratuito</Link>
         </div>
       </section>
 
@@ -87,13 +99,16 @@ export function ServicesPage() {
           <h2>Servizi e organizzazione a ZAK Eventi</h2>
 
           <h3>I servizi elencati sono sempre inclusi?</h3>
-          <p>No. La pagina descrive le aree che possono entrare nel progetto; inclusioni e disponibilità vengono confermate nella proposta.</p>
+          <p>La sala in esclusiva è la modalità operativa dichiarata da ZAK. I pacchetti per diciottesimi indicati dalla proprietà comprendono DJ, speaker, fotografo e allestimenti; per ogni altra formula inclusioni ed extra vengono specificati nel preventivo.</p>
 
           <h3>Posso partire da un'idea senza avere già deciso la formula?</h3>
           <p>Sì. Il primo passaggio serve proprio a capire occasione, invitati, atmosfera e priorità prima di definire la proposta.</p>
 
           <h3>Posso personalizzare allestimento e momenti della festa?</h3>
           <p>La personalizzazione viene valutata durante l'appuntamento e costruita in relazione all'evento e ai servizi disponibili.</p>
+
+          <h3>La visita alla location è gratuita?</h3>
+          <p>Sì, puoi richiedere un sopralluogo gratuito e valutare gli spazi insieme al team.</p>
 
           <h3>Come richiedo una proposta?</h3>
           <p>Puoi usare la pagina contatti o WhatsApp indicando tipo di evento, data indicativa e numero di invitati.</p>
