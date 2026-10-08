@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { trackMetaContact } from "../lib/metaPixel";
 import { Link } from "../lib/router";
 import { EventPhoto } from "../components/EventPhoto";
 import { FinalCTA } from "../components/FinalCTA";
@@ -11,7 +12,7 @@ function ActionLinks({ eventName, galleryFilter }: { eventName: string; galleryF
   return (
     <div className="inline-links">
       {whatsapp ? (
-        <a href={whatsapp} target="_blank" rel="noreferrer">
+        <a href={whatsapp} onClick={() => trackMetaContact("whatsapp")} target="_blank" rel="noreferrer">
           Chiedi disponibilità <ArrowUpRight aria-hidden="true" size={17} />
         </a>
       ) : (
