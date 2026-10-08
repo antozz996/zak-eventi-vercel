@@ -49,7 +49,7 @@ export function trackMetaPage(path: string) {
   if (lastPage === path) return;
   lastPage = path;
   window.fbq?.("track", "PageView");
-  if (/^\\/(diciottesimi|comunioni|battesimi|compleanni|feste-private|lauree|servizi|location|eventi)$/.test(path)) {
+  if (/^\/(diciottesimi|comunioni|battesimi|compleanni|feste-private|lauree|servizi|location|eventi)$/.test(path)) {
     window.fbq?.("track", "ViewContent", { content_name: path.slice(1), content_category: "eventi" });
   }
 }
