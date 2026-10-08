@@ -13,6 +13,7 @@ Data: 8 ottobre 2026 · Dominio: https://www.zakeventi.com
 | Immagini responsive segnalate | 432.238 byte nelle sei risorse WebP selezionate | 267.627 byte nelle sei varianti AVIF: −164.611 byte (−38,1%); il browser sceglie una sola variante |
 | Richieste render-blocking | CSS del sito 9,6 KiB / 170 ms; CSS Google Fonts 1,6 KiB / 750 ms; opportunità totale stimata 1.270 ms | Foglio Google Fonts caricato in modo non bloccante; nessun nuovo dato Lighthouse attribuito alla preview protetta |
 | Cache | Produzione: CSS e immagini `max-age=0, must-revalidate` (CDN `HIT`) | Preview verificata: asset hashati 1 anno immutabile; immagini 1 giorno browser/CDN, `stale-while-revalidate=604800` |
+| Audit dipendenze | 3 vulnerabilità alte transitive | 0; patch lockfile per `brace-expansion`, `nanoid` e `source-map-js`, senza major |
 | Pixel Meta | Script presente solo dopo opt-in nel codice | Pixel `3132799710244140` assente prima della scelta e dopo rifiuto; nessuna richiesta `facebook.net` osservata nel browser di test |
 
 ## Modifiche
@@ -48,5 +49,6 @@ INP non era disponibile nei dati CrUX della produzione e il Lighthouse post-chan
 - `npm run typecheck`: superato.
 - `npm run build`: superato; 23 pagine prerenderizzate più 404, 21 URL in sitemap.
 - `npm run check:site`: superato; 23 pagine, 721 riferimenti, 21 URL indexable/sitemap, routing e validazione modulo.
+- `npm audit --audit-level=high`: superato; zero vulnerabilità dopo gli aggiornamenti patch del lockfile.
 
 Il pannello privato DNS Aruba non è stato modificato né interrogato: la verifica DNS è pubblica e il collegamento/verification Vercel risulta attivo. Nessun record DNS, dominio, impostazione di produzione o deployment production è stato modificato.
