@@ -244,7 +244,7 @@ export function BattesimiPage() {
     eyebrow: "Battesimi ad Arzano",
     h1: "Una sala per il battesimo ad Arzano, pensata per accogliere famiglia e persone care.",
     intro:
-      "ZAK Eventi è in Via Napoli 270 ad Arzano e riserva la location a ogni evento. I battesimi possono svolgersi a pranzo o a cena, con menu bambini personalizzabili e animazione su richiesta."
+      "ZAK Eventi è in Via Napoli 270 ad Arzano e riserva la location a ogni evento. I battesimi possono svolgersi a pranzo o a cena, con menu bambini personalizzabili e animazione su richiesta.",
     eventName: "un battesimo",
     galleryFilter: "Cerimonie",
     image: "/images/events/xtgb6585.webp",
