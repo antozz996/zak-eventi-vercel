@@ -8,10 +8,17 @@ export function hasMarketingConsent(): boolean {
   try { return localStorage.getItem(CONSENT_KEY) === "accepted"; } catch { return false; }
 }
 export function setMarketingConsent(accepted: boolean) {
-  try { localStorage.setItem(CONSENT_KEY, accepted ? "accepted" : "rejected"); } catch { /* Session-only selection. */ }
-  window.dispatchEvent(new Event("zak-marketing-consent-change"));
-  if (accepted) initMetaPixel();
-  else if (initialized) window.location.reload(); // Stops further browser-side Pixel calls after withdrawal.
+  // Reload after a choice so Meta Pixel Helper and Meta Test Events can detect
+  // the same initialization flow as a returning visitor. Rejecting or
+  // withdrawing consent also unloads any already-initialized Pixel.
+  try {
+    localStorage.setItem(CONSENT_KEY, accepted ? "accepted" : "rejected");
+  } catch {
+    // Without persistent opt-in, the page must remain untracked.
+    if (!accepted) window.location.reload();
+    return;
+  }
+  window.location.reload();
 }
 export function initMetaPixel() {
   if (typeof window === "undefined" || !hasMarketingConsent() || initialized) return;
