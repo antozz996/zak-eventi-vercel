@@ -2205,3 +2205,164 @@ body.menu-open .whatsapp-button--fixed, body.lightbox-open .whatsapp-button--fix
   .page-hero h1 { font-size: 2.7rem; }
 }
 body.menu-open .cookie-banner, body.lightbox-open .cookie-banner { display: none; }
+
+
+/* Why ZAK / review-led trust page */
+.trust-theme-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.trust-theme-card {
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  border: 1px solid var(--line-dark);
+  background: rgb(255 255 255 / 38%);
+}
+
+.trust-theme-card > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--zak-gold);
+}
+
+.trust-theme-card h2 {
+  margin-bottom: 0.8rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.3rem);
+  font-weight: 500;
+}
+
+.trust-theme-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.trust-proof-list {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.facebook-proof {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.facebook-proof > svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--zak-midnight);
+}
+
+.facebook-proof h2 {
+  max-width: 780px;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.facebook-proof p:not(.eyebrow):not(.form-caption) {
+  max-width: 760px;
+}
+
+@media (min-width: 760px) {
+  .trust-theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .facebook-proof {
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .trust-theme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+.facebook-proof--summary {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.facebook-review-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.facebook-review-card {
+  display: flex;
+  min-height: 100%;
+  padding: clamp(1.35rem, 2.5vw, 1.8rem);
+  flex-direction: column;
+  border: 1px solid var(--line-dark);
+  background: rgb(255 255 255 / 48%);
+}
+
+.facebook-review-card__source {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--zak-midnight);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.facebook-review-card__source svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.facebook-review-card h3 {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  font-weight: 600;
+}
+
+.facebook-review-card__meta {
+  margin-bottom: 1.2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.facebook-review-card blockquote {
+  margin: 0 0 1.35rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.45;
+}
+
+.facebook-review-card__recommendation {
+  margin-top: auto;
+  margin-bottom: 0;
+  color: var(--zak-red);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .facebook-review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .facebook-review-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
