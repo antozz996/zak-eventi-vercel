@@ -69,7 +69,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         return;
       }
       if (url.protocol === "mailto:") {
-        trackGoogleAnalyticsContact("email" as "phone", "email_link");
+        trackGoogleAnalyticsContact("email", "email_link");
         return;
       }
       if (url.hostname === "www.google.com" && url.pathname.startsWith("/maps")) {
