@@ -49,7 +49,7 @@ export function ContactForm() {
       return;
     }
 
-    trackGoogleAnalyticsContact("form_whatsapp");
+    trackGoogleAnalyticsContact("form_whatsapp", "contact_form");
     trackMetaContact("form_whatsapp");
     window.location.assign(whatsappLink);
   };
