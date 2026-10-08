@@ -42,6 +42,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, [location.pathname, hash]);
 
   useEffect(() => {
+    const eventType = hash.replace(/^#/, "");
+    if (location.pathname === "/eventi" && eventCategoryPattern.test(`/${eventType}`)) {
+      trackGoogleAnalyticsEvent("view_event_category", { event_type: eventType });
+    }
+  }, [location.pathname, hash]);
+
+  useEffect(() => {
     const path = location.pathname;
     trackMetaPage(path);
     trackGoogleAnalyticsPage(path);
@@ -101,9 +108,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         return;
       }
 
-      if (eventCategoryPattern.test(destinationPath)) {
+      const eventType = eventCategoryPattern.test(destinationPath)
+        ? destinationPath.slice(1)
+        : destinationPath === "/eventi" && eventCategoryPattern.test(`/${url.hash.replace(/^#/, "")}`)
+          ? url.hash.slice(1)
+          : "";
+      if (eventType) {
         trackGoogleAnalyticsEvent("event_category_click", {
-          event_type: destinationPath.slice(1),
+          event_type: eventType,
           source_path: path,
         });
       }
