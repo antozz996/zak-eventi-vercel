@@ -172,7 +172,7 @@ export function WhyZakPage() {
           <SectionHeading
             eyebrow="I temi che tornano"
             title="Se persone diverse raccontano le stesse cose, per noi è un segnale importante."
-            description="Questi non sono slogan scelti dal marketing: sono i temi ricorrenti che emergono dai feedback pubblici dei clienti."
+            description="Questi non sono slogan scelti dal marketing: sono i temi ricorrenti che emergono dalle recensioni Google e dalle raccomandazioni Facebook dei clienti."
           />
           <div className="trust-theme-grid">
             {themes.map(({ icon: Icon, title, text }) => (
@@ -215,7 +215,7 @@ export function WhyZakPage() {
         <div className="container">
           <SectionHeading
             eyebrow="Google"
-            title="Leggi direttamente le recensioni del profilo ufficiale."
+            title="Le recensioni Google, direttamente dal profilo ufficiale."
             description="Quando la Google Places API è configurata, questa sezione mostra rating e recensioni dal profilo Google Maps ufficiale di ZAK Eventi."
           />
           <GoogleReviews />
