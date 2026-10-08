@@ -118,13 +118,17 @@ Non viene usato un backend per questo flusso. Se in futuro si vorranno anche arc
 
 Titolo e descrizione vengono aggiornati per pagina. Sono predisposti Open Graph, Twitter Card, canonical, dati strutturati `EventVenue`, `robots.txt` e sitemap.
 
-Canonical, sitemap e robots usano l’URL pubblico del provider. Se viene collegato un dominio personalizzato, aggiornare `siteConfig.siteUrl`, `public/sitemap.xml`, `public/robots.txt` e il dato strutturato in `index.html`.
+Canonical, sitemap, robots e dati strutturati usano `https://www.zakeventi.com`. In Vercel `zakeventi.com` reindirizza al dominio www e la configurazione di entrambi risulta valida.
 
 ## Privacy, cookie e analytics
 
-Le pagine legali sono placeholder in `noindex`. Nessun analytics, Meta Pixel o tracciamento non essenziale è attivo. Il banner salva una scelta di sessione ed è predisposto per una futura gestione degli script dopo consenso.
+Le pagine legali sono in `noindex`. Il Meta Pixel `3132799710244140` si attiva solo dopo il consenso marketing; il rifiuto mantiene disattivato il tracciamento e le preferenze si possono riaprire dal sito. Gli eventi tracciati sono PageView, ViewContent per le pagine evento e Contact per i clic di contatto. Verificare la ricezione degli eventi in Meta Events Manager dopo una scelta positiva di consenso.
 
-Testi legali e logica cookie devono essere adeguati ai servizi realmente configurati e validati prima della pubblicazione.
+Le pagine legali e la logica del consenso devono restare allineate ai servizi realmente configurati.
+
+## Font
+
+Manrope e Cormorant Garamond sono ospitati in `public/fonts` in formato WOFF2 per evitare un foglio di stile esterno che rallenta il rendering mobile. Le licenze OFL sono incluse accanto ai file.
 
 ## Deploy futuro
 
