@@ -22,7 +22,7 @@ export function WhatsAppButton({ message, label = "WhatsApp", fixed = false }: {
       className={className}
       href={href}
       onClick={() => {
-        trackGoogleAnalyticsContact("whatsapp");
+        trackGoogleAnalyticsContact("whatsapp", fixed ? "floating_button" : "whatsapp_button");
         trackMetaContact("whatsapp");
       }}
       target="_blank"
