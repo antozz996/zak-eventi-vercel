@@ -49,7 +49,7 @@ export function trackGoogleAnalyticsEvent(
 }
 
 export function trackGoogleAnalyticsContact(method: ContactMethod, source: string) {
-  trackGoogleAnalyticsEvent("contact_click", {
+  trackGoogleAnalyticsEvent("contact_intent", {
     contact_method: method,
     contact_source: source,
   });
