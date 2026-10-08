@@ -132,10 +132,11 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Banner cookie</h2>
               <p>
-                Il Meta Pixel richiede il consenso preventivo;
-                per questo il sito non presenta un banner di accettazione o rifiuto. Prima dell'eventuale
-                attivazione futura di analytics non tecnici, advertising o altri strumenti soggetti a consenso,
-                puoi aggiornare la scelta dal pulsante Preferenze cookie. Il rifiuto blocca il caricamento del Pixel e la revoca blocca nuove attività dopo il ricaricamento.
+                Il Meta Pixel viene attivato esclusivamente dopo una scelta positiva nel banner.
+                Puoi accettare o rifiutare senza conseguenze sulla navigazione e modificare o revocare
+                il consenso in ogni momento tramite il pulsante Preferenze cookie.
+                Il rifiuto impedisce il caricamento del Pixel e la revoca blocca nuove attività
+                dopo il ricaricamento della pagina. La preferenza è conservata localmente nel browser.
               </p>
 
               <h2>Link a servizi esterni</h2>
