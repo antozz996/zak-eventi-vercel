@@ -38,6 +38,9 @@ export function initMetaPixel() {
     script.src = "https://connect.facebook.net/en_US/fbevents.js";
     document.head.appendChild(script);
   }
+  // This site sends explicitly defined events; disable Meta's automatic
+  // button and metadata collection before initializing the Pixel.
+  window.fbq("set", "autoConfig", false, PIXEL_ID);
   window.fbq("init", PIXEL_ID);
 }
 export function trackMetaPage(path: string) {
