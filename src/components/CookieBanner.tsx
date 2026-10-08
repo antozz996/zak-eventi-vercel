@@ -31,7 +31,7 @@ export function CookieBanner() {
   return (
     <>
       {open && (
-        <aside className="zak-consent" role="dialog" aria-label="Preferenze cookie">
+        <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
           <strong>La tua privacy</strong>
           <p>
             Usiamo tecnologie necessarie al sito. Solo con il consenso attiviamo Meta Pixel
@@ -46,7 +46,7 @@ export function CookieBanner() {
               Accetta marketing
             </button>
           </div>
-        </aside>
+        </div>
       )}
       {!open && (choice === "accepted" || choice === "rejected") && (
         <button type="button" className="zak-consent-settings" onClick={() => setReopen(true)}>

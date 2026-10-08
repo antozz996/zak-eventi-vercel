@@ -21,12 +21,12 @@ export function EventCard({ event }: { event: EventType }) {
               : `/eventi#${event.slug}`;
   return (
     <article className="event-card">
-      {event.media ? <EventPhoto src={event.media} alt={event.mediaAlt ?? event.title} aspect="portrait" /> : <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />}
+      {event.media ? <EventPhoto src={event.media} alt={event.mediaAlt ?? event.title} aspect="portrait" sizes="(max-width: 559px) calc(100vw - 2.5rem), (max-width: 959px) calc((100vw - 3.5rem) / 2), 33vw" /> : <MediaPlaceholder label={`Foto ${event.title}`} aspect="portrait" />}
       <div className="event-card__shade" />
       <div className="event-card__content">
         <p>{event.moment}</p>
         <h3>{event.title}</h3>
-        <Link to={destination}>
+        <Link to={destination} aria-label={`Scopri ${event.title}`}>
           Scopri <ArrowUpRight aria-hidden="true" size={18} />
         </Link>
       </div>

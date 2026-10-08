@@ -32,7 +32,7 @@ export const imageMetadata: Record<string, { width: number; height: number; srcS
   "/images/events/xtgb3320.webp": {
     "width": 960,
     "height": 1440,
-    "srcSet": "/images/events/xtgb3320-720.webp 720w, /images/events/xtgb3320.webp 960w"
+    "srcSet": "/images/events/xtgb3320-320.webp 320w, /images/events/xtgb3320-640.webp 640w, /images/events/xtgb3320-720.webp 720w, /images/events/xtgb3320.webp 960w"
   },
   "/images/events/xtgb0557-hero.webp": {
     "width": 1646,
@@ -67,7 +67,7 @@ export const imageMetadata: Record<string, { width: number; height: number; srcS
   "/images/events/xtgb0819.webp": {
     "width": 960,
     "height": 1440,
-    "srcSet": "/images/events/xtgb0819-720.webp 720w, /images/events/xtgb0819.webp 960w"
+    "srcSet": "/images/events/xtgb0819-320.webp 320w, /images/events/xtgb0819-640.webp 640w, /images/events/xtgb0819-720.webp 720w, /images/events/xtgb0819.webp 960w"
   },
   "/images/events/xtgb6517.webp": {
     "width": 1440,

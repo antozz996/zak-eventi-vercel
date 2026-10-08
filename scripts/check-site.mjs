@@ -35,6 +35,14 @@ try {
         assert.ok(image.length > 0, `Empty image: ${src}`);
         if (src.endsWith(".webp")) assert.equal(image.subarray(8,12).toString(), "WEBP", src);
       }
+      const srcSet = match[0].match(/srcset="([^"]+)"/)?.[1];
+      for (const candidate of srcSet?.split(",") ?? []) {
+        const candidatePath = candidate.trim().split(/\s+/)[0];
+        if (candidatePath.startsWith("/")) {
+          const image = await readFile(`dist${candidatePath}`);
+          assert.ok(image.length > 0, `Empty responsive image: ${candidatePath}`);
+        }
+      }
     }
     for (const match of html.matchAll(/(?:href|src)="(\/[^" ]*)"/g)) {
       const url = new URL(match[1].replace(/&amp;/g, "&"), "https://example.com");
@@ -49,7 +57,9 @@ try {
   const head = await worker.fetch(new Request("https://example.com/location", { method: "HEAD" }), {});
   assert.equal(head.status, 200); assert.equal(await head.text(), "");
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
-  assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
+  const unconfiguredReviews = await worker.fetch(new Request("https://example.com/api/google-reviews"), {});
+  assert.equal(unconfiguredReviews.status, 200);
+  assert.deepEqual(await unconfiguredReviews.json(), { configured: false });
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
   const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
   const expectedUrls = pageRoutes
