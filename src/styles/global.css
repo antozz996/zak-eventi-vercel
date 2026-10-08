@@ -137,6 +137,10 @@ h3 {
   background: #dfdcd5;
 }
 
+.section--stone .section-heading__description {
+  color: var(--ink);
+}
+
 .section--midnight {
   color: var(--zak-ivory);
   background: var(--zak-midnight);

@@ -41,13 +41,30 @@ export function LocationPage() {
         <div className="container">
           <EditorialImageBlock
             eyebrow="Dentro ZAK"
-            title="La sala non è il punto di arrivo. È l'inizio della trasformazione."
-            text="Tavoli, luci, allestimenti e zone della sala vengono letti come parte di un unico progetto. L'obiettivo è costruire un ambiente coerente con il tipo di festa, senza forzare ogni evento dentro la stessa configurazione."
+            title="Una sala in esclusiva, per una festa davvero tua."
+            text="ZAK riserva la location a un solo evento per volta. La sala interna e la terrazza esterna permettono di progettare convivialità, musica e momenti speciali in funzione della formula concordata."
             mediaLabel="Vista ampia della sala"
             image="/images/events/xtgb6517.webp"
             imageAlt="Sala ZAK Eventi ad Arzano apparecchiata con sedute blu e parete vegetale"
             aspect="landscape"
           />
+        </div>
+      </section>
+
+      <section className="section section--stone">
+        <div className="container legal-page__content">
+          <p className="eyebrow">La location in sintesi</p>
+          <h2>Spazi, capienza e servizi dichiarati dalla proprietà.</h2>
+          <p>La capienza massima indicata dal team è di {siteConfig.venue.maximumGuestsDeclared} ospiti. La capienza effettiva dipende dalla disposizione, dal tipo di ricevimento e dalle verifiche previste per la configurazione scelta.</p>
+          <ul>
+            <li>Location in esclusiva per il singolo evento</li>
+            <li>Sala interna e terrazza esterna</li>
+            <li>Parcheggio e area fumatori</li>
+            <li>Climatizzazione, impianto audio e luci, possibilità di ballare</li>
+            <li>Accessi dichiarati senza barriere architettoniche: concorda con il team eventuali esigenze specifiche di mobilità</li>
+          </ul>
+          <p>La location non dispone di piscina. La visita conoscitiva è gratuita e permette di verificare personalmente spazi, percorsi e configurazione dell’evento.</p>
+          <Link className="button button--dark" to="/contatti">Prenota un sopralluogo gratuito</Link>
         </div>
       </section>
 
@@ -124,6 +141,12 @@ export function LocationPage() {
 
           <h3>Posso vedere la location prima di decidere?</h3>
           <p>Sì. Puoi richiedere un appuntamento per vedere gli spazi e parlare direttamente dell'evento che stai organizzando.</p>
+
+          <h3>Quanti invitati può accogliere ZAK Eventi?</h3>
+          <p>La capienza massima dichiarata dalla proprietà è di 150 ospiti. Numero e disposizione vengono concordati in base al tipo di festa e alla configurazione effettiva.</p>
+
+          <h3>Ci sono parcheggio e accessi senza barriere?</h3>
+          <p>La struttura dichiara parcheggio e percorsi senza barriere architettoniche. Per esigenze particolari, confrontati con il team prima della visita.</p>
 
           <h3>La sala viene configurata sempre allo stesso modo?</h3>
           <p>No. Disposizione, allestimento e atmosfera vengono valutati in funzione dell'evento e della formula concordata.</p>

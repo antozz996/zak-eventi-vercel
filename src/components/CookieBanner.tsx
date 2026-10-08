@@ -55,7 +55,7 @@ export function CookieBanner() {
   return (
     <>
       {bannerOpen && (
-        <aside className="zak-consent" role="dialog" aria-label="Preferenze cookie">
+        <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
           <strong>La tua privacy</strong>
           <p>
             Google Analytics viene attivato solo se scegli le statistiche; Meta Pixel solo se
@@ -85,7 +85,7 @@ export function CookieBanner() {
               Accetta tutto
             </button>
           </div>
-        </aside>
+        </div>
       )}
       {!bannerOpen && choice === "complete" && (
         <button

@@ -21,7 +21,10 @@ try {
     assert.ok(html.includes(`href="${siteConfig.siteUrl}${path}"`));
     assert.ok(html.includes('<main id="main-content"'));
     const schema = JSON.parse(html.match(/<script id="site-schema" type="application\/ld\+json">(.*?)<\/script>/s)[1]);
-    assert.equal(schema["@graph"][3].url, `${siteConfig.siteUrl}${path}`);
+    const webpage = schema["@graph"].find(node => node["@type"] === "WebPage");
+    assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);
+    const expectedService = ["/diciottesimi", "/compleanni", "/comunioni", "/battesimi", "/feste-private", "/lauree"].includes(path);
+    assert.equal(schema["@graph"].some(node => node["@type"] === "Service"), expectedService, `Service schema on ${path}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
@@ -31,6 +34,14 @@ try {
         const image = await readFile(`dist${src}`);
         assert.ok(image.length > 0, `Empty image: ${src}`);
         if (src.endsWith(".webp")) assert.equal(image.subarray(8,12).toString(), "WEBP", src);
+      }
+      const srcSet = match[0].match(/srcset="([^"]+)"/)?.[1];
+      for (const candidate of srcSet?.split(",") ?? []) {
+        const candidatePath = candidate.trim().split(/\s+/)[0];
+        if (candidatePath.startsWith("/")) {
+          const image = await readFile(`dist${candidatePath}`);
+          assert.ok(image.length > 0, `Empty responsive image: ${candidatePath}`);
+        }
       }
     }
     for (const match of html.matchAll(/(?:href|src)="(\/[^" ]*)"/g)) {
@@ -46,18 +57,25 @@ try {
   const head = await worker.fetch(new Request("https://example.com/location", { method: "HEAD" }), {});
   assert.equal(head.status, 200); assert.equal(await head.text(), "");
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
-  assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
+  const unconfiguredReviews = await worker.fetch(new Request("https://example.com/api/google-reviews"), {});
+  assert.equal(unconfiguredReviews.status, 200);
+  assert.deepEqual(await unconfiguredReviews.json(), { configured: false });
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
-  const indexableRoutes = pageRoutes.filter((path) => !getPageSeo(path).noIndex);
-  const sitemapPaths = sitemapUrls.map((url) => {
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+  const expectedUrls = pageRoutes
+    .filter(path => !getPageSeo(path).noIndex)
+    .map(path => `${siteConfig.siteUrl}${path}`)
+    .sort();
+  const parsedSitemapUrls = sitemapUrls.map((url) => {
     const parsed = new URL(url);
     assert.equal(parsed.origin, siteConfig.siteUrl, `Sitemap origin: ${url}`);
-    return parsed.pathname.replace(/\/$/, "") || "/";
+    assert.equal(parsed.search, "", `Sitemap query string: ${url}`);
+    assert.equal(parsed.hash, "", `Sitemap fragment: ${url}`);
+    return `${parsed.origin}${parsed.pathname}`;
   });
-  assert.equal(new Set(sitemapPaths).size, sitemapPaths.length, "Unique sitemap URLs");
-  assert.deepEqual([...sitemapPaths].sort(), [...indexableRoutes].sort(), "Sitemap contains every indexable route and no noindex route");
-  assert.equal(sitemapPaths.length, 21);
+  assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "Unique canonical sitemap URLs");
+  assert.deepEqual([...parsedSitemapUrls].sort(), expectedUrls, "Sitemap must include every and only indexable canonical page");
+  assert.equal(sitemapUrls.length, 21, "Expected 21 indexable sitemap URLs");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
   const filteredGallery = render("/gallery", "?filtro=Cerimonie");
   assert.ok(filteredGallery.includes("Un giorno in famiglia"));
@@ -71,7 +89,7 @@ try {
   const config = JSON.parse(await readFile("vercel.json", "utf8"));
   assert.ok(!config.rewrites?.some(rule => rule.destination === "/index.html"));
   await access("dist/404.html");
-  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, sitemapUrls: sitemapPaths.length, workerRouting: "passed", formValidation: "passed" }, null, 2));
+  console.log(JSON.stringify({ passed: true, pages: pageRoutes.length, checkedLinks, sitemapUrls: expectedUrls.length, workerRouting: "passed", formValidation: "passed" }, null, 2));
 } finally {
   await server.close();
 }

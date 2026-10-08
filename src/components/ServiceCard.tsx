@@ -28,7 +28,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <Icon aria-hidden="true" strokeWidth={1.25} />
       <h3>{service.title}</h3>
       <p>{service.description}</p>
-      <span className="content-status">Disponibilità da confermare</span>
+      {service.status !== "confirmed" && <span className="content-status">Disponibilità da confermare</span>}
     </article>
   );
 }

@@ -152,7 +152,7 @@ export function DiciottesimoGuidePage() {
 
       <section className="section section--ivory">
         <div className="container legal-page__content">
-          <p className="eyebrow">Aggiornata il 7 ottobre 2026 · A cura di ZAK Eventi</p>
+          <p className="eyebrow">Aggiornata l'8 ottobre 2026 · A cura di ZAK Eventi</p>
           <p>
             Quando confronti sale e location tra Napoli e provincia, chiedere un prezzo senza capire cosa
             comprende può portare a confronti sbagliati. Questa checklist serve a mettere sullo stesso piano
@@ -177,6 +177,8 @@ export function DiciottesimoGuidePage() {
             Domanda quali ambienti sono riservati al tuo evento e se nello stesso momento possono esserci altre
             feste. È un dettaglio che cambia privacy, gestione degli ospiti e percezione della serata.
           </p>
+          <p>Per esempio ZAK Eventi ad Arzano lavora solo con la sala in esclusiva. Questa è una
+            caratteristica da chiedere e confrontare espressamente quando si valutano altre location.</p>
 
           <h2>3. Confronta ciò che è realmente incluso</h2>
           <p>

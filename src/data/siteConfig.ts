@@ -5,9 +5,19 @@ export const siteConfig = {
   shortName: "ZAK",
   payoff: "Il tuo evento entra in scena.",
   description:
-    "ZAK crea, organizza e mette in scena momenti speciali in una location per eventi ad Arzano.",
+    "ZAK Eventi è una location ad Arzano per feste private in esclusiva, con proposte personalizzabili, cucina curata e professionisti dell’intrattenimento.",
   locale: "it_IT",
   siteUrl: "https://www.zakeventi.com",
+  venue: {
+    maximumGuestsDeclared: 150,
+    exclusiveUse: true,
+    spaces: "Sala interna e terrazza esterna",
+    parking: true,
+    airConditioning: true,
+    accessiblePathsDeclared: true,
+    smokingArea: true,
+    audioLighting: true,
+  },
   heroVideo: "",
   heroPoster: "/images/events/ingresso-abito-blu.webp",
   heroPosterMobile: "/images/events/ingresso-abito-blu.webp",
@@ -64,7 +74,7 @@ export const eventTypes: EventType[] = [
     media: "/images/events/xtgb3320.webp",
     mediaAlt: "Festeggiata in abito rosso accanto alla torta con rose",
     title: "Compleanni",
-    description: "Ogni età ha la sua atmosfera. ZAK dà forma a un momento personale e condiviso.",
+    description: "Compleanni per tutte le età, dalla cena al party con cocktail: una sala in esclusiva e una festa costruita insieme.",
     moment: "Abbracci, brindisi e sorprese.",
   },
   {
@@ -126,13 +136,13 @@ export const experienceSteps = [
 ] as const;
 
 export const services: Service[] = [
-  { title: "Location", description: "Lo spazio e i suoi ambienti, da conoscere durante la visita.", icon: "map", status: "to-confirm" },
-  { title: "Progettazione dell’allestimento", description: "Un progetto visivo coerente con l’occasione e con chi la vive.", icon: "palette", status: "to-confirm" },
-  { title: "Banqueting", description: "Soluzioni food e beverage da definire in base alla formula scelta.", icon: "utensils", status: "to-confirm" },
-  { title: "Musica e DJ", description: "Il ritmo della serata, coordinato con i suoi momenti principali.", icon: "music", status: "to-confirm" },
-  { title: "Animazione", description: "Intrattenimento valutato in relazione al tipo di evento.", icon: "sparkles", status: "to-confirm" },
-  { title: "Torta e momenti speciali", description: "La regia dei passaggi più attesi, dal brindisi al finale.", icon: "cake", status: "to-confirm" },
-  { title: "Coordinamento dell’evento", description: "Una presenza organizzativa lungo il percorso dell’esperienza.", icon: "calendar", status: "to-confirm" },
+  { title: "Location in esclusiva", description: "La sala è riservata al tuo evento. Configurazione e disponibilità vengono definite in consulenza.", icon: "map", status: "confirmed" },
+  { title: "Allestimenti personalizzabili", description: "Allestimenti adattabili allo stile della festa; le soluzioni e gli eventuali extra dipendono dalla formula.", icon: "palette", status: "confirmed" },
+  { title: "Food e beverage", description: "Menu personalizzabili, buffet o servizio al tavolo, bevande e torta secondo la proposta concordata.", icon: "utensils", status: "confirmed" },
+  { title: "DJ e speaker", description: "Inclusi nei pacchetti per diciottesimi descritti dalla proprietà; per altri eventi verifica la formula.", icon: "music", status: "confirmed" },
+  { title: "Animazione e intrattenimento", description: "Animazione per bambini disponibile; performer e ballerini sono opzioni a pagamento.", icon: "sparkles", status: "confirmed" },
+  { title: "Torta e momenti speciali", description: "Torta e momenti della festa vengono progettati con il team, secondo la formula definita.", icon: "cake", status: "confirmed" },
+  { title: "Coordinamento e sopralluogo", description: "Attenzione ai dettagli dell’evento e possibilità di visitare gratuitamente la location.", icon: "calendar", status: "confirmed" },
 ];
 
 export const serviceJourney = [
@@ -338,7 +348,7 @@ export const testimonials: Testimonial[] = [
 export const pageMeta = {
   home: {
     title: "ZAK Eventi — Location per eventi ad Arzano",
-    description: "Sala eventi ad Arzano, in Via Napoli 270: diciottesimi, compleanni, comunioni e feste private. Scopri le foto di ZAK e prenota una visita.",
+    description: "ZAK Eventi ad Arzano: sala in esclusiva per compleanni, diciottesimi e cerimonie, cucina curata e feste personalizzate. Prenota un sopralluogo gratuito.",
   },
   location: {
     title: "Location per eventi e feste ad Arzano | ZAK Eventi",
@@ -362,7 +372,7 @@ export const pageMeta = {
   },
   compleanni: {
     title: "Sala per compleanni ad Arzano e Napoli Nord | ZAK Eventi",
-    description: "Cerchi una sala per compleanno ad Arzano o Napoli Nord? Scopri ZAK Eventi, guarda feste reali e chiedi disponibilità per la tua data.",
+    description: "Compleanni 30, 40, 50 anni e oltre ad Arzano: sala in esclusiva, cena o party anche senza menu completo. Scopri ZAK e prenota un sopralluogo gratuito.",
   },
   "feste-private": {
     title: "Location per feste private ad Arzano | ZAK Eventi",

@@ -16,11 +16,13 @@ type GoogleReview = {
 };
 
 type GoogleReviewsResponse = {
+  configured: true;
   rating: number;
   reviewCount: number;
   googleMapsUri: string;
   reviews: GoogleReview[];
 };
+type GoogleReviewsApiResponse = GoogleReviewsResponse | { configured: false };
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -44,10 +46,12 @@ export function GoogleReviews() {
 
     fetch("/api/google-reviews", { signal: controller.signal })
       .then((response) => {
-        if (!response.ok) throw new Error("Google Places non configurato");
-        return response.json() as Promise<GoogleReviewsResponse>;
+        if (!response.ok) throw new Error("Google Places non disponibile");
+        return response.json() as Promise<GoogleReviewsApiResponse>;
       })
-      .then(setReviewsData)
+      .then((response) => {
+        if (response.configured) setReviewsData(response);
+      })
       .catch((error: unknown) => {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setReviewsData(null);

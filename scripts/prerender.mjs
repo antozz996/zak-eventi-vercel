@@ -33,8 +33,7 @@ try {
     await writeFile(output, template.replace(/<!--seo-start-->[\s\S]*?<!--seo-end-->/, `<!--seo-start-->${head}<!--seo-end-->`).replace('<div id="root"></div>', `<div id="root">${render(path)}</div>`));
   }
   const indexedRoutes = pageRoutes.filter((path) => !getPageSeo(path).noIndex);
-  const lastmod = "2026-10-07";
-  await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexedRoutes.map(path => `<url><loc>${siteConfig.siteUrl}${path}</loc><lastmod>${lastmod}</lastmod><image:image><image:loc>${siteConfig.siteUrl}${getPageImage(path)}</image:loc></image:image></url>`).join("\n")}\n</urlset>`);
+  await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexedRoutes.map(path => `<url><loc>${siteConfig.siteUrl}${path}</loc><image:image><image:loc>${siteConfig.siteUrl}${getPageImage(path)}</image:loc></image:image></url>`).join("\n")}\n</urlset>`);
   await writeFile("dist/robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${siteConfig.siteUrl}/sitemap.xml\n`);
   console.log(`Prerender: ${pageRoutes.length} pagine + 404; ${indexedRoutes.length} URL in sitemap.`);
 } finally {
