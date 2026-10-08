@@ -1,5 +1,7 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { useLocation } from "../lib/router";
+import { CookieBanner } from "./CookieBanner";
+import { trackMetaPage } from "../lib/metaPixel";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { WhatsAppButton } from "./WhatsAppButton";
@@ -24,6 +26,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [location.pathname, hash]);
 
+  useEffect(() => {
+    trackMetaPage(location.pathname);
+    const handleConsent = () => trackMetaPage(location.pathname);
+    window.addEventListener("zak-marketing-consent-change", handleConsent);
+    return () => window.removeEventListener("zak-marketing-consent-change", handleConsent);
+  }, [location.pathname]);
+
   return (
     <>
       <Header />
@@ -31,6 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <Footer />
+      <CookieBanner />
       <WhatsAppButton fixed />
     </>
   );
