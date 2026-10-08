@@ -72,3 +72,18 @@ La Lighthouse/CrUX API di PageSpeed ha restituito HTTP 429 con quota giornaliera
 ## Azione fuori codice consigliata
 
 Collegare Search Console al proprietario del dominio per verificare l’indicizzazione reale e l’elaborazione delle 21 URL. La ricerca pubblica non sostituisce i dati di copertura. Valutare l’hop HTTP apex→HTTPS apex→www dopo la preview; DNS e redirect di produzione non sono stati modificati in questo audit.
+
+
+## Aggiornamento finale dopo riallineamento con main — 8 ottobre 2026
+
+Il branch della PR è stato riallineato ai cinque commit più recenti di main. Sono stati mantenuti i contenuti basati sui dettagli verificati dal proprietario, i controlli aggiuntivi di accessibilità, i font self-hosted e le immagini responsive. Il conflitto in CookieBanner e check-site è risolto; GitHub riporta la PR come unibile e le verifiche CI risultano positive.
+
+- Commit verificato: d22dbc19dbac83ba8d45352facc275da3671029a.
+- Preview finale READY: https://zak-eventi-vercel-2rtk508vw-antozz996s-projects.vercel.app/
+- Lint, typecheck, build e check:site superati; 23 pagine generate, 747 link interni controllati e 21 URL sitemap, con validazione modulo e routing worker superati.
+- Misure del bundle di questo build: JavaScript 361,26 kB (104,19 kB gzip); CSS 39,38 kB (8,47 kB gzip). Rispetto alla preview precedente del branch, l’incremento coincide con l’integrazione degli aggiornamenti di main; non è stato misurato un miglioramento dei Core Web Vitals.
+- La prova browser sulla preview aggiornata conferma: nessun tag prima del consenso; GA4 soltanto dopo il consenso statistiche; rimozione di GA4 dopo il rifiuto. Meta resta vincolato al consenso marketing.
+- Il record TXT Google è visibile nella zona DNS Aruba sul nome host @, TTL 1 ora. Search Console riporta ancora siteUnverifiedUser/readable=false: non è ancora possibile leggere i dati GSC o inviare la sitemap.
+- PageSpeed Insights ha risposto HTTP 429 per quota esaurita. Non sono disponibili misure affidabili di LCP e INP; il CLS osservato in precedenza era una breve lettura passiva e non un dato CWV.
+
+Nessun DNS aggiuntivo modificato e nessun rilascio in produzione effettuato.
