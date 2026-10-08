@@ -21,7 +21,7 @@ try {
     assert.ok(html.includes(`href="${siteConfig.siteUrl}${path}"`));
     assert.ok(html.includes('<main id="main-content"'));
     const schema = JSON.parse(html.match(/<script id="site-schema" type="application\/ld\+json">(.*?)<\/script>/s)[1]);
-    assert.equal(schema["@graph"][2].url, `${siteConfig.siteUrl}${path}`);
+    assert.equal(schema["@graph"][3].url, `${siteConfig.siteUrl}${path}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
