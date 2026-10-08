@@ -14,7 +14,7 @@ Nessuna modifica è stata applicata al DNS o alla configurazione Vercel. Non ho 
 | Test sitemap | Assertion rigida `6`; errore nonostante 21 URL corretti | Calcola le route `noindex`, verifica origine, unicità e corrispondenza completa; atteso 21 |
 | Policy noindex | Privacy e cookie escluse dalla sitemap | La verifica le continua a escludere e rifiuta qualunque route noindex |
 | Metadati Home | Title, description, canonical, robots e JSON-LD presenti nell’HTML | Nessuna modifica ai metadati; non è emerso un difetto verificabile |
-| Prestazioni / CWV | LCP e INP non misurabili in questo campione; CLS osservato pari a 0 nella breve finestra passiva | Nessun cambio al runtime; misurazione CWV prima/dopo da completare su preview con run pulito |
+| Prestazioni / CWV | Bundle main: JS 348,87 kB (100,49 kB gzip), CSS 37,99 kB (8,14 kB gzip). LCP/INP non misurabili; CLS 0 in finestra passiva breve | Bundle: JS 348,99 kB (100,51 kB gzip), CSS invariato. Lieve aumento del bundle legato alla lettura SSR-safe del consenso; LCP/INP restano senza misura affidabile |
 
 ## Risultati raccolti
 
@@ -46,15 +46,27 @@ Nessuna modifica è stata applicata al DNS o alla configurazione Vercel. Non ho 
 
 ### Performance, immagini, CSS e JS
 
-- Campione mobile in viewport 390×844: DOMContentLoaded circa 514 ms e load circa 626 ms nella navigazione osservata; la sessione aveva già visitato il sito e le risorse potevano essere in cache.
+- Campione mobile in viewport 390×844: DOMContentLoaded circa 514 ms e load circa 626 ms nella navigazione osservata; la sessione aveva già visitato il sito e le risorse potevano essere in cache. Non è un confronto Lighthouse prima/dopo.
+- Bundle build Vercel: baseline main JS 348,87 kB (100,49 kB gzip), CSS 37,99 kB (8,14 kB gzip); branch JS 348,99 kB (100,51 kB gzip), CSS invariato. L’aumento misurato è 0,12 kB raw / 0,02 kB gzip.
 - Il browser non ha fornito una misura affidabile di LCP o INP in quel campione. Il valore CLS osservato è 0 nella finestra passiva di circa 2,5 secondi, senza interazioni: non è una misura RUM/Core Web Vitals e non permette un confronto prima/dopo.
 - Nel campione desktop iniziale, la navigation entry riportava circa 660 ms a DOMContentLoaded e 806 ms a load; il trasferimento della sola navigazione HTML era circa 7,2 kB. Questi dati non sono un Lighthouse score né un peso pagina completo.
 - La copertina usa WebP responsive, la variante mobile `-720.webp` era selezionata a 390 px; le immagini non iniziali sono lazy. CSS e JS arrivano da asset statici Vercel con nomi hash. Non ho cambiato bundle, immagini o caching perché non è emersa una regressione misurabile da correggere in questa modifica.
 - L’endpoint recensioni restituisce 503 nel sito pubblico. Il repository documenta che Google Places non è configurato e che il 503 è il fallback previsto; rating statici non sono esposti nel JSON-LD.
 
-## Verifiche in attesa della preview
+## Verifiche su branch e preview
 
-Dopo l’apertura della PR vanno letti gli esiti CI/Vercel per `lint`, `typecheck`, `build` e `check:site`, poi controllata la preview. Da questa sessione non è stato possibile eseguire i comandi nel checkout: il mirror locale del progetto non contiene il repository (e le cartelle `sources/` del progetto sono read-only). Il branch è stato preparato tramite il connettore GitHub; non dichiaro i test superati finché il CI non li conferma.
+La build Vercel sul branch esegue in sequenza `lint`, `typecheck`, `build` e `check:site`; tutti e quattro sono passati sul commit `60dbcc67b5a6d801b5e23bac6a3e793c87e53f23`.
+
+- `lint`: superato dopo aver spostato la lettura della preferenza cookie a `useSyncExternalStore`, eliminando il `setState` nell’effetto.
+- `typecheck`: superato (`tsc -b --pretty false`).
+- `build`: superato; prerender di 23 pagine + 404 e 21 URL sitemap.
+- `check:site`: superato, 23 pagine, 721 link interni controllati, 21 URL sitemap, routing e validazione modulo superati.
+- Smoke test browser sulla preview: robots e sitemap HTTP 200; 23/23 route con HTTP 200, title, canonical, un H1, JSON-LD valido e robots coerenti (21 indicizzabili, 2 policy noindex).
+- Preview senza preferenza salvata: nessuna richiesta verso Facebook/Meta.
+
+Il primo tentativo del gate ha trovato un problema preesistente in `CookieBanner.tsx`; il successivo ha trovato una assertion che confrontava l’URL del nodo `WebSite` con quello della pagina. Entrambi sono stati corretti e l’intera sequenza è passata al rilancio.
+
+La Lighthouse/CrUX API di PageSpeed ha restituito HTTP 429 con quota giornaliera impostata a 0; non sono disponibili risultati affidabili LCP/INP né dati Search Console. I comandi sono stati eseguiti nel build Vercel collegato al repository remoto: il mirror locale di questo progetto non contiene il checkout del repository e le cartelle `sources/` sono read-only.
 
 ## Azione fuori codice consigliata
 
