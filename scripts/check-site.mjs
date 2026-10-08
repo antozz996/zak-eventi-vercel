@@ -48,12 +48,12 @@ try {
   assert.equal((await worker.fetch(new Request("https://example.com/location", { method: "POST" }), {})).status, 405);
   assert.equal((await worker.fetch(new Request("https://example.com/api/google-reviews"), {})).status, 503);
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\\/loc>/g)].map((match) => match[1]);
+  const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   const indexableRoutes = pageRoutes.filter((path) => !getPageSeo(path).noIndex);
   const sitemapPaths = sitemapUrls.map((url) => {
     const parsed = new URL(url);
     assert.equal(parsed.origin, siteConfig.siteUrl, `Sitemap origin: ${url}`);
-    return parsed.pathname.replace(/\\/$/, "") || "/";
+    return parsed.pathname.replace(/\/$/, "") || "/";
   });
   assert.equal(new Set(sitemapPaths).size, sitemapPaths.length, "Unique sitemap URLs");
   assert.deepEqual([...sitemapPaths].sort(), [...indexableRoutes].sort(), "Sitemap contains every indexable route and no noindex route");
