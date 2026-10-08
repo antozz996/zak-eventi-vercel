@@ -5,7 +5,7 @@ import { createServer } from "vite";
 const server = await createServer({ server: { middlewareMode: true }, appType: "custom" });
 let checkedLinks = 0;
 try {
-  const { render, pageRoutes, getPageSeo, siteConfig } = await server.ssrLoadModule("/src/entry-server.tsx");
+  const { render, pageRoutes, getPageImageAlt, getPageSeo, siteConfig } = await server.ssrLoadModule("/src/entry-server.tsx");
   const { validateContact } = await server.ssrLoadModule("/src/utils/contactValidation.ts");
   const worker = (await import(`../dist/server/index.js?test=${Date.now()}`)).default;
   const titles = new Set();
@@ -27,6 +27,8 @@ try {
     assert.ok(html.includes(`<link rel="canonical" href="${canonicalUrl}"`), `Canonical URL: ${path}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
+    assert.ok(html.includes(`<meta property="og:image:alt" content="${getPageImageAlt(path)}"`), `Page-specific Open Graph image alt: ${path}`);
+    assert.ok(html.includes(`<meta name="twitter:image:alt" content="${getPageImageAlt(path)}"`), `Page-specific Twitter image alt: ${path}`);
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
       assert.ok(/\balt=/.test(match[0]), `Image alt on ${path}`);
       const src = match[0].match(/src="([^"]+)"/)?.[1];

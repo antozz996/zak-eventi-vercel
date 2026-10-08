@@ -11,6 +11,7 @@ export const siteConfig = {
   heroVideo: "",
   heroPoster: "/images/events/ingresso-abito-blu.webp",
   heroPosterMobile: "/images/events/ingresso-abito-blu.webp",
+  heroPosterAlt: "Festeggiata in abito blu che entra sul tappeto rosso tra fontane luminose.",
   contact: {
     whatsapp: "393533198020",
     phone: "353 319 8020",

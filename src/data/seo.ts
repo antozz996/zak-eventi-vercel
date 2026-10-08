@@ -1,4 +1,4 @@
-import { pageMeta, siteConfig } from "./siteConfig";
+import { eventTypes, galleryItems, pageMeta, siteConfig } from "./siteConfig";
 
 export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/perche-scegliere-zak", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
 
@@ -31,6 +31,14 @@ const guideImages: Record<string, string> = {
 
 export function getPageImage(path: string) {
   return guideImages[path] ?? pageImages[path] ?? siteConfig.heroPoster;
+}
+
+export function getPageImageAlt(path: string) {
+  const image = getPageImage(path);
+  if (image === siteConfig.heroPoster) return siteConfig.heroPosterAlt;
+  return galleryItems.find((item) => item.src === image)?.alt
+    ?? eventTypes.find((event) => event.media === image)?.mediaAlt
+    ?? "Momento di un evento a ZAK Eventi.";
 }
 
 const routeMeta = {

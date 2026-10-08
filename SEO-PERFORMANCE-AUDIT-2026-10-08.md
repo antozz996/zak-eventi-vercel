@@ -19,6 +19,7 @@ Data: 8 ottobre 2026 · Dominio: https://www.zakeventi.com
 ## Modifiche
 
 - Aggiornato `scripts/check-site.mjs`: genera l’insieme atteso dalle route marcate indexable, pretende 21 URL, confronta URL e ordine della sitemap e verifica `robots.txt`, canonical e nodo schema `WebPage`.
+- Resi specifici per pagina `og:image:alt` e `twitter:image:alt`, attingendo alle descrizioni già associate alle foto nella gallery o alle tipologie evento.
 - Corretto il selettore del test JSON-LD: il controllo ora identifica il nodo per tipo schema invece di presumere una posizione fissa nel grafo.
 - Rimossa la sincronizzazione dello stato cookie tramite setState sincrono in un effect; il consenso legge lo storage con `useSyncExternalStore`, mantiene un hydration snapshot stabile e consente di riaprire le preferenze.
 - Reso non bloccante il foglio Google Fonts; il testo usa i font di sistema mentre i web font vengono caricati.

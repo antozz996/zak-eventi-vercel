@@ -1,7 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { Router } from "wouter";
 import App from "./App";
-export { getPageImage, getPageSeo, getStructuredData, pageRoutes } from "./data/seo";
+export { getPageImage, getPageImageAlt, getPageSeo, getStructuredData, pageRoutes } from "./data/seo";
 export { siteConfig } from "./data/siteConfig";
 
 export function render(path: string, search = "") {
