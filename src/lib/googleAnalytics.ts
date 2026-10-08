@@ -2,7 +2,7 @@ const MEASUREMENT_ID = "G-X2Q3CL2BZM";
 const CONSENT_KEY = "zak-analytics-consent";
 
 type Gtag = (...args: unknown[]) => void;
-type ContactMethod = "whatsapp" | "form_whatsapp" | "phone";
+type ContactMethod = "whatsapp" | "form_whatsapp" | "phone" | "email";
 
 declare global {
   interface Window {
