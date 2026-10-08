@@ -1,3 +1,4 @@
+import { trackGoogleAnalyticsContact } from "../lib/googleAnalytics";
 import { trackMetaContact } from "../lib/metaPixel";
 import { MessageCircle } from "lucide-react";
 import { Link } from "../lib/router";
@@ -17,7 +18,16 @@ export function WhatsAppButton({ message, label = "WhatsApp", fixed = false }: {
   }
 
   return (
-    <a className={className} href={href} onClick={() => trackMetaContact("whatsapp")} target="_blank" rel="noreferrer">
+    <a
+      className={className}
+      href={href}
+      onClick={() => {
+        trackGoogleAnalyticsContact("whatsapp", fixed ? "floating_button" : "whatsapp_button");
+        trackMetaContact("whatsapp");
+      }}
+      target="_blank"
+      rel="noreferrer"
+    >
       <MessageCircle aria-hidden="true" />
       <span>{label}</span>
     </a>

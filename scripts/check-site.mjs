@@ -61,12 +61,21 @@ try {
   assert.equal(unconfiguredReviews.status, 200);
   assert.deepEqual(await unconfiguredReviews.json(), { configured: false });
   const sitemap = await readFile("dist/sitemap.xml", "utf8");
-  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
   const expectedUrls = pageRoutes
     .filter(path => !getPageSeo(path).noIndex)
     .map(path => `${siteConfig.siteUrl}${path}`)
     .sort();
-  assert.deepEqual(sitemapUrls, expectedUrls, "Sitemap must include each and only indexable canonical page");
+  const parsedSitemapUrls = sitemapUrls.map((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.origin, siteConfig.siteUrl, `Sitemap origin: ${url}`);
+    assert.equal(parsed.search, "", `Sitemap query string: ${url}`);
+    assert.equal(parsed.hash, "", `Sitemap fragment: ${url}`);
+    return `${parsed.origin}${parsed.pathname}`;
+  });
+  assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "Unique canonical sitemap URLs");
+  assert.deepEqual([...parsedSitemapUrls].sort(), expectedUrls, "Sitemap must include every and only indexable canonical page");
+  assert.equal(sitemapUrls.length, 21, "Expected 21 indexable sitemap URLs");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
   const filteredGallery = render("/gallery", "?filtro=Cerimonie");
   assert.ok(filteredGallery.includes("Un giorno in famiglia"));

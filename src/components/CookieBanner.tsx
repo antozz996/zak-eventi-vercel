@@ -1,55 +1,98 @@
 import { useState, useSyncExternalStore } from "react";
 import { Link } from "../lib/router";
-import { setMarketingConsent } from "../lib/metaPixel";
 
-type ConsentState = "checking" | "unknown" | "accepted" | "rejected";
+const ANALYTICS_CONSENT_KEY = "zak-analytics-consent";
+const MARKETING_CONSENT_KEY = "zak-marketing-consent";
+type ConsentStatus = "checking" | "unknown" | "complete";
 
-function getStoredChoice(): ConsentState {
+function subscribeToConsentChanges(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  window.addEventListener("zak-consent-update", onChange);
+  return () => {
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener("zak-consent-update", onChange);
+  };
+}
+
+function getConsentSnapshot(): ConsentStatus {
   try {
-    const stored = localStorage.getItem("zak-marketing-consent");
-    return stored === "accepted" || stored === "rejected" ? stored : "unknown";
+    const analytics = window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    const marketing = window.localStorage.getItem(MARKETING_CONSENT_KEY);
+    return [analytics, marketing].every((value) => value === "accepted" || value === "rejected")
+      ? "complete"
+      : "unknown";
   } catch {
     return "unknown";
   }
 }
 
-function subscribeToConsent(callback: () => void) {
-  window.addEventListener("storage", callback);
-  return () => window.removeEventListener("storage", callback);
+function getServerConsentSnapshot(): ConsentStatus {
+  return "checking";
 }
 
 export function CookieBanner() {
-  // The server and first hydration render match; the client then reads storage.
-  const choice = useSyncExternalStore<ConsentState>(
-    subscribeToConsent,
-    getStoredChoice,
-    () => "checking",
+  const choice = useSyncExternalStore(
+    subscribeToConsentChanges,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
   );
-  const [reopen, setReopen] = useState(false);
-  const open = choice === "unknown" || reopen;
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const bannerOpen = choice === "unknown" || settingsOpen;
+
+  const saveChoices = (analytics: boolean, marketing: boolean) => {
+    try {
+      window.localStorage.setItem(ANALYTICS_CONSENT_KEY, analytics ? "accepted" : "rejected");
+      window.localStorage.setItem(MARKETING_CONSENT_KEY, marketing ? "accepted" : "rejected");
+    } catch {
+      // Without a saved opt-in, both trackers remain blocked.
+    }
+    window.dispatchEvent(new Event("zak-analytics-consent-change"));
+    window.dispatchEvent(new Event("zak-marketing-consent-change"));
+    window.dispatchEvent(new Event("zak-consent-update"));
+    window.location.reload();
+  };
 
   return (
     <>
-      {open && (
+      {bannerOpen && (
         <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
           <strong>La tua privacy</strong>
           <p>
-            Usiamo tecnologie necessarie al sito. Solo con il consenso attiviamo Meta Pixel
-            per misurare visite e interazioni pubblicitarie. Puoi modificare la scelta quando vuoi.{" "}
+            Google Analytics viene attivato solo se scegli le statistiche; Meta Pixel solo se
+            scegli il marketing. Puoi modificare la scelta quando vuoi.{" "}
             <Link to="/cookie-policy">Cookie Policy</Link>.
           </p>
           <div className="zak-consent__actions">
-            <button type="button" className="button button--outline-dark" onClick={() => setMarketingConsent(false)}>
+            <button
+              type="button"
+              className="button button--outline-dark"
+              onClick={() => saveChoices(false, false)}
+            >
               Rifiuta
             </button>
-            <button type="button" className="button button--gold" onClick={() => setMarketingConsent(true)}>
-              Accetta marketing
+            <button
+              type="button"
+              className="button button--outline-dark"
+              onClick={() => saveChoices(true, false)}
+            >
+              Solo statistiche
+            </button>
+            <button
+              type="button"
+              className="button button--gold"
+              onClick={() => saveChoices(true, true)}
+            >
+              Accetta tutto
             </button>
           </div>
         </div>
       )}
-      {!open && (choice === "accepted" || choice === "rejected") && (
-        <button type="button" className="zak-consent-settings" onClick={() => setReopen(true)}>
+      {!bannerOpen && choice === "complete" && (
+        <button
+          type="button"
+          className="zak-consent-settings"
+          onClick={() => setSettingsOpen(true)}
+        >
           Preferenze cookie
         </button>
       )}
