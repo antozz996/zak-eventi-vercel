@@ -18,7 +18,7 @@ function getConsentSnapshot() {
 }
 
 function getServerConsentSnapshot() {
-  return "unknown";
+  return "unresolved";
 }
 
 export function CookieBanner() {
