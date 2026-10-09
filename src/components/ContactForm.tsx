@@ -55,7 +55,7 @@ export function ContactForm() {
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate data-clarity-mask="true">
       <div className="form-field">
         <label htmlFor="name">Nome e cognome *</label>
         <input id="name" name="name" required maxLength={100} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
