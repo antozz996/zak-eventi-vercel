@@ -46,10 +46,10 @@ export function initializeClarity() {
   document.head.appendChild(script);
 }
 
-export function denyClarityConsent() {
+export function updateClarityConsent(analytics: boolean) {
   if (typeof window === "undefined" || !window.clarity) return;
   window.clarity("consentv2", {
-    analytics_Storage: "denied",
+    analytics_Storage: analytics ? "granted" : "denied",
     ad_Storage: "denied",
   });
 }
