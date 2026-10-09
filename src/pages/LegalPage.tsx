@@ -20,7 +20,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
       />
       <section className="legal-page">
         <div className="container legal-page__content">
-          <p className="eyebrow">Ultimo aggiornamento: 8 ottobre 2026</p>
+          <p className="eyebrow">Ultimo aggiornamento: 9 ottobre 2026</p>
           <h1>{title}</h1>
 
           {isPrivacy ? (
