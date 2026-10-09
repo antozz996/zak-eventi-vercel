@@ -73,7 +73,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Destinatari e servizi esterni</h2>
               <p>
-                Con il consenso alle statistiche, Google Analytics 4 (Measurement ID G-X2Q3CL2BZM) può ricevere dati tecnici e di navigazione, come visualizzazioni di pagina, scorrimenti e interazioni di contatto, per misurare l'utilizzo del sito. Il tag GA4 viene caricato solo dopo il consenso alle statistiche. Con il consenso marketing, Meta Platforms può ricevere dati di navigazione, eventi di interazione e identificativi tecnici per misurare le campagne pubblicitarie. Potrebbero verificarsi trasferimenti internazionali, disciplinati dalle garanzie applicabili. I dati tecnici possono essere trattati dai fornitori dell'infrastruttura di hosting, rete e
+                Con il consenso alle statistiche, Google Analytics 4 (Measurement ID G-X2Q3CL2BZM) e Microsoft Clarity (progetto yv0il5c0dn) possono ricevere dati tecnici e di navigazione per misurare l'utilizzo del sito e analizzare le interazioni tramite registrazioni di sessione e mappe di calore. Entrambi sono caricati solo dopo il consenso alle statistiche. Microsoft Clarity maschera per impostazione predefinita i contenuti sensibili e il modulo di contatto è mascherato esplicitamente. Il consenso pubblicitario di Clarity resta negato. Con il consenso marketing, Meta Platforms può ricevere dati di navigazione, eventi di interazione e identificativi tecnici per misurare le campagne pubblicitarie. Potrebbero verificarsi trasferimenti internazionali, disciplinati dalle garanzie applicabili. I dati tecnici possono essere trattati dai fornitori dell'infrastruttura di hosting, rete e
                 sicurezza nei limiti necessari all'erogazione del servizio. Se l'utente sceglie di aprire
                 WhatsApp, Google Maps, Instagram o altri servizi esterni, il trattamento successivo è regolato
                 anche dalle informative dei rispettivi fornitori.
@@ -117,7 +117,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Configurazione attuale</h2>
               <p>
-                Google Analytics 4 (Measurement ID G-X2Q3CL2BZM) viene caricato solo dopo il consenso alle statistiche per misurare visualizzazioni di pagina, scorrimenti e clic di contatto. Il Meta Pixel (ID 3132799710244140) viene caricato solo dopo il consenso marketing per misurare visite, visualizzazioni di pagine evento e clic di contatto. Nessuno dei due strumenti viene caricato prima della relativa scelta positiva.
+                Google Analytics 4 (Measurement ID G-X2Q3CL2BZM) e Microsoft Clarity (progetto yv0il5c0dn) vengono caricati solo dopo il consenso alle statistiche. GA4 misura visualizzazioni di pagina, scorrimenti e clic di contatto; Clarity analizza le interazioni tramite registrazioni di sessione e mappe di calore, con consenso pubblicitario negato e modulo di contatto mascherato. Il Meta Pixel (ID 3132799710244140) viene caricato solo dopo il consenso marketing per misurare visite, visualizzazioni di pagine evento e clic di contatto. Nessuno strumento di analisi o marketing viene caricato prima della relativa scelta positiva.
               </p>
 
               <h2>Strumenti tecnici</h2>
@@ -130,7 +130,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Banner cookie</h2>
               <p>
-                Google Analytics 4 viene attivato solo con il consenso alle statistiche; Meta Pixel solo con il consenso marketing. Il banner consente di rifiutare entrambi, accettare solo le statistiche o accettare entrambi, senza conseguenze sulla navigazione. Puoi modificare o revocare le scelte dal pulsante Preferenze cookie. Il rifiuto impedisce il caricamento del relativo strumento e la revoca blocca nuove attività dopo il ricaricamento della pagina. Le preferenze sono conservate localmente nel browser.
+                Google Analytics 4 e Microsoft Clarity vengono attivati solo con il consenso alle statistiche; Meta Pixel solo con il consenso marketing. Il banner consente di rifiutare entrambi, accettare solo le statistiche o accettare entrambi, senza conseguenze sulla navigazione. Puoi modificare o revocare le scelte dal pulsante Preferenze cookie. Il rifiuto impedisce il caricamento del relativo strumento e la revoca blocca nuove attività dopo il ricaricamento della pagina. Le preferenze sono conservate localmente nel browser.
               </p>
 
               <h2>Link a servizi esterni</h2>
