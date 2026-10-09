@@ -1,5 +1,6 @@
 import { useState, useSyncExternalStore } from "react";
 import { Link } from "../lib/router";
+import { updateClarityConsent } from "../lib/microsoftClarity";
 
 const ANALYTICS_CONSENT_KEY = "zak-analytics-consent";
 const MARKETING_CONSENT_KEY = "zak-marketing-consent";
@@ -40,6 +41,7 @@ export function CookieBanner() {
   const bannerOpen = choice === "unknown" || settingsOpen;
 
   const saveChoices = (analytics: boolean, marketing: boolean) => {
+    updateClarityConsent(analytics);
     try {
       window.localStorage.setItem(ANALYTICS_CONSENT_KEY, analytics ? "accepted" : "rejected");
       window.localStorage.setItem(MARKETING_CONSENT_KEY, marketing ? "accepted" : "rejected");
@@ -58,7 +60,7 @@ export function CookieBanner() {
         <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
           <strong>La tua privacy</strong>
           <p>
-            Google Analytics viene attivato solo se scegli le statistiche; Meta Pixel solo se
+            Google Analytics e Microsoft Clarity vengono attivati solo se scegli le statistiche; Meta Pixel solo se
             scegli il marketing. Puoi modificare la scelta quando vuoi.{" "}
             <Link to="/cookie-policy">Cookie Policy</Link>.
           </p>
