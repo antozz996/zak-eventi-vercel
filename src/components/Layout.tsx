@@ -10,6 +10,7 @@ import {
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { initializeClarity } from "../lib/microsoftClarity";
 
 const hashEvents = ["popstate", "hashchange", "pushState", "replaceState"];
 const eventCategoryPattern = /^\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/;
@@ -30,6 +31,10 @@ function getCtaLocation(anchor: HTMLAnchorElement) {
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const hash = useSyncExternalStore(subscribeHash, () => window.location.hash, () => "");
+
+  useEffect(() => {
+    initializeClarity();
+  }, []);
 
   useEffect(() => {
     let id = hash.slice(1);
