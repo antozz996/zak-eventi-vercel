@@ -4,6 +4,12 @@ type Fbq = ((...args: unknown[]) => void) & { callMethod?: (...args: unknown[]) 
 declare global { interface Window { fbq?: Fbq; _fbq?: Fbq } }
 let initialized = false;
 let lastPage = "";
+function createEventId(eventName: string): string {
+  const id = typeof window.crypto?.randomUUID === "function"
+    ? window.crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+  return `zak_${eventName.toLowerCase()}_${id}`;
+}
 export function hasMarketingConsent(): boolean {
   try { return localStorage.getItem(CONSENT_KEY) === "accepted"; } catch { return false; }
 }
@@ -48,13 +54,20 @@ export function trackMetaPage(path: string) {
   initMetaPixel();
   if (lastPage === path) return;
   lastPage = path;
-  window.fbq?.("track", "PageView");
+  // Meta uses eventID here; the matching Conversions API event must receive
+  // the same value as event_id to be deduplicated.
+  window.fbq?.("track", "PageView", {}, { eventID: createEventId("PageView") });
   if (/^\/(diciottesimi|comunioni|battesimi|compleanni|cerimonie|eventi-personalizzati|feste-private|lauree|servizi|location|eventi)$/.test(path)) {
-    window.fbq?.("track", "ViewContent", { content_name: path.slice(1), content_category: "eventi" });
+    window.fbq?.(
+      "track",
+      "ViewContent",
+      { content_name: path.slice(1), content_category: "eventi" },
+      { eventID: createEventId("ViewContent") },
+    );
   }
 }
 export function trackMetaContact(method: "whatsapp" | "form_whatsapp" | "phone") {
   if (!hasMarketingConsent()) return;
   initMetaPixel();
-  window.fbq?.("track", "Contact", { contact_method: method });
+  window.fbq?.("track", "Contact", { contact_method: method }, { eventID: createEventId("Contact") });
 }
