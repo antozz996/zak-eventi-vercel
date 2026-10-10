@@ -56,7 +56,7 @@ export function trackGoogleAnalyticsContact(method: ContactMethod, source: strin
 }
 
 function isEventCategoryPath(path: string) {
-  return /^\\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/.test(path);
+  return /^\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/.test(path);
 }
 
 function initGoogleAnalytics() {
