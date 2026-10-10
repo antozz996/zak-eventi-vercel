@@ -64,6 +64,8 @@ function initGoogleAnalytics() {
   initialized = true;
   window.dataLayer = window.dataLayer ?? [];
   window.gtag = function gtag() {
+    // Google’s gtag.js queue requires the arguments object, not a copied array.
+    // eslint-disable-next-line prefer-rest-params
     window.dataLayer?.push(arguments);
   };
 
