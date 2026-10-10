@@ -56,15 +56,15 @@ export function trackGoogleAnalyticsContact(method: ContactMethod, source: strin
 }
 
 function isEventCategoryPath(path: string) {
-  return /^\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/.test(path);
+  return /^\\/(diciottesimi|compleanni|comunioni|battesimi|cerimonie|feste-private|lauree|eventi-personalizzati)$/.test(path);
 }
 
 function initGoogleAnalytics() {
   if (typeof window === "undefined" || !hasAnalyticsConsent() || initialized) return;
   initialized = true;
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = (...args: unknown[]) => {
-    window.dataLayer?.push(args);
+  window.gtag = function gtag() {
+    window.dataLayer?.push(arguments);
   };
 
   // Analytics is loaded only after statistics consent; advertising storage stays denied.
