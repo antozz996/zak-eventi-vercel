@@ -33,12 +33,12 @@ export function Footer() {
         {(siteConfig.social.instagram || siteConfig.social.facebook) && <div>
           <h2>Seguici</h2>
           <div className="social-links">
-            {siteConfig.social.instagram ? (
+            {siteConfig.social.instagram && (
               <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>
-            ) : <span aria-label="Instagram da configurare"><Instagram /></span>}
-            {siteConfig.social.facebook ? (
+            )}
+            {siteConfig.social.facebook && (
               <a href={siteConfig.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-            ) : <span aria-label="Facebook da configurare"><Facebook /></span>}
+            )}
           </div>
         </div>}
       </div>

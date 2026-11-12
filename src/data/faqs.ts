@@ -9,7 +9,7 @@ export const eventFaqs: Record<string, Faq[]> = {
     { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
     { q: "Posso personalizzare la festa?", a: "Sì: il progetto parte dall'idea del festeggiato. Allestimento, servizi e formula vengono definiti durante l'appuntamento e confermati in base alla disponibilità." },
     { q: "Il diciottesimo è in esclusiva?", a: "Sì, ZAK lavora solo con eventi che riservano la sala ai propri ospiti." },
-    { q: "Quali servizi comprendono i pacchetti?", a: "I pacchetti descritti dalla proprietà prevedono DJ, speaker, fotografo, allestimenti, proposta food & beverage e torta. Le inclusioni esatte sono riepilogate nel preventivo." },
+    { q: "Quali servizi comprendono i pacchetti?", a: "I nostri pacchetti prevedono DJ, speaker, fotografo, allestimenti, proposta food & beverage e torta. Le inclusioni esatte sono riepilogate nel preventivo." },
     { q: "Come posso sapere se la data è disponibile?", a: "Puoi contattare ZAK tramite WhatsApp o dalla pagina contatti indicando data, numero indicativo di invitati e tipo di evento." },
   ],
   "/comunioni": [
@@ -22,13 +22,13 @@ export const eventFaqs: Record<string, Faq[]> = {
   "/location": [
     { q: "Dove si trova la sala?", a: "ZAK Eventi è in Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
     { q: "Posso vedere la location prima di decidere?", a: "Sì. Puoi richiedere un appuntamento per vedere gli spazi e parlare direttamente dell'evento che stai organizzando." },
-    { q: "Quanti invitati può accogliere ZAK Eventi?", a: "La capienza massima dichiarata dalla proprietà è di 150 ospiti. Numero e disposizione vengono concordati in base al tipo di festa e alla configurazione effettiva." },
-    { q: "Ci sono parcheggio e accessi senza barriere?", a: "La struttura dichiara parcheggio e percorsi senza barriere architettoniche. Per esigenze particolari, confrontati con il team prima della visita." },
+    { q: "Quanti invitati può accogliere ZAK Eventi?", a: "La sala accoglie fino a 150 ospiti. Numero e disposizione vengono concordati in base al tipo di festa." },
+    { q: "Ci sono parcheggio e accessi senza barriere?", a: "Sì: abbiamo parcheggio e percorsi senza barriere architettoniche. Per esigenze particolari, parlane con noi prima della visita." },
     { q: "La sala viene configurata sempre allo stesso modo?", a: "No. Disposizione, allestimento e atmosfera vengono valutati in funzione dell'evento e della formula concordata." },
     { q: "Quali eventi posso approfondire sul sito?", a: "Diciottesimi, compleanni, comunioni, lauree e feste private hanno pagine dedicate con foto e informazioni specifiche." },
   ],
   "/servizi": [
-    { q: "I servizi elencati sono sempre inclusi?", a: "La sala in esclusiva è la modalità operativa dichiarata da ZAK. I pacchetti per diciottesimi indicati dalla proprietà comprendono DJ, speaker, fotografo e allestimenti; per ogni altra formula inclusioni ed extra vengono specificati nel preventivo." },
+    { q: "I servizi elencati sono sempre inclusi?", a: "Lavoriamo sempre con la sala in esclusiva. I nostri pacchetti per diciottesimi comprendono DJ, speaker, fotografo e allestimenti; per ogni altra formula inclusioni ed extra vengono specificati nel preventivo." },
     { q: "Posso partire da un'idea senza avere già deciso la formula?", a: "Sì. Il primo passaggio serve proprio a capire occasione, invitati, atmosfera e priorità prima di definire la proposta." },
     { q: "Posso personalizzare allestimento e momenti della festa?", a: "La personalizzazione viene valutata durante l'appuntamento e costruita in relazione all'evento e ai servizi disponibili." },
     { q: "La visita alla location è gratuita?", a: "Sì, puoi richiedere un sopralluogo gratuito e valutare gli spazi insieme al team." },

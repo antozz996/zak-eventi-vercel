@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-12 - Orari, Instagram e testi in prima persona
+
+- orari pubblicati (tutti i giorni 10:00–20:30, come sulla scheda Google Maps) in /contatti e nei dati strutturati
+- collegato il profilo Instagram @zak_eventi nel footer e nei dati strutturati
+- riscritti in prima persona i testi su capienza, accessibilità e pacchetti ("dichiarati dalla proprietà" e simili)
+
 ## 2026-11-12 - Mappa, FAQ strutturate e pagine in chunk separati
 
 - mappa Google in /contatti caricata solo su richiesta

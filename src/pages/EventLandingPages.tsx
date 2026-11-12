@@ -94,7 +94,7 @@ export function DiciottesimiPage() {
           <aside className="confirmation-note">
             <strong>Inclusioni ed extra, senza sorprese</strong>
             <p>
-              Nei pacchetti per diciottesimi descritti dalla proprietà sono previsti DJ, speaker,
+              Nei nostri pacchetti per diciottesimi sono previsti DJ, speaker,
               fotografo e allestimenti. Bartender, performer e ballerini sono extra a pagamento;
               l’eventuale ingresso scenografico riguarda il momento del festeggiato durante la serata,
               non l’ingresso esterno della struttura. Ogni dettaglio viene specificato in consulenza.
@@ -225,8 +225,8 @@ export function ComunioniPage() {
           <aside className="confirmation-note">
             <strong>Proposta costruita sull'evento</strong>
             <p>
-              Le possibilità effettive vengono verificate con il team. Il sito evita di dichiarare come
-              automaticamente inclusi servizi che devono essere concordati nella proposta.
+              Verifichiamo insieme cosa è possibile per il tuo evento: i servizi da concordare entrano
+              nella proposta e non vengono mai dati per inclusi in automatico.
             </p>
           </aside>
         </div>
