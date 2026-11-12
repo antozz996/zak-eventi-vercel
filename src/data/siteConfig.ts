@@ -1,5 +1,8 @@
 import type { EventType, GalleryItem, Service, Testimonial } from "../types/content";
 
+/** Fascia oraria per i dati strutturati, es. { days: ["Monday", "Tuesday"], opens: "10:00", closes: "19:00" }. */
+export type OpeningHours = { days: string[]; opens: string; closes: string };
+
 export const siteConfig = {
   name: "ZAK Eventi",
   shortName: "ZAK",
@@ -28,6 +31,9 @@ export const siteConfig = {
     email: "",
     address: "Via Napoli 270, 80022 Arzano NA",
     openingHours: "Consulta Google Maps per gli orari aggiornati",
+    // Da compilare: finché sono vuoti non compaiono nei dati strutturati.
+    openingHoursSpecification: [] as OpeningHours[],
+    geo: { latitude: "", longitude: "" } as { latitude: string; longitude: string },
     mapEmbedUrl: "",
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=ZAK%20Eventi&query_place_id=ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
@@ -57,6 +63,8 @@ export const navigation = [
   { label: "Eventi", href: "/eventi" },
   { label: "Servizi", href: "/servizi" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Guide", href: "/guide" },
+  { label: "Perché ZAK", href: "/perche-scegliere-zak" },
   { label: "Contatti", href: "/contatti" },
 ] as const;
 

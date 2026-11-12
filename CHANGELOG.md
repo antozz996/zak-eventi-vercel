@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-12 - Conversione, recensioni in home e SEO locale
+
+- unificata l'azione principale su "Chiedi disponibilità" in header, hero, pagine e CTA finale
+- aggiunte "Guide" e "Perché ZAK" al menu; nel menu mobile anche WhatsApp e telefono
+- portate in home tre raccomandazioni Facebook e il riepilogo "100% su 381"
+- banner cookie compatto su mobile (da circa il 35% al 15% dello schermo)
+- H1 della home con la località; dati strutturati con area servita e FAQPage sulle pagine evento
+- generati `llms.txt` e `lastmod` nella sitemap durante il prerender
+- predisposti in `siteConfig` coordinate, orari strutturati e profili social: entrano nello schema quando compilati
+
 ## 2026-07-27 - Invio modulo contatti tramite WhatsApp
 
 - configurato il numero WhatsApp ufficiale `+39 353 319 8020`

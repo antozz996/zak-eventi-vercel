@@ -26,12 +26,14 @@ export function HeroVideo() {
       </div>
       <div className="hero__overlay" />
       <div className="container hero__content">
-        <p className="hero__kicker">ZAK · Arzano</p>
-        <h1 id="hero-title">Ogni evento merita il suo ingresso.</h1>
+        <h1 id="hero-title">
+          <span className="hero__kicker">Location per eventi ad Arzano</span>{" "}
+          Ogni evento merita il suo ingresso.
+        </h1>
         <p className="hero__lead">ZAK crea, organizza e mette in scena il tuo momento speciale.</p>
         <div className="button-group">
           <Link className="button button--gold" to="/contatti">
-            Prenota una visita
+            Chiedi disponibilità
           </Link>
           <Link className="button button--ghost" to="/location">
             Scopri la location

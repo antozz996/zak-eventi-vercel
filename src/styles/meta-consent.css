@@ -2,3 +2,12 @@
 .zak-consent-settings{min-height:44px;padding:.65rem .9rem;font-size:.875rem;bottom:max(.5rem,env(safe-area-inset-bottom));}
 body.menu-open .zak-consent,body.menu-open .zak-consent-settings,
 body.lightbox-open .zak-consent,body.lightbox-open .zak-consent-settings{visibility:hidden;}
+
+/* Mobile: barra compatta, così titolo e pulsante dell'hero restano visibili al primo accesso. */
+@media(max-width:480px){
+.zak-consent{padding:.7rem .85rem calc(.7rem + env(safe-area-inset-bottom));font-size:.8rem;box-shadow:0 -6px 30px #0003}
+.zak-consent strong,.zak-consent__more{display:none}
+.zak-consent p{margin:0 0 .55rem;line-height:1.4}
+.zak-consent__actions{flex-wrap:nowrap;gap:.4rem}
+.zak-consent__actions .button{min-height:44px;padding:.45rem .3rem;font-size:.7rem;letter-spacing:.02em;line-height:1.15;white-space:normal}
+}

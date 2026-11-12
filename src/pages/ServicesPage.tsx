@@ -28,7 +28,7 @@ export function ServicesPage() {
             intrattenimento, allestimenti e torta vengono definiti attraverso una consulenza dettagliata.
           </p>
           <div className="inline-links">
-            <Link to="/contatti">Raccontaci il tuo evento</Link>
+            <Link to="/contatti">Chiedi disponibilità</Link>
             <Link to="/location">Scopri la location</Link>
           </div>
         </div>
@@ -73,7 +73,7 @@ export function ServicesPage() {
           <h2>Una proposta curata e adattabile al ricevimento.</h2>
           <p>Il team propone menu personalizzabili, buffet o servizio al tavolo, con possibilità di servizio all’inglese. Sono disponibili menu bambini e opzioni per esigenze alimentari da definire in anticipo con lo staff. Le bevande e la torta fanno parte delle formule indicate dalla proprietà, mentre i cocktail sono extra.</p>
           <p>Per ricevere una proposta adatta alla festa sono importanti data, numero di invitati, tipologia di evento e stile del servizio. Puoi iniziare da un sopralluogo gratuito.</p>
-          <Link className="button button--dark" to="/contatti">Richiedi un sopralluogo gratuito</Link>
+          <Link className="button button--dark" to="/contatti">Chiedi disponibilità</Link>
         </div>
       </section>
 

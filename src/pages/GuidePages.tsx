@@ -251,7 +251,7 @@ export function DiciottesimoGuidePage() {
           </p>
           <div className="button-group">
             <Link className="button button--dark" to="/diciottesimi">Diciottesimi a ZAK</Link>
-            <Link className="button button--outline-dark" to="/contatti">Prenota una visita</Link>
+            <Link className="button button--outline-dark" to="/contatti">Chiedi disponibilità</Link>
           </div>
         </div>
       </section>
@@ -388,7 +388,7 @@ export function CostoDiciottesimoGuidePage() {
 
           <div className="button-group">
             <Link className="button button--dark" to="/diciottesimi">Scopri i diciottesimi ZAK</Link>
-            <Link className="button button--outline-dark" to="/contatti">Chiedi una proposta</Link>
+            <Link className="button button--outline-dark" to="/contatti">Chiedi disponibilità</Link>
           </div>
 
           <p>

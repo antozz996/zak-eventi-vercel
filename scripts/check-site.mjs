@@ -25,6 +25,11 @@ try {
     assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);
     const expectedService = ["/diciottesimi", "/compleanni", "/comunioni", "/battesimi", "/feste-private", "/lauree"].includes(path);
     assert.equal(schema["@graph"].some(node => node["@type"] === "Service"), expectedService, `Service schema on ${path}`);
+    const expectedFaq = ["/compleanni", "/feste-private", "/lauree", "/battesimi"].includes(path);
+    const faqPage = schema["@graph"].find(node => node["@type"] === "FAQPage");
+    assert.equal(Boolean(faqPage), expectedFaq, `FAQPage schema on ${path}`);
+    // Il markup FAQ deve corrispondere a domande visibili nella pagina.
+    for (const question of faqPage?.mainEntity ?? []) assert.ok(html.includes(`<h3>${question.name.replace(/&/g, "&amp;").replace(/'/g, "&#x27;")}</h3>`), `FAQ visibile su ${path}: ${question.name}`);
     assert.ok(!JSON.stringify(schema).includes("aggregateRating"));
     assert.ok(html.includes(getPageSeo(path).noIndex ? "noindex, follow" : "index, follow"));
     for (const match of html.matchAll(/<img\b[^>]*>/g)) {
@@ -77,6 +82,10 @@ try {
   assert.deepEqual([...parsedSitemapUrls].sort(), expectedUrls, "Sitemap must include every and only indexable canonical page");
   assert.equal(sitemapUrls.length, 21, "Expected 21 indexable sitemap URLs");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
+  assert.equal([...sitemap.matchAll(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g)].length, sitemapUrls.length, "lastmod on every sitemap URL");
+  const llms = await readFile("dist/llms.txt", "utf8");
+  for (const url of expectedUrls) assert.ok(llms.includes(`(${url.replace(/\/$/, "")})`), `llms.txt: ${url}`);
+  assert.ok(!llms.includes("privacy-policy") && !llms.includes("cookie-policy"));
   const filteredGallery = render("/gallery", "?filtro=Cerimonie");
   assert.ok(filteredGallery.includes("Un giorno in famiglia"));
   assert.ok(!filteredGallery.includes("Il tuo ingresso"));

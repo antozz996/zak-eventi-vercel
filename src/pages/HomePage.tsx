@@ -3,6 +3,7 @@ import { Link } from "../lib/router";
 import { EditorialImageBlock } from "../components/EditorialImageBlock";
 import { EventCard } from "../components/EventCard";
 import { ExperienceTimeline } from "../components/ExperienceTimeline";
+import { FacebookReviews } from "../components/FacebookReviews";
 import { FinalCTA } from "../components/FinalCTA";
 import { GalleryGrid } from "../components/Gallery";
 import { GoogleReviews } from "../components/GoogleReviews";
@@ -68,7 +69,7 @@ export function HomePage() {
           <p className="eyebrow">La firma ZAK</p>
           <h2>Il momento in cui tutti gli occhi sono su di te.</h2>
           <p>L’ingresso non è soltanto l’inizio della festa. È il momento in cui il tuo evento entra davvero in scena.</p>
-          <Link className="button button--gold" to="/contatti">Immagina il tuo evento</Link>
+          <Link className="button button--gold" to="/contatti">Chiedi disponibilità</Link>
         </div>
       </section>
 
@@ -108,8 +109,9 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Esperienze raccontate"
             title="Le loro parole, dopo la festa."
-            description="Valutazioni e recensioni collegate al profilo Google ufficiale di ZAK Eventi."
+            description="Raccomandazioni pubblicate su Facebook e recensioni dal profilo Google ufficiale di ZAK Eventi."
           />
+          <FacebookReviews featuredOnly />
           <GoogleReviews />
           <div className="centered-action">
             <Link className="button button--outline-dark" to="/perche-scegliere-zak">
