@@ -1,8 +1,9 @@
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { navigation } from "../data/siteConfig";
+import { navigation, siteConfig } from "../data/siteConfig";
 import { Link, NavLink, useLocation } from "../lib/router";
 import { Brand } from "./Brand";
+import { WhatsAppButton } from "./WhatsAppButton";
 import { isolateDialog } from "../utils/dialog";
 
 export function MobileMenu({
@@ -62,14 +63,21 @@ export function MobileMenu({
       <nav aria-label="Navigazione mobile">
         {navigation.map((item, index) => (
           <NavLink key={item.href} to={item.href} onClick={onClose}>
-            <span>0{index + 1}</span>
+            <span>{String(index + 1).padStart(2, "0")}</span>
             {item.label}
           </NavLink>
         ))}
       </nav>
-      <Link className="button button--gold" to="/contatti" onClick={onClose}>
-        Organizza il tuo evento
-      </Link>
+      <div className="mobile-menu__actions">
+        <Link className="button button--gold" to="/contatti" onClick={onClose}>
+          Chiedi disponibilità
+        </Link>
+        <WhatsAppButton label="Scrivici su WhatsApp" />
+        <a className="mobile-menu__phone" href={siteConfig.contact.phoneHref}>
+          <Phone aria-hidden="true" size={18} />
+          Chiama il {siteConfig.contact.phone}
+        </a>
+      </div>
     </div>
   );
 }
@@ -94,11 +102,11 @@ export function Header() {
         <div className="site-header__inner">
           <Brand />
           <nav className="desktop-nav" aria-label="Navigazione principale">
-            {navigation.map((item) => (
+            {/* Il logo porta già alla home: su desktop la voce "Home" lascia spazio alle altre. */}
+            {navigation.filter((item) => item.href !== "/").map((item) => (
               <NavLink
                 key={item.href}
                 to={item.href}
-                end={item.href === "/"}
                 className={({ isActive }) => (isActive ? "active" : undefined)}
               >
                 {item.label}
@@ -106,7 +114,7 @@ export function Header() {
             ))}
           </nav>
           <Link className="button button--header" to="/contatti">
-            Organizza il tuo evento
+            Chiedi disponibilità
           </Link>
           <button
             className="icon-button menu-toggle"

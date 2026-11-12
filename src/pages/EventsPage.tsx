@@ -42,7 +42,7 @@ export function EventsPage() {
                     {whatsapp ? (
                       <a href={whatsapp} target="_blank" rel="noreferrer">Richiedi informazioni</a>
                     ) : (
-                      <Link to="/contatti">Richiedi informazioni</Link>
+                      <Link to="/contatti">Chiedi disponibilità</Link>
                     )}
                   </div>
                 </div>

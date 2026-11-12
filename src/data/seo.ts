@@ -1,3 +1,4 @@
+import { eventFaqs } from "./faqs";
 import { pageMeta, siteConfig } from "./siteConfig";
 
 export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/perche-scegliere-zak", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
@@ -92,6 +93,23 @@ export function getStructuredData(path: string, title: string) {
     },
   };
 
+  // Coordinate, orari e profili social entrano nello schema solo quando sono compilati in siteConfig.
+  const { latitude, longitude } = siteConfig.contact.geo;
+  const geo = latitude && longitude
+    ? { geo: { "@type": "GeoCoordinates", latitude: Number(latitude), longitude: Number(longitude) } }
+    : {};
+  const openingHours = siteConfig.contact.openingHoursSpecification.length
+    ? {
+        openingHoursSpecification: siteConfig.contact.openingHoursSpecification.map((slot) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: slot.days,
+          opens: slot.opens,
+          closes: slot.closes,
+        })),
+      }
+    : {};
+  const socialProfiles = [siteConfig.social.instagram, siteConfig.social.facebook].filter(Boolean);
+
   const venue = {
     "@type": ["LocalBusiness", "EventVenue"],
     "@id": `${origin}/#venue`,
@@ -102,7 +120,13 @@ export function getStructuredData(path: string, title: string) {
     logo: `${origin}/logos/zak-logo-oro.png`,
     image: `${origin}${siteConfig.heroPoster}`,
     hasMap: siteConfig.contact.googleMapsUrl,
-    sameAs: [siteConfig.contact.googleMapsUrl],
+    sameAs: [siteConfig.contact.googleMapsUrl, ...socialProfiles],
+    areaServed: [
+      { "@type": "City", name: "Arzano" },
+      { "@type": "City", name: "Napoli" },
+    ],
+    ...geo,
+    ...openingHours,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Via Napoli 270",
@@ -184,5 +208,17 @@ export function getStructuredData(path: string, title: string) {
     url,
   }] : [];
 
-  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...service, ...article, ...breadcrumbs] };
+  // FAQPage solo dove le stesse domande sono visibili nella pagina.
+  const faqs = eventFaqs[path];
+  const faqPage = faqs ? [{
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  }] : [];
+
+  return { "@context": "https://schema.org", "@graph": [organization, venue, website, webpage, ...service, ...faqPage, ...article, ...breadcrumbs] };
 }

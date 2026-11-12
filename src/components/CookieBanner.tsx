@@ -60,8 +60,9 @@ export function CookieBanner() {
         <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
           <strong>La tua privacy</strong>
           <p>
-            Google Analytics e Microsoft Clarity vengono attivati solo se scegli le statistiche; Meta Pixel solo se
-            scegli il marketing. Puoi modificare la scelta quando vuoi.{" "}
+            Statistiche (Google Analytics, Microsoft Clarity) e marketing (Meta Pixel) si attivano solo se li
+            scegli.{" "}
+            <span className="zak-consent__more">Puoi modificare la scelta quando vuoi. </span>
             <Link to="/cookie-policy">Cookie Policy</Link>.
           </p>
           <div className="zak-consent__actions">

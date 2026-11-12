@@ -10,7 +10,7 @@ export function FinalCTA() {
         <h2>La prossima festa da ricordare potrebbe essere la tua.</h2>
         <p>Vieni a conoscere la location e raccontaci come immagini il tuo evento.</p>
         <div className="button-group">
-          <Link className="button button--gold" to="/contatti">Prenota un appuntamento</Link>
+          <Link className="button button--gold" to="/contatti">Chiedi disponibilità</Link>
           <WhatsAppButton label="Scrivici su WhatsApp" />
         </div>
       </div>

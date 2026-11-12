@@ -2425,3 +2425,30 @@ body.menu-open .cookie-banner, body.lightbox-open .cookie-banner { display: none
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Hero: la località fa parte dell'H1 ma mantiene l'aspetto dell'occhiello. */
+.hero h1 .hero__kicker {
+  display: block;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+}
+
+/* Menu mobile: azione principale, WhatsApp e telefono. */
+.mobile-menu__actions {
+  display: grid;
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+.mobile-menu__actions .button {
+  justify-content: center;
+  width: 100%;
+}
+.mobile-menu__phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: var(--zak-ivory, #f4f0e8);
+  font-weight: 600;
+}

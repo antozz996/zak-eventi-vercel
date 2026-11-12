@@ -4,6 +4,7 @@ import { Link } from "../lib/router";
 import { EventPhoto } from "../components/EventPhoto";
 import { FinalCTA } from "../components/FinalCTA";
 import { Seo } from "../components/Seo";
+import { eventFaqs, type Faq } from "../data/faqs";
 import { pageMeta } from "../data/siteConfig";
 import { getEventWhatsAppMessage, getWhatsAppLink } from "../utils/whatsapp";
 
@@ -25,7 +26,7 @@ type LandingConfig = {
   secondTitle: string;
   secondText: string;
   faqTitle: string;
-  faqs: Array<{ q: string; a: string }>;
+  faqs: Faq[];
 };
 
 function LandingActions({ eventName, galleryFilter }: { eventName: string; galleryFilter: string }) {
@@ -154,15 +155,7 @@ export function CompleanniPage() {
     secondText:
       "La gallery raccoglie immagini reali di compleanni e feste vissute a ZAK, utili per capire atmosfera, allestimenti e ritmo degli spazi.",
     faqTitle: "Compleanno a ZAK Eventi",
-    faqs: [
-      { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
-      { q: "Organizzate compleanni di 30, 40, 50 anni e oltre?", a: "Sì. ZAK ospita compleanni per adulti di molte età, compresi 30°, 40°, 50°, 60° e altri traguardi." },
-      { q: "La sala è in esclusiva?", a: "Sì, ZAK lavora esclusivamente con eventi a uso riservato della location. La configurazione dipende dal ricevimento." },
-      { q: "Posso festeggiare senza una cena completa?", a: "Sì, sono possibili formule più orientate al party, con musica e food & beverage concordati con il team." },
-      { q: "Posso aggiungere cocktail o bartender?", a: "Sì. Cocktail e bartender sono opzioni extra a pagamento, da definire nel preventivo." },
-      { q: "Il sopralluogo è gratuito?", a: "Sì, puoi richiedere una visita gratuita per vedere gli spazi e discutere l’evento." },
-      { q: "Come verifico data e disponibilità?", a: "Scrivi su WhatsApp indicando data, numero indicativo di invitati ed età o tipo di compleanno." },
-    ],
+    faqs: eventFaqs["/compleanni"],
   });
 }
 
@@ -193,11 +186,7 @@ export function FestePrivatePage() {
     secondText:
       "Le fotografie del sito mostrano configurazioni e momenti realmente vissuti a ZAK. Sono il modo più concreto per capire come lo spazio può cambiare tra una festa e l'altra.",
     faqTitle: "Festa privata a ZAK Eventi",
-    faqs: [
-      { q: "Quali feste private posso proporre?", a: "Puoi raccontare l'occasione al team ZAK: la fattibilità e la formula vengono verificate durante l'appuntamento." },
-      { q: "La location è ad Arzano?", a: "Sì, ZAK Eventi si trova in Via Napoli 270, Arzano (NA)." },
-      { q: "Posso chiedere una proposta personalizzata?", a: "Sì. La proposta viene costruita sull'evento e confermata in base a disponibilità e servizi scelti." },
-    ],
+    faqs: eventFaqs["/feste-private"],
   });
 }
 
@@ -228,11 +217,7 @@ export function LaureePage() {
     secondText:
       "Le recensioni pubbliche riportano anche feste di laurea organizzate a ZAK. Sul sito preferiamo però mostrare soltanto fotografie di cui conosciamo con certezza il contesto, senza attribuire a una laurea immagini generiche.",
     faqTitle: "Festa di laurea a ZAK Eventi",
-    faqs: [
-      { q: "ZAK ha già ospitato feste di laurea?", a: "Sì. Recensioni pubbliche di clienti descrivono feste di laurea svolte nella location." },
-      { q: "Posso organizzare cena e festa nello stesso evento?", a: "La formula desiderata può essere proposta al team e viene confermata durante l'appuntamento in base a disponibilità e servizi." },
-      { q: "Come posso chiedere un preventivo?", a: "Scrivi su WhatsApp indicando data, numero indicativo di invitati e come immagini la serata." },
-    ],
+    faqs: eventFaqs["/lauree"],
   });
 }
 
@@ -264,13 +249,6 @@ export function BattesimiPage() {
     secondText:
       "Per raccontare battesimi e cerimonie utilizziamo fotografie reali della location e di eventi svolti a ZAK. Quando il contesto specifico della foto non è certo, evitiamo di attribuirla a un battesimo particolare.",
     faqTitle: "Battesimo a ZAK Eventi",
-    faqs: [
-      { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
-      { q: "Si può organizzare un battesimo a pranzo o a cena?", a: "La formula e l'orario desiderati vengono valutati durante l'appuntamento e confermati in base alla disponibilità." },
-      { q: "È possibile personalizzare l'allestimento?", a: "Sì, l’allestimento viene concordato con il team in relazione alla proposta e ai servizi disponibili." },
-      { q: "È disponibile un menu bambini?", a: "Sì, sono disponibili menu bambini personalizzabili. È possibile concordare anche l’animazione." },
-      { q: "La sala è in esclusiva?", a: "Sì, ZAK riserva la location al singolo evento. L’eventuale uso per tutta la giornata richiede un accordo specifico." },
-      { q: "Come richiedo disponibilità?", a: "Scrivi su WhatsApp indicando data indicativa, numero di invitati e come immagini il ricevimento." },
-    ],
+    faqs: eventFaqs["/battesimi"],
   });
 }

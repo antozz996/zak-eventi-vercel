@@ -33,8 +33,38 @@ try {
     await writeFile(output, template.replace(/<!--seo-start-->[\s\S]*?<!--seo-end-->/, `<!--seo-start-->${head}<!--seo-end-->`).replace('<div id="root"></div>', `<div id="root">${render(path)}</div>`));
   }
   const indexedRoutes = pageRoutes.filter((path) => !getPageSeo(path).noIndex);
-  await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexedRoutes.map(path => `<url><loc>${siteConfig.siteUrl}${path}</loc><image:image><image:loc>${siteConfig.siteUrl}${getPageImage(path)}</image:loc></image:image></url>`).join("\n")}\n</urlset>`);
+  // Ogni deploy rigenera tutte le pagine: la data di build è il lastmod di ciascuna.
+  const buildDate = new Date().toISOString().slice(0, 10);
+  await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexedRoutes.map(path => `<url><loc>${siteConfig.siteUrl}${path}</loc><lastmod>${buildDate}</lastmod><image:image><image:loc>${siteConfig.siteUrl}${getPageImage(path)}</image:loc></image:image></url>`).join("\n")}\n</urlset>`);
   await writeFile("dist/robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${siteConfig.siteUrl}/sitemap.xml\n`);
+  // llms.txt: riepilogo in Markdown per assistenti e motori di ricerca AI.
+  const pageLine = (path) => {
+    const meta = getPageSeo(path);
+    return `- [${meta.title.split(" | ")[0]}](${siteConfig.siteUrl}${path === "/" ? "" : path}): ${meta.description}`;
+  };
+  const guideRoutes = indexedRoutes.filter((path) => path.startsWith("/guide/"));
+  const mainRoutes = indexedRoutes.filter((path) => !path.startsWith("/guide/"));
+  await writeFile("dist/llms.txt", [
+    `# ${siteConfig.name}`,
+    "",
+    `> ${siteConfig.description}`,
+    "",
+    "## Contatti",
+    "",
+    `- Indirizzo: ${siteConfig.contact.address}`,
+    `- Telefono e WhatsApp: +${siteConfig.contact.whatsapp}`,
+    `- Google Maps: ${siteConfig.contact.googleMapsUrl}`,
+    `- Richiesta di disponibilità: ${siteConfig.siteUrl}/contatti`,
+    "",
+    "## Pagine",
+    "",
+    ...mainRoutes.map(pageLine),
+    "",
+    "## Guide",
+    "",
+    ...guideRoutes.map(pageLine),
+    "",
+  ].join("\n"));
   console.log(`Prerender: ${pageRoutes.length} pagine + 404; ${indexedRoutes.length} URL in sitemap.`);
 } finally {
   await server.close();

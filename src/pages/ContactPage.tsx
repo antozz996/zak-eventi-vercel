@@ -18,7 +18,7 @@ export function ContactPage() {
       <section className="section section--ivory">
         <div className="container contact-layout">
           <div className="contact-copy">
-            <p className="eyebrow">Prenota una visita</p>
+            <p className="eyebrow">Chiedi disponibilità</p>
             <h2>Cominciamo dalla tua storia.</h2>
             <p>Compila il modulo: apriremo WhatsApp con la tua richiesta pronta da inviare. Per parlare direttamente con noi, chiamaci o scrivici.</p>
             <ul className="contact-details">

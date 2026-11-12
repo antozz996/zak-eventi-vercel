@@ -32,7 +32,7 @@ export function LocationPage() {
             <a href={siteConfig.contact.googleMapsUrl} target="_blank" rel="noreferrer">
               Apri su Google Maps <ExternalLink aria-hidden="true" size={17} />
             </a>
-            <Link to="/contatti">Prenota una visita</Link>
+            <Link to="/contatti">Chiedi disponibilità</Link>
           </div>
         </div>
       </section>
@@ -64,7 +64,7 @@ export function LocationPage() {
             <li>Accessi dichiarati senza barriere architettoniche: concorda con il team eventuali esigenze specifiche di mobilità</li>
           </ul>
           <p>La location non dispone di piscina. La visita conoscitiva è gratuita e permette di verificare personalmente spazi, percorsi e configurazione dell’evento.</p>
-          <Link className="button button--dark" to="/contatti">Prenota un sopralluogo gratuito</Link>
+          <Link className="button button--dark" to="/contatti">Chiedi disponibilità</Link>
         </div>
       </section>
 
@@ -126,7 +126,7 @@ export function LocationPage() {
             <div><EventPhoto src="/images/events/xtgb0819.webp" alt="Torta e palloncini blu e argento a ZAK Eventi" aspect="portrait" /><span>Blu e argento</span></div>
           </div>
           <div className="centered-action">
-            <Link className="button button--dark" to="/contatti">Prenota una visita alla sala</Link>
+            <Link className="button button--dark" to="/contatti">Chiedi disponibilità</Link>
           </div>
         </div>
       </section>

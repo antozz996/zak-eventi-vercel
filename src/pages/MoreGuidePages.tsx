@@ -8,7 +8,7 @@ function GuideCTA({ eventHref, eventLabel }: { eventHref: string; eventLabel: st
   return (
     <div className="button-group">
       <Link className="button button--dark" to={eventHref}>{eventLabel}</Link>
-      <Link className="button button--outline-dark" to="/contatti">Chiedi informazioni</Link>
+      <Link className="button button--outline-dark" to="/contatti">Chiedi disponibilità</Link>
     </div>
   );
 }

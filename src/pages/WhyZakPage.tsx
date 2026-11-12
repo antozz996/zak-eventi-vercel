@@ -1,6 +1,5 @@
 import {
   BadgeCheck,
-  Facebook,
   HeartHandshake,
   PartyPopper,
   Sparkles,
@@ -9,11 +8,12 @@ import {
 } from "lucide-react";
 import { Link } from "../lib/router";
 import { EventPhoto } from "../components/EventPhoto";
+import { FacebookReviews } from "../components/FacebookReviews";
 import { FinalCTA } from "../components/FinalCTA";
 import { GoogleReviews } from "../components/GoogleReviews";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
-import { pageMeta, siteConfig } from "../data/siteConfig";
+import { pageMeta } from "../data/siteConfig";
 
 const themes = [
   {
@@ -48,81 +48,6 @@ const themes = [
   },
 ];
 
-
-const facebookReviews = [
-  {
-    author: "Lucia Di Vaio",
-    date: "27 lug",
-    event: "Festa di compleanno",
-    excerpt: "La location bellissima, cibo ottimo e freschissimo... staff, ragazzi meravigliosi che fanno il proprio lavoro con amore e dedizione.",
-  },
-  {
-    author: "Giovanni Prisco",
-    date: "21 giu",
-    event: "30° compleanno",
-    excerpt: "Qualità del cibo top, prodotti freschi fatti in giornata... pulizia del locale eccellente e staff sempre educato e disponibile.",
-  },
-  {
-    author: "Rossana Tutini",
-    date: "17 giu",
-    event: "Diciottesimo",
-    excerpt: "Un servizio impeccabile, uno staff meraviglioso, per non parlare del buffet stratosferico.",
-  },
-  {
-    author: "Gigi Ilbullo",
-    date: "1 giu",
-    event: "Battesimo",
-    excerpt: "Camerieri e staff impeccabili... accoglienza top e, per poi parlare del mangiare, direi speciale.",
-  },
-  {
-    author: "Angela Ferriero",
-    date: "20 mag",
-    event: "Evento privato",
-    excerpt: "Grande umanità e professionalità... si mangia benissimo, cibo ottimo tutto fresco, e anche il beverage tutto curato nei minimi particolari.",
-  },
-  {
-    author: "Giuseppe Caiazza",
-    date: "18 mag",
-    event: "40° compleanno",
-    excerpt: "Personale eccellente, ottimo cibo, tutto curato nei minimi dettagli tra cui DJ, fotografo e allestimento della sala.",
-  },
-  {
-    author: "Martyna Gargiulo",
-    date: "16 mag",
-    event: "Matrimonio",
-    excerpt: "Il cibo tutto buono, sala stupenda... Luca e Francesco educati ed accoglienti, hanno esaudito tutte le mie richieste.",
-  },
-  {
-    author: "Marianna Palladino",
-    date: "9 mar",
-    event: "Diciottesimo",
-    excerpt: "Una festa a sorpresa riuscitissima, cibo ottimo, personale professionale ed attento. Rapporto qualità prezzo super.",
-  },
-  {
-    author: "Raffaele Panico",
-    date: "8 dic 2025",
-    event: "Evento con menu senza glutine",
-    excerpt: "Sono celiaco: tutto il menù senza glutine dall'antipasto al dolce, veramente ottimo.",
-  },
-  {
-    author: "Chiara De Fenza",
-    date: "15 set 2025",
-    event: "Diciottesimo",
-    excerpt: "Allestimento ricco e personalizzato... cibo ottimo, tutto fresco e in grandi quantità. Personale, fotografo, DJ e speaker gentilissimi.",
-  },
-  {
-    author: "Patrizia Manna",
-    date: "16 dic 2025",
-    event: "Battesimo",
-    excerpt: "Organizzazione curata nei minimi dettagli... cibo ottimo e abbondante, staff gentile, disponibile e sempre attento.",
-  },
-  {
-    author: "Antonio Romano",
-    date: "13 dic 2025",
-    event: "30° compleanno",
-    excerpt: "Evento organizzato nei minimi dettagli... servizio e gestione impeccabili.",
-  },
-];
 
 const proofPoints = [
   {
@@ -224,41 +149,7 @@ export function WhyZakPage() {
 
       <section className="section section--stone">
         <div className="container">
-          <div className="facebook-proof facebook-proof--summary">
-            <Facebook aria-hidden="true" />
-            <div>
-              <p className="eyebrow">Facebook · Raccomandazioni</p>
-              <h2>100% valutazioni positive su 381 recensioni.</h2>
-              <p>
-                Dato rilevato dalla sezione Recensioni della pagina Facebook di ZAK Eventi, aggiornato all'8 ottobre 2026.
-              </p>
-              {siteConfig.social.facebook && (
-                <a className="button button--outline-dark" href={siteConfig.social.facebook} target="_blank" rel="noreferrer">
-                  Apri la pagina Facebook
-                </a>
-              )}
-            </div>
-          </div>
-
-          <div className="facebook-review-grid">
-            {facebookReviews.map((review) => (
-              <article className="facebook-review-card" key={`${review.author}-${review.date}`}>
-                <div className="facebook-review-card__source">
-                  <Facebook aria-hidden="true" />
-                  <span>Facebook</span>
-                </div>
-                <h3>{review.author}</h3>
-                <p className="facebook-review-card__meta">{review.event} · {review.date}</p>
-                <blockquote>“{review.excerpt}”</blockquote>
-                <p className="facebook-review-card__recommendation">Consiglia ZAK Eventi</p>
-              </article>
-            ))}
-          </div>
-
-          <p className="google-reviews__disclosure">
-            Estratti dalle raccomandazioni pubblicate sulla pagina Facebook di ZAK Eventi. Testi abbreviati
-            solo per lunghezza, senza modificarne il significato.
-          </p>
+          <FacebookReviews />
         </div>
       </section>
 
@@ -279,7 +170,7 @@ export function WhyZakPage() {
 
           <div className="button-group">
             <Link className="button button--dark" to="/location">Vieni a vedere ZAK</Link>
-            <Link className="button button--outline-dark" to="/contatti">Verifica la tua data</Link>
+            <Link className="button button--outline-dark" to="/contatti">Chiedi disponibilità</Link>
           </div>
         </div>
       </section>
