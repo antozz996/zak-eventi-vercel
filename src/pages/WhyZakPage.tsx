@@ -216,7 +216,7 @@ export function WhyZakPage() {
           <SectionHeading
             eyebrow="Google"
             title="Le recensioni Google, direttamente dal profilo ufficiale."
-            description="Quando la Google Places API è configurata, questa sezione mostra rating e recensioni dal profilo Google Maps ufficiale di ZAK Eventi."
+            description="Valutazione e recensioni dal profilo Google Maps ufficiale di ZAK Eventi."
           />
           <GoogleReviews />
         </div>
@@ -230,8 +230,7 @@ export function WhyZakPage() {
               <p className="eyebrow">Facebook · Raccomandazioni</p>
               <h2>100% valutazioni positive su 381 recensioni.</h2>
               <p>
-                Dato verificato dagli screenshot della sezione Recensioni Facebook di ZAK Eventi ricevuti
-                l'8 ottobre 2026. Non è un contatore live: verrà aggiornato quando avremo nuovamente accesso diretto alla pagina.
+                Dato rilevato dalla sezione Recensioni della pagina Facebook di ZAK Eventi, aggiornato all'8 ottobre 2026.
               </p>
               {siteConfig.social.facebook && (
                 <a className="button button--outline-dark" href={siteConfig.social.facebook} target="_blank" rel="noreferrer">
@@ -257,7 +256,7 @@ export function WhyZakPage() {
           </div>
 
           <p className="google-reviews__disclosure">
-            Estratti trascritti dalle raccomandazioni Facebook mostrate negli screenshot forniti. Testi abbreviati
+            Estratti dalle raccomandazioni pubblicate sulla pagina Facebook di ZAK Eventi. Testi abbreviati
             solo per lunghezza, senza modificarne il significato.
           </p>
         </div>
