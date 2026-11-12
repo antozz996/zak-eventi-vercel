@@ -4,7 +4,7 @@ import { dirname } from "node:path";
 
 const server = await createServer({ server: { middlewareMode: true }, appType: "custom" });
 try {
-  const { render, getPageImage, getPageSeo, getRouteFile, getStructuredData, pageRoutes, siteConfig } = await server.ssrLoadModule("/src/entry-server.tsx");
+  const { render, getPageImage, getPageSeo, getPageSocialImage, getRouteFile, getStructuredData, pageRoutes, siteConfig, socialImageSize } = await server.ssrLoadModule("/src/entry-server.tsx");
   const template = await readFile("dist/index.html", "utf8");
   // Ogni pagina ha un chunk JS proprio: lo dichiariamo nell'HTML così il browser
   // lo scarica in parallelo al bundle principale invece che dopo.
@@ -25,7 +25,7 @@ try {
   for (const path of [...pageRoutes, "/404"]) {
     const meta = getPageSeo(path);
     const url = `${siteConfig.siteUrl}${path}`;
-    const image = `${siteConfig.siteUrl}${getPageImage(path)}`;
+    const image = `${siteConfig.siteUrl}${getPageSocialImage(path)}`;
     const head = `<title>${escape(meta.title)}</title>
       <meta name="description" content="${escape(meta.description)}" />
       <meta name="robots" content="${meta.noIndex ? "noindex, follow" : "index, follow, max-image-preview:large"}" />
@@ -37,6 +37,9 @@ try {
       <meta property="og:locale" content="it_IT" />
       <meta property="og:site_name" content="ZAK Eventi" />
       <meta property="og:image" content="${image}" />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="${socialImageSize.width}" />
+      <meta property="og:image:height" content="${socialImageSize.height}" />
       <meta property="og:image:alt" content="Ingresso di una festeggiata alla location ZAK Eventi" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="${escape(meta.title)}" />

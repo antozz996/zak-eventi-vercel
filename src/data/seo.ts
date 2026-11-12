@@ -34,6 +34,14 @@ export function getPageImage(path: string) {
   return guideImages[path] ?? pageImages[path] ?? siteConfig.heroPoster;
 }
 
+/** Anteprima per WhatsApp, Facebook e simili: JPG 1200×630 ricavato dall'immagine della pagina. */
+export const socialImageSize = { width: 1200, height: 630 } as const;
+
+export function getPageSocialImage(path: string) {
+  const name = getPageImage(path).replace(/^.*\//, "").replace(/\.webp$/, "");
+  return `/images/og/${name}.jpg`;
+}
+
 const routeMeta = {
   "/": pageMeta.home,
   "/location": pageMeta.location,

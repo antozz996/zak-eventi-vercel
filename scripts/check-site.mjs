@@ -20,6 +20,10 @@ try {
     assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1);
     assert.ok(html.includes(`href="${siteConfig.siteUrl}${path}"`));
     assert.ok(html.includes('<main id="main-content"'));
+    const socialImage = html.match(/property="og:image" content="([^"]+)"/)?.[1];
+    assert.ok(socialImage?.endsWith(".jpg"), `og:image JPG on ${path}`);
+    const socialImageFile = await readFile(`dist${new URL(socialImage).pathname}`);
+    assert.equal(socialImageFile.subarray(0, 2).toString("hex"), "ffd8", `og:image is a JPEG: ${socialImage}`);
     const schema = JSON.parse(html.match(/<script id="site-schema" type="application\/ld\+json">(.*?)<\/script>/s)[1]);
     const webpage = schema["@graph"].find(node => node["@type"] === "WebPage");
     assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);

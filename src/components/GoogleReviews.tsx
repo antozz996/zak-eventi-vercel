@@ -60,8 +60,9 @@ export function GoogleReviews() {
     return () => controller.abort();
   }, []);
 
-  const rating = reviewsData?.rating;
-  const reviewCount = reviewsData?.reviewCount;
+  // Senza dati live si mostra l'ultimo valore rilevato a mano, con la sua data.
+  const rating = reviewsData?.rating ?? siteConfig.googleReviews.rating;
+  const reviewCount = reviewsData?.reviewCount ?? siteConfig.googleReviews.reviewCount;
   const mapsUrl = reviewsData?.googleMapsUri || siteConfig.contact.googleMapsUrl;
 
   return (
@@ -73,7 +74,10 @@ export function GoogleReviews() {
             <strong>{rating.toLocaleString("it-IT", { minimumFractionDigits: 1 })}</strong>
             <Stars rating={rating} />
           </p>
-          <p className="google-reviews__count">{reviewCount} recensioni pubblicate su Google</p></>}
+          <p className="google-reviews__count">
+            {reviewCount} recensioni pubblicate su Google
+            {!reviewsData && ` · dato rilevato il ${siteConfig.googleReviews.updatedAt}`}
+          </p></>}
         </div>
         <a className="button button--outline-dark" href={mapsUrl} target="_blank" rel="noreferrer">
           Vedi tutte su Google <ExternalLink aria-hidden="true" size={16} />

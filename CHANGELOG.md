@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-12 - Facebook, voto Google, preferenze cookie nel footer, test
+
+- collegata la pagina Facebook nel footer, nei dati strutturati e accanto alle recensioni
+- blocco Google: voto e numero di recensioni fissi con data, finché non arrivano i dati live
+- "Preferenze cookie" spostato dal pulsante fisso sullo schermo a una voce del footer
+- anteprime di condivisione in JPG 1200×630 (`public/images/og`) con dimensioni dichiarate
+- aggiunti test automatici (Vitest) eseguiti in CI e nel build di produzione
+
 ## 2026-11-12 - Orari, Instagram e testi in prima persona
 
 - orari pubblicati (tutti i giorni 10:00–20:30, come sulla scheda Google Maps) in /contatti e nei dati strutturati
