@@ -5,6 +5,7 @@ import { FinalCTA } from "../components/FinalCTA";
 import { EventPhoto } from "../components/EventPhoto";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
+import { eventFaqs } from "../data/faqs";
 import { pageMeta, siteConfig } from "../data/siteConfig";
 
 const eventLinks = [
@@ -135,24 +136,12 @@ export function LocationPage() {
         <div className="container legal-page__content">
           <p className="eyebrow">Domande frequenti</p>
           <h2>Visitare la location ZAK Eventi</h2>
-
-          <h3>Dove si trova la sala?</h3>
-          <p>ZAK Eventi è in Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli.</p>
-
-          <h3>Posso vedere la location prima di decidere?</h3>
-          <p>Sì. Puoi richiedere un appuntamento per vedere gli spazi e parlare direttamente dell'evento che stai organizzando.</p>
-
-          <h3>Quanti invitati può accogliere ZAK Eventi?</h3>
-          <p>La capienza massima dichiarata dalla proprietà è di 150 ospiti. Numero e disposizione vengono concordati in base al tipo di festa e alla configurazione effettiva.</p>
-
-          <h3>Ci sono parcheggio e accessi senza barriere?</h3>
-          <p>La struttura dichiara parcheggio e percorsi senza barriere architettoniche. Per esigenze particolari, confrontati con il team prima della visita.</p>
-
-          <h3>La sala viene configurata sempre allo stesso modo?</h3>
-          <p>No. Disposizione, allestimento e atmosfera vengono valutati in funzione dell'evento e della formula concordata.</p>
-
-          <h3>Quali eventi posso approfondire sul sito?</h3>
-          <p>Diciottesimi, compleanni, comunioni, lauree e feste private hanno pagine dedicate con foto e informazioni specifiche.</p>
+          {eventFaqs["/location"].map((faq) => (
+            <div key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -2452,3 +2452,30 @@ body.menu-open .cookie-banner, body.lightbox-open .cookie-banner { display: none
   color: var(--zak-ivory, #f4f0e8);
   font-weight: 600;
 }
+
+/* Spazio riservato mentre si scarica una pagina non ancora in memoria. */
+.route-loading {
+  min-height: 100svh;
+}
+
+/* Mappa in /contatti: pulsanti affiancati e nota sulla connessione a Google. */
+.map-placeholder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.map-placeholder .map-placeholder__note {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Hero su mobile: il testo sale quanto basta perché il pulsante principale
+   resti visibile sopra il banner cookie al primo accesso. */
+@media (max-width: 767px) {
+  .hero__content {
+    padding-top: clamp(11rem, calc(100svh - 27rem), 32rem);
+  }
+}

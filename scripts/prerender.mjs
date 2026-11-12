@@ -1,11 +1,26 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { createServer } from "vite";
 import { dirname } from "node:path";
 
 const server = await createServer({ server: { middlewareMode: true }, appType: "custom" });
 try {
-  const { render, getPageImage, getPageSeo, getStructuredData, pageRoutes, siteConfig } = await server.ssrLoadModule("/src/entry-server.tsx");
+  const { render, getPageImage, getPageSeo, getRouteFile, getStructuredData, pageRoutes, siteConfig } = await server.ssrLoadModule("/src/entry-server.tsx");
   const template = await readFile("dist/index.html", "utf8");
+  // Ogni pagina ha un chunk JS proprio: lo dichiariamo nell'HTML così il browser
+  // lo scarica in parallelo al bundle principale invece che dopo.
+  const manifest = JSON.parse(await readFile("dist/.vite/manifest.json", "utf8"));
+  const chunkFiles = (key, seen = new Set()) => {
+    const chunk = manifest[key];
+    if (!chunk || seen.has(key)) return seen;
+    seen.add(key);
+    for (const imported of chunk.imports ?? []) chunkFiles(imported, seen);
+    return seen;
+  };
+  const preloadTags = (path) => [...chunkFiles(getRouteFile(path))]
+    .map((key) => `/${manifest[key].file}`)
+    .filter((file) => !template.includes(file))
+    .map((file) => `<link rel="modulepreload" crossorigin href="${file}" />`)
+    .join("\n      ");
   const escape = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   for (const path of [...pageRoutes, "/404"]) {
     const meta = getPageSeo(path);
@@ -27,11 +42,13 @@ try {
       <meta name="twitter:title" content="${escape(meta.title)}" />
       <meta name="twitter:description" content="${escape(meta.description)}" />
       <meta name="twitter:image" content="${image}" />
+      ${preloadTags(path)}
       <script id="site-schema" type="application/ld+json">${JSON.stringify(getStructuredData(path, meta.title)).replace(/</g, "\\u003c")}</script>`;
     const output = path === "/" ? "dist/index.html" : path === "/404" ? "dist/404.html" : `dist${path}/index.html`;
     await mkdir(dirname(output), { recursive: true });
     await writeFile(output, template.replace(/<!--seo-start-->[\s\S]*?<!--seo-end-->/, `<!--seo-start-->${head}<!--seo-end-->`).replace('<div id="root"></div>', `<div id="root">${render(path)}</div>`));
   }
+  await rm("dist/.vite", { recursive: true, force: true });
   const indexedRoutes = pageRoutes.filter((path) => !getPageSeo(path).noIndex);
   // Ogni deploy rigenera tutte le pagine: la data di build è il lastmod di ciascuna.
   const buildDate = new Date().toISOString().slice(0, 10);

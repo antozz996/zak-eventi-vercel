@@ -25,7 +25,7 @@ try {
     assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);
     const expectedService = ["/diciottesimi", "/compleanni", "/comunioni", "/battesimi", "/feste-private", "/lauree"].includes(path);
     assert.equal(schema["@graph"].some(node => node["@type"] === "Service"), expectedService, `Service schema on ${path}`);
-    const expectedFaq = ["/compleanni", "/feste-private", "/lauree", "/battesimi"].includes(path);
+    const expectedFaq = ["/compleanni", "/feste-private", "/lauree", "/battesimi", "/diciottesimi", "/comunioni", "/location", "/servizi"].includes(path);
     const faqPage = schema["@graph"].find(node => node["@type"] === "FAQPage");
     assert.equal(Boolean(faqPage), expectedFaq, `FAQPage schema on ${path}`);
     // Il markup FAQ deve corrispondere a domande visibili nella pagina.

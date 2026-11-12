@@ -4,6 +4,7 @@ import { Link } from "../lib/router";
 import { EventPhoto } from "../components/EventPhoto";
 import { FinalCTA } from "../components/FinalCTA";
 import { Seo } from "../components/Seo";
+import { eventFaqs } from "../data/faqs";
 import { pageMeta } from "../data/siteConfig";
 import { getEventWhatsAppMessage, getWhatsAppLink } from "../utils/whatsapp";
 
@@ -130,27 +131,12 @@ export function DiciottesimiPage() {
         <div className="container legal-page__content">
           <p className="eyebrow">Domande frequenti</p>
           <h2>Diciottesimo a ZAK Eventi</h2>
-          <h3>Dove si trova ZAK Eventi?</h3>
-          <p>In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli.</p>
-
-          <h3>Posso personalizzare la festa?</h3>
-          <p>
-            Sì: il progetto parte dall'idea del festeggiato. Allestimento, servizi e formula vengono definiti
-            durante l'appuntamento e confermati in base alla disponibilità.
-          </p>
-
-          <h3>Il diciottesimo è in esclusiva?</h3>
-          <p>Sì, ZAK lavora solo con eventi che riservano la sala ai propri ospiti.</p>
-
-          <h3>Quali servizi comprendono i pacchetti?</h3>
-          <p>I pacchetti descritti dalla proprietà prevedono DJ, speaker, fotografo, allestimenti,
-            proposta food &amp; beverage e torta. Le inclusioni esatte sono riepilogate nel preventivo.</p>
-
-          <h3>Come posso sapere se la data è disponibile?</h3>
-          <p>
-            Puoi contattare ZAK tramite WhatsApp o dalla pagina contatti indicando data, numero indicativo di
-            invitati e tipo di evento.
-          </p>
+          {eventFaqs["/diciottesimi"].map((faq) => (
+            <div key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
 
           <ActionLinks eventName="un diciottesimo" galleryFilter="Diciottesimi" />
           <div className="centered-action">
@@ -274,26 +260,12 @@ export function ComunioniPage() {
         <div className="container legal-page__content">
           <p className="eyebrow">Domande frequenti</p>
           <h2>Comunione a ZAK Eventi</h2>
-          <h3>Dove si trova la location?</h3>
-          <p>ZAK Eventi si trova in Via Napoli 270, Arzano (NA), nell'area nord di Napoli.</p>
-
-          <h3>La comunione può essere organizzata a pranzo o a cena?</h3>
-          <p>Sì, ZAK organizza ricevimenti sia a pranzo sia a cena, secondo disponibilità.</p>
-
-          <h3>Sono previsti menu bambini e animazione?</h3>
-          <p>Sì, sono disponibili menu bambini personalizzabili e la possibilità di aggiungere animazione.</p>
-
-          <h3>La comunione può essere personalizzata?</h3>
-          <p>
-            Sì. La direzione dell'allestimento e la formula vengono definite durante l'appuntamento in base
-            alle esigenze della famiglia e alla disponibilità dei servizi.
-          </p>
-
-          <h3>Come richiedo informazioni?</h3>
-          <p>
-            Puoi scrivere su WhatsApp indicando data indicativa, numero di invitati e le prime esigenze della
-            giornata oppure prenotare un contatto dalla pagina dedicata.
-          </p>
+          {eventFaqs["/comunioni"].map((faq) => (
+            <div key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
 
           <ActionLinks eventName="una comunione" galleryFilter="Cerimonie" />
           <div className="centered-action">

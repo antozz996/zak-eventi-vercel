@@ -31,10 +31,12 @@ export const siteConfig = {
     email: "",
     address: "Via Napoli 270, 80022 Arzano NA",
     openingHours: "Consulta Google Maps per gli orari aggiornati",
-    // Da compilare: finché sono vuoti non compaiono nei dati strutturati.
+    // Orari: finché l'elenco è vuoto non compaiono nei dati strutturati.
     openingHoursSpecification: [] as OpeningHours[],
-    geo: { latitude: "", longitude: "" } as { latitude: string; longitude: string },
-    mapEmbedUrl: "",
+    // Coordinate della scheda Google Maps di ZAK Eventi (rilevate il 12 novembre 2026).
+    geo: { latitude: "40.9051734", longitude: "14.2659324" } as { latitude: string; longitude: string },
+    // Mostrata in /contatti solo dopo il clic su "Mostra la mappa".
+    mapEmbedUrl: "https://www.google.com/maps?q=Zak%20Eventi%2C%20Via%20Napoli%20270%2C%2080022%20Arzano%20NA&z=16&output=embed",
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=ZAK%20Eventi&query_place_id=ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
