@@ -30,9 +30,11 @@ export const siteConfig = {
     phoneHref: "tel:+393533198020",
     email: "",
     address: "Via Napoli 270, 80022 Arzano NA",
-    openingHours: "Consulta Google Maps per gli orari aggiornati",
-    // Orari: finché l'elenco è vuoto non compaiono nei dati strutturati.
-    openingHoursSpecification: [] as OpeningHours[],
+    openingHours: "Tutti i giorni, 10:00–20:30",
+    // Stessi orari della scheda Google Maps: se cambiano, aggiornali in entrambi i posti.
+    openingHoursSpecification: [
+      { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "10:00", closes: "20:30" },
+    ] as OpeningHours[],
     // Coordinate della scheda Google Maps di ZAK Eventi (rilevate il 12 novembre 2026).
     geo: { latitude: "40.9051734", longitude: "14.2659324" } as { latitude: string; longitude: string },
     // Mostrata in /contatti solo dopo il clic su "Mostra la mappa".
@@ -46,7 +48,7 @@ export const siteConfig = {
     placeId: "ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/zak_eventi/",
     facebook: "",
   },
   formEndpoint: "",
@@ -149,7 +151,7 @@ export const services: Service[] = [
   { title: "Location in esclusiva", description: "La sala è riservata al tuo evento. Configurazione e disponibilità vengono definite in consulenza.", icon: "map", status: "confirmed" },
   { title: "Allestimenti personalizzabili", description: "Allestimenti adattabili allo stile della festa; le soluzioni e gli eventuali extra dipendono dalla formula.", icon: "palette", status: "confirmed" },
   { title: "Food e beverage", description: "Menu personalizzabili, buffet o servizio al tavolo, bevande e torta secondo la proposta concordata.", icon: "utensils", status: "confirmed" },
-  { title: "DJ e speaker", description: "Inclusi nei pacchetti per diciottesimi descritti dalla proprietà; per altri eventi verifica la formula.", icon: "music", status: "confirmed" },
+  { title: "DJ e speaker", description: "Inclusi nei nostri pacchetti per diciottesimi; per gli altri eventi li definiamo insieme nel preventivo.", icon: "music", status: "confirmed" },
   { title: "Animazione e intrattenimento", description: "Animazione per bambini disponibile; performer e ballerini sono opzioni a pagamento.", icon: "sparkles", status: "confirmed" },
   { title: "Torta e momenti speciali", description: "Torta e momenti della festa vengono progettati con il team, secondo la formula definita.", icon: "cake", status: "confirmed" },
   { title: "Coordinamento e sopralluogo", description: "Attenzione ai dettagli dell’evento e possibilità di visitare gratuitamente la location.", icon: "calendar", status: "confirmed" },

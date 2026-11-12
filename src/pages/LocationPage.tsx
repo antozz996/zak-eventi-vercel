@@ -55,14 +55,14 @@ export function LocationPage() {
       <section className="section section--stone">
         <div className="container legal-page__content">
           <p className="eyebrow">La location in sintesi</p>
-          <h2>Spazi, capienza e servizi dichiarati dalla proprietà.</h2>
-          <p>La capienza massima indicata dal team è di {siteConfig.venue.maximumGuestsDeclared} ospiti. La capienza effettiva dipende dalla disposizione, dal tipo di ricevimento e dalle verifiche previste per la configurazione scelta.</p>
+          <h2>Spazi, capienza e servizi della location.</h2>
+          <p>Accogliamo fino a {siteConfig.venue.maximumGuestsDeclared} ospiti. Il numero effettivo dipende dalla disposizione e dal tipo di ricevimento, che definiamo insieme.</p>
           <ul>
             <li>Location in esclusiva per il singolo evento</li>
             <li>Sala interna e terrazza esterna</li>
             <li>Parcheggio e area fumatori</li>
             <li>Climatizzazione, impianto audio e luci, possibilità di ballare</li>
-            <li>Accessi dichiarati senza barriere architettoniche: concorda con il team eventuali esigenze specifiche di mobilità</li>
+            <li>Accessi senza barriere architettoniche: parlaci di eventuali esigenze specifiche di mobilità</li>
           </ul>
           <p>La location non dispone di piscina. La visita conoscitiva è gratuita e permette di verificare personalmente spazi, percorsi e configurazione dell’evento.</p>
           <Link className="button button--dark" to="/contatti">Chiedi disponibilità</Link>

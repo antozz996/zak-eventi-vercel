@@ -59,7 +59,7 @@ export function ServicesPage() {
           <aside className="confirmation-note">
             <strong>In cosa consistono inclusioni ed extra?</strong>
             <p>
-              Nei pacchetti per diciottesimi indicati dalla proprietà sono compresi DJ, speaker, fotografo,
+              Nei nostri pacchetti per diciottesimi sono compresi DJ, speaker, fotografo,
               allestimenti e una proposta food &amp; beverage con torta. Cocktail e bartender, performer e ballerini
               sono extra a pagamento. Per compleanni, cerimonie e altre formule le voci esatte vengono
               confermate nel preventivo: nessun servizio viene dato per incluso senza accordo.
@@ -72,7 +72,7 @@ export function ServicesPage() {
         <div className="container legal-page__content">
           <p className="eyebrow">Food, beverage e ospitalità</p>
           <h2>Una proposta curata e adattabile al ricevimento.</h2>
-          <p>Il team propone menu personalizzabili, buffet o servizio al tavolo, con possibilità di servizio all’inglese. Sono disponibili menu bambini e opzioni per esigenze alimentari da definire in anticipo con lo staff. Le bevande e la torta fanno parte delle formule indicate dalla proprietà, mentre i cocktail sono extra.</p>
+          <p>Proponiamo menu personalizzabili, buffet o servizio al tavolo, con possibilità di servizio all’inglese. Sono disponibili menu bambini e opzioni per esigenze alimentari da definire in anticipo con lo staff. Le bevande e la torta fanno parte delle nostre formule, mentre i cocktail sono extra.</p>
           <p>Per ricevere una proposta adatta alla festa sono importanti data, numero di invitati, tipologia di evento e stile del servizio. Puoi iniziare da un sopralluogo gratuito.</p>
           <Link className="button button--dark" to="/contatti">Chiedi disponibilità</Link>
         </div>
