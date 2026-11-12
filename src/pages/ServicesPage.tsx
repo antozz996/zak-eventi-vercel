@@ -4,6 +4,7 @@ import { EventPhoto } from "../components/EventPhoto";
 import { FinalCTA } from "../components/FinalCTA";
 import { SectionHeading } from "../components/SectionHeading";
 import { Seo } from "../components/Seo";
+import { eventFaqs } from "../data/faqs";
 import { pageMeta, serviceJourney } from "../data/siteConfig";
 
 const eventLinks = [
@@ -97,21 +98,12 @@ export function ServicesPage() {
         <div className="container legal-page__content">
           <p className="eyebrow">Domande frequenti</p>
           <h2>Servizi e organizzazione a ZAK Eventi</h2>
-
-          <h3>I servizi elencati sono sempre inclusi?</h3>
-          <p>La sala in esclusiva è la modalità operativa dichiarata da ZAK. I pacchetti per diciottesimi indicati dalla proprietà comprendono DJ, speaker, fotografo e allestimenti; per ogni altra formula inclusioni ed extra vengono specificati nel preventivo.</p>
-
-          <h3>Posso partire da un'idea senza avere già deciso la formula?</h3>
-          <p>Sì. Il primo passaggio serve proprio a capire occasione, invitati, atmosfera e priorità prima di definire la proposta.</p>
-
-          <h3>Posso personalizzare allestimento e momenti della festa?</h3>
-          <p>La personalizzazione viene valutata durante l'appuntamento e costruita in relazione all'evento e ai servizi disponibili.</p>
-
-          <h3>La visita alla location è gratuita?</h3>
-          <p>Sì, puoi richiedere un sopralluogo gratuito e valutare gli spazi insieme al team.</p>
-
-          <h3>Come richiedo una proposta?</h3>
-          <p>Puoi usare la pagina contatti o WhatsApp indicando tipo di evento, data indicativa e numero di invitati.</p>
+          {eventFaqs["/servizi"].map((faq) => (
+            <div key={faq.q}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
         </div>
       </section>
 

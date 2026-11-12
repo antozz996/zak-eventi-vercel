@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-12 - Mappa, FAQ strutturate e pagine in chunk separati
+
+- mappa Google in /contatti caricata solo su richiesta
+- coordinate della sede e FAQPage su diciottesimi, comunioni, location e servizi
+- hero mobile: pulsante principale visibile sopra il banner cookie
+- JavaScript diviso per pagina (bundle iniziale da 105 a 77 KB gzip)
+
 ## 2026-11-12 - Conversione, recensioni in home e SEO locale
 
 - unificata l'azione principale su "Chiedi disponibilità" in header, hero, pagine e CTA finale

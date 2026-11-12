@@ -1,5 +1,6 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "../components/ContactForm";
+import { ContactMap } from "../components/ContactMap";
 import { Seo } from "../components/Seo";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { pageMeta, siteConfig } from "../data/siteConfig";
@@ -38,25 +39,7 @@ export function ContactPage() {
           <ContactForm />
         </div>
       </section>
-      <section className="map-placeholder">
-        {siteConfig.contact.mapEmbedUrl ? (
-          <iframe title="Mappa ZAK Eventi" src={siteConfig.contact.mapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-        ) : (
-          <div>
-            <MapPin aria-hidden="true" />
-            <strong>ZAK Eventi · Arzano</strong>
-            <span>{siteConfig.contact.address}</span>
-            <a
-              className="button button--gold"
-              href={siteConfig.contact.googleMapsUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apri in Google Maps
-            </a>
-          </div>
-        )}
-      </section>
+      <ContactMap />
     </>
   );
 }
