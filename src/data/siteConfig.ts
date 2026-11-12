@@ -43,13 +43,15 @@ export const siteConfig = {
       "https://www.google.com/maps/search/?api=1&query=ZAK%20Eventi&query_place_id=ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
   googleReviews: {
+    // Valori letti dalla scheda Google Maps: mostrati finché non arrivano i dati live da Google Places.
     rating: 4.8,
     reviewCount: 149,
+    updatedAt: "12 novembre 2026",
     placeId: "ChIJFbZ-w5gHOxMR8ZoQF7QAYEA",
   },
   social: {
     instagram: "https://www.instagram.com/zak_eventi/",
-    facebook: "",
+    facebook: "https://www.facebook.com/zakeventi",
   },
   formEndpoint: "",
   analyticsEnabled: false,

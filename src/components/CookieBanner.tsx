@@ -1,9 +1,11 @@
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Link } from "../lib/router";
 import { updateClarityConsent } from "../lib/microsoftClarity";
 
 const ANALYTICS_CONSENT_KEY = "zak-analytics-consent";
 const MARKETING_CONSENT_KEY = "zak-marketing-consent";
+/** Evento con cui altri componenti chiedono di riaprire le preferenze. */
+export const OPEN_CONSENT_EVENT = "zak-consent-open";
 type ConsentStatus = "checking" | "unknown" | "complete";
 
 function subscribeToConsentChanges(onChange: () => void) {
@@ -40,6 +42,13 @@ export function CookieBanner() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const bannerOpen = choice === "unknown" || settingsOpen;
 
+  // Il footer riapre il banner con questo evento (vedi Footer).
+  useEffect(() => {
+    const open = () => setSettingsOpen(true);
+    window.addEventListener(OPEN_CONSENT_EVENT, open);
+    return () => window.removeEventListener(OPEN_CONSENT_EVENT, open);
+  }, []);
+
   const saveChoices = (analytics: boolean, marketing: boolean) => {
     updateClarityConsent(analytics);
     try {
@@ -55,50 +64,39 @@ export function CookieBanner() {
   };
 
   return (
-    <>
-      {bannerOpen && (
-        <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
-          <strong>La tua privacy</strong>
-          <p>
-            Statistiche (Google Analytics, Microsoft Clarity) e marketing (Meta Pixel) si attivano solo se li
-            scegli.{" "}
-            <span className="zak-consent__more">Puoi modificare la scelta quando vuoi. </span>
-            <Link to="/cookie-policy">Cookie Policy</Link>.
-          </p>
-          <div className="zak-consent__actions">
-            <button
-              type="button"
-              className="button button--outline-dark"
-              onClick={() => saveChoices(false, false)}
-            >
-              Rifiuta
-            </button>
-            <button
-              type="button"
-              className="button button--outline-dark"
-              onClick={() => saveChoices(true, false)}
-            >
-              Solo statistiche
-            </button>
-            <button
-              type="button"
-              className="button button--gold"
-              onClick={() => saveChoices(true, true)}
-            >
-              Accetta tutto
-            </button>
-          </div>
+    bannerOpen ? (
+      <div className="zak-consent" role="dialog" aria-label="Preferenze cookie">
+        <strong>La tua privacy</strong>
+        <p>
+          Statistiche (Google Analytics, Microsoft Clarity) e marketing (Meta Pixel) si attivano solo se li
+          scegli.{" "}
+          <span className="zak-consent__more">Puoi modificare la scelta quando vuoi. </span>
+          <Link to="/cookie-policy">Cookie Policy</Link>.
+        </p>
+        <div className="zak-consent__actions">
+          <button
+            type="button"
+            className="button button--outline-dark"
+            onClick={() => saveChoices(false, false)}
+          >
+            Rifiuta
+          </button>
+          <button
+            type="button"
+            className="button button--outline-dark"
+            onClick={() => saveChoices(true, false)}
+          >
+            Solo statistiche
+          </button>
+          <button
+            type="button"
+            className="button button--gold"
+            onClick={() => saveChoices(true, true)}
+          >
+            Accetta tutto
+          </button>
         </div>
-      )}
-      {!bannerOpen && choice === "complete" && (
-        <button
-          type="button"
-          className="zak-consent-settings"
-          onClick={() => setSettingsOpen(true)}
-        >
-          Preferenze cookie
-        </button>
-      )}
-    </>
+      </div>
+    ) : null
   );
 }

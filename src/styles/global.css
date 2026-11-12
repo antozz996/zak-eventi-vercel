@@ -2479,3 +2479,17 @@ body.menu-open .cookie-banner, body.lightbox-open .cookie-banner { display: none
     padding-top: clamp(11rem, calc(100svh - 27rem), 32rem);
   }
 }
+
+/* "Preferenze cookie" nel footer: un pulsante con l'aspetto degli altri link. */
+.footer-link-button {
+  padding: 0.35rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.footer-link-button:hover {
+  color: var(--zak-gold);
+}

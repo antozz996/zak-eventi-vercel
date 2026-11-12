@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { siteConfig } from "../data/siteConfig";
-import { getPageImage, getStructuredData } from "../data/seo";
+import { getPageSocialImage, getStructuredData } from "../data/seo";
 
 type SeoProps = {
   title: string;
@@ -22,7 +22,7 @@ function upsertMeta(selector: string, attribute: "name" | "property", key: strin
 export function Seo({ title, description, path, noIndex = false }: SeoProps) {
   useEffect(() => {
     const canonicalUrl = siteConfig.siteUrl ? `${siteConfig.siteUrl}${path}` : "";
-    const socialImage = `${siteConfig.siteUrl}${getPageImage(path)}`;
+    const socialImage = `${siteConfig.siteUrl}${getPageSocialImage(path)}`;
     document.title = title;
     upsertMeta('meta[name="description"]', "name", "description", description);
     upsertMeta('meta[property="og:title"]', "property", "og:title", title);

@@ -27,6 +27,8 @@ jobs:
         run: npm run lint
       - name: Typecheck
         run: npm run typecheck
+      - name: Unit tests
+        run: npm test
       - name: Build and prerender
         run: npm run build
       - name: Verify rendered pages, sitemap, canonical and routing

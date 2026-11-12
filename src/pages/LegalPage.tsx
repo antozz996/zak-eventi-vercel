@@ -130,7 +130,7 @@ export function LegalPage({ type }: { type: "privacy" | "cookie" }) {
 
               <h2>Banner cookie</h2>
               <p>
-                Google Analytics 4 e Microsoft Clarity vengono attivati solo con il consenso alle statistiche; Meta Pixel solo con il consenso marketing. Il banner consente di rifiutare entrambi, accettare solo le statistiche o accettare entrambi, senza conseguenze sulla navigazione. Puoi modificare o revocare le scelte dal pulsante Preferenze cookie. Il rifiuto impedisce il caricamento del relativo strumento e la revoca blocca nuove attività dopo il ricaricamento della pagina. Le preferenze sono conservate localmente nel browser.
+                Google Analytics 4 e Microsoft Clarity vengono attivati solo con il consenso alle statistiche; Meta Pixel solo con il consenso marketing. Il banner consente di rifiutare entrambi, accettare solo le statistiche o accettare entrambi, senza conseguenze sulla navigazione. Puoi modificare o revocare le scelte dalla voce Preferenze cookie in fondo a ogni pagina. Il rifiuto impedisce il caricamento del relativo strumento e la revoca blocca nuove attività dopo il ricaricamento della pagina. Le preferenze sono conservate localmente nel browser.
               </p>
 
               <h2>Link a servizi esterni</h2>

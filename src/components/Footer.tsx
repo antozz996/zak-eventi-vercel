@@ -2,6 +2,7 @@ import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { navigation, siteConfig } from "../data/siteConfig";
 import { Link } from "../lib/router";
 import { Brand } from "./Brand";
+import { OPEN_CONSENT_EVENT } from "./CookieBanner";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 export function Footer() {
@@ -50,6 +51,9 @@ export function Footer() {
         <div>
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/cookie-policy">Cookie Policy</Link>
+          <button type="button" className="footer-link-button" onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}>
+            Preferenze cookie
+          </button>
         </div>
       </div>
     </footer>
