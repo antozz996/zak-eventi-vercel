@@ -1,7 +1,7 @@
 import { eventFaqs } from "./faqs";
 import { pageMeta, siteConfig } from "./siteConfig";
 
-export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/perche-scegliere-zak", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/privacy-policy", "/cookie-policy"];
+export const pageRoutes = ["/", "/location", "/eventi", "/diciottesimi", "/comunioni", "/battesimi", "/compleanni", "/feste-private", "/lauree", "/servizi", "/perche-scegliere-zak", "/guide", "/guide/come-scegliere-sala-diciottesimo-napoli", "/guide/quanto-costa-diciottesimo-napoli", "/guide/buffet-o-cena-servita-diciottesimo", "/guide/checklist-diciottesimo", "/guide/come-organizzare-comunione-napoli", "/guide/quanto-prima-prenotare-sala-diciottesimo", "/guide/allestimento-diciottesimo-napoli", "/gallery", "/contatti", "/come-raggiungerci", "/privacy-policy", "/cookie-policy"];
 
 const pageImages: Record<string, string> = {
   "/": "/images/events/ingresso-abito-blu.webp",
@@ -18,6 +18,7 @@ const pageImages: Record<string, string> = {
   "/guide": "/images/events/xtgb3357.webp",
   "/gallery": "/images/events/xtgb2618.webp",
   "/contatti": "/images/events/xtgb6517.webp",
+  "/come-raggiungerci": "/images/events/xtgb6517.webp",
 };
 
 const guideImages: Record<string, string> = {
@@ -64,6 +65,7 @@ const routeMeta = {
   "/guide/allestimento-diciottesimo-napoli": pageMeta.guideAllestimentoDiciottesimo,
   "/gallery": pageMeta.gallery,
   "/contatti": pageMeta.contatti,
+  "/come-raggiungerci": pageMeta.comeRaggiungerci,
 } as const;
 
 export function getPageSeo(path: string) {

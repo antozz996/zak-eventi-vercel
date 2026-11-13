@@ -444,4 +444,8 @@ export const pageMeta = {
     title: "Contatti e visita alla sala eventi ad Arzano | ZAK Eventi",
     description: "Contatta ZAK Eventi al 353 319 8020 o su WhatsApp. La sala è in Via Napoli 270, Arzano: chiedi informazioni e prenota una visita.",
   },
+  comeRaggiungerci: {
+    title: "Come raggiungere ZAK Eventi da Casoria, Casavatore e Frattamaggiore",
+    description: "ZAK Eventi è in Via Napoli 270 ad Arzano, con parcheggio: a pochi minuti di auto da Casavatore, Casoria e Frattamaggiore. Distanze, tempi e percorso su Google Maps.",
+  },
 } as const;
