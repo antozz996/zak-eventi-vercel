@@ -5,6 +5,11 @@ export type Faq = { q: string; a: string };
  * il markup FAQPage, così testo visibile e dati strutturati restano allineati.
  */
 export const eventFaqs: Record<string, Faq[]> = {
+  "/come-raggiungerci": [
+    { q: "Dove si trova l'ingresso di ZAK Eventi?", a: "In Via Napoli 270 ad Arzano (NA), al primo piano del centro commerciale." },
+    { q: "C'è parcheggio per gli ospiti?", a: "Sì, la location dispone di parcheggio." },
+    { q: "Quando posso venire a vedere la sala?", a: "Siamo aperti tutti i giorni dalle 10:00 alle 20:30. Per una visita con il team conviene chiedere disponibilità dalla pagina contatti o su WhatsApp." },
+  ],
   "/diciottesimi": [
     { q: "Dove si trova ZAK Eventi?", a: "In Via Napoli 270, 80022 Arzano (NA), nell'area nord di Napoli." },
     { q: "Posso personalizzare la festa?", a: "Sì: il progetto parte dall'idea del festeggiato. Allestimento, servizi e formula vengono definiti durante l'appuntamento e confermati in base alla disponibilità." },

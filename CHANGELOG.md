@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-13 - Pagina "Come raggiungerci"
+
+- nuova pagina /come-raggiungerci con distanze, tempi e percorso da Casavatore, Casoria e Frattamaggiore
+- collegata da footer, pagina contatti e pagina location; FAQ con markup
+
 ## 2026-11-12 - Facebook, voto Google, preferenze cookie nel footer, test
 
 - collegata la pagina Facebook nel footer, nei dati strutturati e accanto alle recensioni

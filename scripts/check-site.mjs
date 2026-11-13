@@ -29,7 +29,7 @@ try {
     assert.equal(webpage?.url, `${siteConfig.siteUrl}${path}`);
     const expectedService = ["/diciottesimi", "/compleanni", "/comunioni", "/battesimi", "/feste-private", "/lauree"].includes(path);
     assert.equal(schema["@graph"].some(node => node["@type"] === "Service"), expectedService, `Service schema on ${path}`);
-    const expectedFaq = ["/compleanni", "/feste-private", "/lauree", "/battesimi", "/diciottesimi", "/comunioni", "/location", "/servizi"].includes(path);
+    const expectedFaq = ["/compleanni", "/feste-private", "/lauree", "/battesimi", "/diciottesimi", "/comunioni", "/location", "/servizi", "/come-raggiungerci"].includes(path);
     const faqPage = schema["@graph"].find(node => node["@type"] === "FAQPage");
     assert.equal(Boolean(faqPage), expectedFaq, `FAQPage schema on ${path}`);
     // Il markup FAQ deve corrispondere a domande visibili nella pagina.
@@ -84,7 +84,7 @@ try {
   });
   assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "Unique canonical sitemap URLs");
   assert.deepEqual([...parsedSitemapUrls].sort(), expectedUrls, "Sitemap must include every and only indexable canonical page");
-  assert.equal(sitemapUrls.length, 21, "Expected 21 indexable sitemap URLs");
+  assert.equal(sitemapUrls.length, 22, "Expected 22 indexable sitemap URLs");
   assert.ok(!sitemap.includes("privacy-policy") && !sitemap.includes("cookie-policy"));
   assert.equal([...sitemap.matchAll(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g)].length, sitemapUrls.length, "lastmod on every sitemap URL");
   const llms = await readFile("dist/llms.txt", "utf8");

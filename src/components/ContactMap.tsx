@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "../data/siteConfig";
+import { Link } from "../lib/router";
 
 /**
  * La mappa di Google si carica solo su richiesta: finché non si preme il
@@ -33,6 +34,9 @@ export function ContactMap() {
           <a className={mapEmbedUrl ? "button button--ghost" : "button button--gold"} href={googleMapsUrl} target="_blank" rel="noreferrer">
             Apri in Google Maps
           </a>
+          <Link className="button button--ghost" to="/come-raggiungerci">
+            Come raggiungerci
+          </Link>
         </div>
         {mapEmbedUrl && <span className="map-placeholder__note">La mappa è un servizio di Google: mostrandola, il tuo browser si collega ai suoi server.</span>}
       </div>

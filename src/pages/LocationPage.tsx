@@ -34,6 +34,7 @@ export function LocationPage() {
               Apri su Google Maps <ExternalLink aria-hidden="true" size={17} />
             </a>
             <Link to="/contatti">Chiedi disponibilità</Link>
+            <Link to="/come-raggiungerci">Come raggiungerci</Link>
           </div>
         </div>
       </section>

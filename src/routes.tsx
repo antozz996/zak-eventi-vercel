@@ -47,6 +47,7 @@ export const routes = [
   { path: "/guide/allestimento-diciottesimo-napoli", ...page("src/pages/MoreGuidePages.tsx", () => import("./pages/MoreGuidePages").then((m) => m.AllestimentoDiciottesimoGuidePage)) },
   { path: "/gallery", ...page("src/pages/GalleryPage.tsx", () => import("./pages/GalleryPage").then((m) => m.GalleryPage)) },
   { path: "/contatti", ...page("src/pages/ContactPage.tsx", () => import("./pages/ContactPage").then((m) => m.ContactPage)) },
+  { path: "/come-raggiungerci", ...page("src/pages/DirectionsPage.tsx", () => import("./pages/DirectionsPage").then((m) => m.DirectionsPage)) },
   { path: "/privacy-policy", ...page("src/pages/LegalPage.tsx", legalPage("privacy")) },
   { path: "/cookie-policy", ...page("src/pages/LegalPage.tsx", legalPage("cookie")) },
 ];
